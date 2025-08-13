@@ -1,0 +1,7234 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[    182519,       7164]*)
+(*NotebookOutlinePosition[    183164,       7186]*)
+(*  CellTagsIndexPosition[    183120,       7182]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(ClearAll["\<Global`*\>"]\)], "Input"],
+
+Cell[BoxData[
+    \(Quit[]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(\(k\_1 = 0.5;\)\), "\[IndentingNewLine]", 
+    \(\(k\_2 = 0.75;\)\), "\[IndentingNewLine]", 
+    \(\(k\_3 = 0.8;\)\), "\[IndentingNewLine]", 
+    \(Solution = 
+      NDSolve[{\(x'\)[t] \[Equal] \(-k\_3\)*x[t]*y[t] - 
+              k\_1*x[t]*z[t], \(y'\)[t] \[Equal] \(-k\_3\)*y[t]*
+              x[t], \ \(z'\)[t] \[Equal] \(-k\_1\)*x[t]*z[t], \(w'\)[
+              t] \[Equal] \ k\_3*y[t]*x[t], \ \(g'\)[t] \[Equal] 
+            k\_1*x[t]*z[t], x[0] \[Equal] 1, \ y[0] \[Equal] 0, \ 
+          z[0] \[Equal] 1, \ w[0] \[Equal] 0, \ g[0] \[Equal] \ 0}, {x, y, 
+          z, \ w, \ g}, {t, \ 0, \ 20}]\), "\[IndentingNewLine]", 
+    \(\)}], "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{"{", 
+        RowBox[{
+          RowBox[{"x", "\[Rule]", 
+            TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+              False,
+              Editable->False]}], ",", 
+          RowBox[{"y", "\[Rule]", 
+            TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+              False,
+              Editable->False]}], ",", 
+          RowBox[{"z", "\[Rule]", 
+            TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+              False,
+              Editable->False]}], ",", 
+          RowBox[{"w", "\[Rule]", 
+            TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+              False,
+              Editable->False]}], ",", 
+          RowBox[{"g", "\[Rule]", 
+            TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+              False,
+              Editable->False]}]}], "}"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \({AA[t_], \ BB[t_], \ CC[t_], \ DD[t_], \ 
+        EE[t_]} = {x[t], \ y[t], \ z[t], \ w[t], \ g[t]} /. 
+        Flatten[Solution]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        RowBox[{
+          TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+            False,
+            Editable->False], "[", "t", "]"}], ",", 
+        RowBox[{
+          TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+            False,
+            Editable->False], "[", "t", "]"}], ",", 
+        RowBox[{
+          TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+            False,
+            Editable->False], "[", "t", "]"}], ",", 
+        RowBox[{
+          TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+            False,
+            Editable->False], "[", "t", "]"}], ",", 
+        RowBox[{
+          TagBox[\(InterpolatingFunction[{{0.`, 20.`}}, "<>"]\),
+            False,
+            Editable->False], "[", "t", "]"}]}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(graph1 = 
+      Plot[AA[t], {t, \ 0, \ 20}, \ 
+        AxesLabel \[Rule] \ {"\<t\>", \ \*"\"\<(l/mol)\!\(hr\^\(-1\)\)\>\""}, \
+\ PlotStyle \[Rule] \ {RGBColor[1, 0, 0]}]\), "\[IndentingNewLine]", 
+    \(graph2 = 
+      Plot[BB[t], {t, \ 0, \ 20}, \ 
+        AxesLabel \[Rule] \ {"\<t\>", \ \*"\"\<(l/mol)\!\(hr\^\(-1\)\)\>\""}, \
+\ PlotStyle \[Rule] \ {RGBColor[1, 0, 1]}]\), "\[IndentingNewLine]", 
+    \(graph3 = 
+      Plot[CC[t], {t, \ 0, \ 20}, \ 
+        AxesLabel \[Rule] \ {"\<t\>", \ \*"\"\<(l/mol)\!\(hr\^\(-1\)\)\>\""}, \
+\ PlotStyle \[Rule] \ {RGBColor[0, 1, 1]}]\), "\[IndentingNewLine]", 
+    \(graph4 = 
+      Plot[DD[t], {t, \ 0, \ 20}, \ 
+        AxesLabel \[Rule] \ {"\<t\>", \ \*"\"\<(l/mol)\!\(hr\^\(-1\)\)\>\""}, \
+\ PlotStyle \[Rule] \ {RGBColor[1, 1, 1]}]\), "\[IndentingNewLine]", 
+    \(\(graph5 = 
+        Plot[EE[t], {t, \ 0, \ 20}, \ 
+          AxesLabel \[Rule] \ {"\<t\>", \ \
+\*"\"\<(l/mol)\!\(hr\^\(-1\)\)\>\""}, \ 
+          PlotStyle \[Rule] \ {RGBColor[0, 1, 0]}];\)\)}], "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0238095 0.047619 0.0147151 0.588604 [
+[.2619 .00222 -3 -9 ]
+[.2619 .00222 3 0 ]
+[.5 .00222 -6 -9 ]
+[.5 .00222 6 0 ]
+[.7381 .00222 -6 -9 ]
+[.7381 .00222 6 0 ]
+[.97619 .00222 -6 -9 ]
+[.97619 .00222 6 0 ]
+[1.025 .01472 0 -6.1875 ]
+[1.025 .01472 9.9375 6.1875 ]
+[.01131 .13244 -18 -4.5 ]
+[.01131 .13244 0 4.5 ]
+[.01131 .25016 -18 -4.5 ]
+[.01131 .25016 0 4.5 ]
+[.01131 .36788 -18 -4.5 ]
+[.01131 .36788 0 4.5 ]
+[.01131 .4856 -18 -4.5 ]
+[.01131 .4856 0 4.5 ]
+[.01131 .60332 -6 -4.5 ]
+[.01131 .60332 0 4.5 ]
+[.02381 .64303 -33.2188 0 ]
+[.02381 .64303 33.2188 13.0625 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.2619 .01472 m
+.2619 .02097 L
+s
+[(5)] .2619 .00222 0 1 Mshowa
+.5 .01472 m
+.5 .02097 L
+s
+[(10)] .5 .00222 0 1 Mshowa
+.7381 .01472 m
+.7381 .02097 L
+s
+[(15)] .7381 .00222 0 1 Mshowa
+.97619 .01472 m
+.97619 .02097 L
+s
+[(20)] .97619 .00222 0 1 Mshowa
+.125 Mabswid
+.07143 .01472 m
+.07143 .01847 L
+s
+.11905 .01472 m
+.11905 .01847 L
+s
+.16667 .01472 m
+.16667 .01847 L
+s
+.21429 .01472 m
+.21429 .01847 L
+s
+.30952 .01472 m
+.30952 .01847 L
+s
+.35714 .01472 m
+.35714 .01847 L
+s
+.40476 .01472 m
+.40476 .01847 L
+s
+.45238 .01472 m
+.45238 .01847 L
+s
+.54762 .01472 m
+.54762 .01847 L
+s
+.59524 .01472 m
+.59524 .01847 L
+s
+.64286 .01472 m
+.64286 .01847 L
+s
+.69048 .01472 m
+.69048 .01847 L
+s
+.78571 .01472 m
+.78571 .01847 L
+s
+.83333 .01472 m
+.83333 .01847 L
+s
+.88095 .01472 m
+.88095 .01847 L
+s
+.92857 .01472 m
+.92857 .01847 L
+s
+.25 Mabswid
+0 .01472 m
+1 .01472 L
+s
+gsave
+1.025 .01472 -61 -10.1875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.375 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+68.938 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+.02381 .13244 m
+.03006 .13244 L
+s
+[(0.2)] .01131 .13244 1 0 Mshowa
+.02381 .25016 m
+.03006 .25016 L
+s
+[(0.4)] .01131 .25016 1 0 Mshowa
+.02381 .36788 m
+.03006 .36788 L
+s
+[(0.6)] .01131 .36788 1 0 Mshowa
+.02381 .4856 m
+.03006 .4856 L
+s
+[(0.8)] .01131 .4856 1 0 Mshowa
+.02381 .60332 m
+.03006 .60332 L
+s
+[(1)] .01131 .60332 1 0 Mshowa
+.125 Mabswid
+.02381 .04415 m
+.02756 .04415 L
+s
+.02381 .07358 m
+.02756 .07358 L
+s
+.02381 .10301 m
+.02756 .10301 L
+s
+.02381 .16187 m
+.02756 .16187 L
+s
+.02381 .1913 m
+.02756 .1913 L
+s
+.02381 .22073 m
+.02756 .22073 L
+s
+.02381 .27959 m
+.02756 .27959 L
+s
+.02381 .30902 m
+.02756 .30902 L
+s
+.02381 .33845 m
+.02756 .33845 L
+s
+.02381 .39731 m
+.02756 .39731 L
+s
+.02381 .42674 m
+.02756 .42674 L
+s
+.02381 .45617 m
+.02756 .45617 L
+s
+.02381 .51503 m
+.02756 .51503 L
+s
+.02381 .54446 m
+.02756 .54446 L
+s
+.02381 .57389 m
+.02756 .57389 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+gsave
+.02381 .64303 -94.2188 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 21.0625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 13.438 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 13.438 moveto
+(H) show
+68.938 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(l) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+74.875 13.438 moveto
+(\\220) show
+80.813 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(mol) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+98.625 13.438 moveto
+(L) show
+104.563 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(hr) show
+116.438 9.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+120.688 9.500 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+125.438 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+1 0 0 r
+.5 Mabswid
+.02381 .60332 m
+.04262 .50625 L
+.06244 .43345 L
+.08255 .37877 L
+.10458 .33321 L
+.12579 .29896 L
+.14509 .27362 L
+.18408 .23411 L
+.22401 .20446 L
+.26243 .18263 L
+.30329 .16431 L
+.34264 .1501 L
+.38048 .13876 L
+.42077 .12861 L
+.45954 .12029 L
+.50076 .11269 L
+.54047 .10633 L
+.57866 .10095 L
+.61931 .09587 L
+.65844 .09152 L
+.70002 .08738 L
+.74009 .08379 L
+.77864 .08066 L
+.81964 .07763 L
+.85913 .07496 L
+.8971 .07259 L
+.93752 .07028 L
+.97619 .06822 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.938},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/B000`400?l00000o`00003oo`3ooolQ
+0?ooo`00FP3oool2000003@0oooo1@0000020?ooo`800000<03oool500000080oooo0P00000a0?oo
+o`@000000`3oool2000001@0oooo001I0?ooo`040000003oool0oooo000003D0oooo00D000000?oo
+o`3oool0oooo000000020?ooo`030000003oool0oooo02l0oooo00D000000?ooo`3oool0oooo0000
+00020?ooo`030000003oool0oooo02h0oooo00<000000?ooo`3oool00`3oool010000000oooo0?oo
+o`00000C0?ooo`00G03oool00`000000oooo0?ooo`0c0?ooo`050000003oool0oooo0?ooo`000000
+0P3oool00`000000oooo0?ooo`0_0?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool0
+;`3oool00`000000oooo0?ooo`020?ooo`040000003oool0oooo000001<0oooo001J0?ooo`800000
+=P3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?ooo`3oool0;`3oool00`000000
+oooo0?ooo`020?ooo`800000<`3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?oo
+o`3oool04@3oool005X0oooo00<000000?ooo`3oool0=@3oool01@000000oooo0?ooo`3oool00000
+0080oooo00<000000?ooo`3oool0;`3oool00`000000oooo0?ooo`020?ooo`030000003oool0oooo
+0300oooo00@000000?ooo`3oool000000P3oool010000000oooo0?ooo`00000C0?ooo`00FP3oool3
+000003@0oooo0P0000040?ooo`800000<@3oool2000000@0oooo0`00000a0?ooo`800000103oool2
+000001@0oooo003o0?ooob40oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000
+003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?<0oooo0P0000060?ooo`008P3oool0
+0`000000oooo0?ooo`3b0?ooo`040000003oool0oooo000000D0oooo000L0?oooo<00000203oool0
+0`000000oooo0?ooo`060?ooo`008P3oool00`000000oooo0?ooo`0f0?ooo`030000003oool0oooo
+03L0oooo00<000000?ooo`3oool0=P3oool00`000000oooo0?ooo`0g0?ooo`030000003oool0oooo
+00/0oooo1@0000050?ooo`008P3oool00`000000oooo0?ooo`3b0?ooo`030000003oool0oooo00H0
+oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?/0oooo000R
+0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`80
+0000o03oool00280oooo00<000000?ooo`3oool0n`3oool00280oooo00<000000?ooo`3oool0n`3o
+ool00280oooo00<000000?ooo`3oool0n`3oool00280oooo00<000000?ooo`3oool0n`3oool00280
+oooo00<000000?ooo`3oool0n`3oool00280oooo00<000000?ooo`3oool0e@3oool?0?l001L0oooo
+000R0?ooo`800000a03ooolB0?l002H0oooo000R0?ooo`030000003oool0oooo0;T0oooo2P3o000h
+0?ooo`008P3oool00`000000oooo0?ooo`2V0?oooa<0o`00@P3oool00280oooo00<000000?ooo`3o
+ool0W03oool:0?l005D0oooo000R0?ooo`030000003oool0oooo0980oooo2P3o001O0?ooo`008P3o
+ool00`000000oooo0?ooo`290?ooo`T0o`00J@3oool00280oooo00<000000?ooo`3oool0P@3oool8
+0?l00780oooo000R0?ooo`800000OP3oool40?l007X0oooo000R0?ooo`030000003oool0oooo07H0
+oooo1`3o001n0?ooo`008P3oool00`000000oooo0?ooo`1^0?ooo`P0o`00Q@3oool00280oooo00<0
+00000?ooo`3oool0J@3oool50?l008d0oooo000R0?ooo`030000003oool0oooo06@0oooo1@3o002B
+0?ooo`003`3oool2000000@0oooo0P0000030?ooo`@00000103oool00`000000oooo0?ooo`1P0?oo
+o`@0o`00U`3oool000h0oooo00@000000?ooo`3oool00000203oool00`000000oooo0?ooo`050?oo
+o`030000003oool0oooo05`0oooo103o002K0?ooo`003P3oool010000000oooo0?ooo`0000090?oo
+o`030000003oool0oooo00@0oooo0P00001J0?ooo`<0o`00W`3oool000h0oooo00@000000?ooo`3o
+ool000002P3oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo05D0oooo103o002R0?oo
+o`003P3oool010000000oooo0?ooo`0000080?ooo`040000003oool0oooo000000@0oooo00<00000
+0?ooo`3oool0D@3oool40?l00:H0oooo000?0?ooo`8000002P3oool2000000D0oooo00<000000?oo
+o`3oool0C@3oool40?l00:X0oooo000R0?ooo`030000003oool0oooo04T0oooo103o002^0?ooo`00
+8P3oool00`000000oooo0?ooo`170?ooo`80o`00/P3oool00280oooo00<000000?ooo`3oool0A03o
+ool30?l00;@0oooo000R0?ooo`800000@`3oool20?l00;L0oooo000R0?ooo`030000003oool0oooo
+03l0oooo0`3o002i0?ooo`008P3oool00`000000oooo0?ooo`0m0?ooo`80o`00_03oool00280oooo
+00<000000?ooo`3oool0>P3oool30?l00;h0oooo000R0?ooo`030000003oool0oooo03P0oooo0P3o
+00310?ooo`008P3oool00`000000oooo0?ooo`0f0?ooo`80o`00``3oool00280oooo00<000000?oo
+o`3oool0=03oool20?l00<D0oooo000R0?ooo`800000<`3oool20?l00<L0oooo000R0?ooo`030000
+003oool0oooo0300oooo0P3o00390?ooo`008P3oool00`000000oooo0?ooo`0^0?ooo`80o`00b`3o
+ool00280oooo00<000000?ooo`3oool0;@3oool00`3o0000oooo0?ooo`3;0?ooo`008P3oool00`00
+0000oooo0?ooo`0/0?ooo`030?l0003oool0oooo0<`0oooo000R0?ooo`030000003oool0oooo02X0
+oooo0P3o003?0?ooo`008P3oool00`000000oooo0?ooo`0Y0?ooo`030?l0003oool0oooo0<l0oooo
+000R0?ooo`800000:@3oool00`3o0000oooo0?ooo`3@0?ooo`008P3oool00`000000oooo0?ooo`0W
+0?ooo`030?l0003oool0oooo0=40oooo000R0?ooo`030000003oool0oooo02D0oooo0P3o003D0?oo
+o`008P3oool00`000000oooo0?ooo`0T0?ooo`030?l0003oool0oooo0=@0oooo000R0?ooo`030000
+003oool0oooo02<0oooo00<0o`000?ooo`3oool0e@3oool000l0oooo0P0000040?ooo`8000001@3o
+ool3000000<0oooo00<000000?ooo`3oool08P3oool00`3o0000oooo0?ooo`3F0?ooo`003P3oool0
+10000000oooo0?ooo`00000;0?ooo`030000003oool0oooo0080oooo00<000000?ooo`3oool08@3o
+ool00`3o0000oooo0?ooo`3G0?ooo`003P3oool010000000oooo0?ooo`0000080?ooo`D000000`3o
+ool200000240oooo00<0o`000?ooo`3oool0f03oool000h0oooo00@000000?ooo`3oool00000203o
+ool010000000oooo0?ooo`0000040?ooo`030000003oool0oooo01l0oooo00<0o`000?ooo`3oool0
+f@3oool000h0oooo00@000000?ooo`3oool000002@3oool00`000000oooo000000040?ooo`030000
+003oool0oooo01h0oooo00<0o`000?ooo`3oool0fP3oool000l0oooo0P00000;0?ooo`800000103o
+ool00`000000oooo0?ooo`0M0?ooo`030?l0003oool0oooo0=/0oooo000R0?ooo`030000003oool0
+oooo01`0oooo00<0o`000?ooo`3oool0g03oool00280oooo00<000000?ooo`3oool06`3oool00`3o
+0000oooo0?ooo`3M0?ooo`008P3oool00`000000oooo0?ooo`0J0?ooo`030?l0003oool0oooo0=h0
+oooo000R0?ooo`030000003oool0oooo01T0oooo00<0o`000?ooo`3oool0g`3oool00280oooo0P00
+000I0?ooo`030?l0003oool0oooo0>00oooo000R0?ooo`030000003oool0oooo01L0oooo00<0o`00
+0?ooo`3oool0h@3oool00280oooo00<000000?ooo`3oool05`3oool00`3o0000oooo0?ooo`3Q0?oo
+o`008P3oool00`000000oooo0?ooo`0F0?ooo`030?l0003oool0oooo0>80oooo000R0?ooo`030000
+003oool0oooo01D0oooo00<0o`000?ooo`3oool0h`3oool00280oooo00<000000?ooo`3oool0503o
+ool00`3o0000oooo0?ooo`3T0?ooo`008P3oool00`000000oooo0?ooo`0D0?ooo`030?l0003oool0
+oooo0>@0oooo000R0?ooo`800000503oool00`3o0000oooo0?ooo`3U0?ooo`008P3oool00`000000
+oooo0?ooo`0C0?ooo`030?l0003oool0oooo0>D0oooo000R0?ooo`030000003oool0oooo0180oooo
+00<0o`000?ooo`3oool0iP3oool00280oooo00<000000?ooo`3oool04P3oool00`3o0000oooo0?oo
+o`3V0?ooo`008P3oool00`000000oooo0?ooo`0A0?ooo`030?l0003oool0oooo0>L0oooo000R0?oo
+o`030000003oool0oooo0140oooo00<0o`000?ooo`3oool0i`3oool00280oooo00<000000?ooo`3o
+ool0403oool00`3o0000oooo0?ooo`3X0?ooo`008P3oool200000140oooo00<0o`000?ooo`3oool0
+j03oool00280oooo00<000000?ooo`3oool03`3oool00`3o0000oooo0?ooo`3Y0?ooo`008P3oool0
+0`000000oooo0?ooo`0?0?ooo`030?l0003oool0oooo0>T0oooo000R0?ooo`030000003oool0oooo
+00h0oooo00<0o`000?ooo`3oool0jP3oool00280oooo00<000000?ooo`3oool03P3oool00`3o0000
+oooo0?ooo`3Z0?ooo`003`3oool2000000@0oooo0P0000030?ooo`<000001@3oool00`000000oooo
+0?ooo`0=0?ooo`030?l0003oool0oooo0>/0oooo000>0?ooo`040000003oool0oooo000000P0oooo
+00@000000?ooo`3oool00000103oool00`000000oooo0?ooo`0=0?ooo`030?l0003oool0oooo0>/0
+oooo000>0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool20000
+00d0oooo00<0o`000?ooo`3oool0k03oool000h0oooo00@000000?ooo`3oool00000203oool30000
+00D0oooo00<000000?ooo`3oool0303oool00`3o0000oooo0?ooo`3/0?ooo`003P3oool010000000
+oooo0?ooo`0000090?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool02`3oool00`3o
+0000oooo0?ooo`3]0?ooo`003`3oool2000000X0oooo0`0000040?ooo`030000003oool0oooo00/0
+oooo00<0o`000?ooo`3oool0k@3oool00280oooo00<000000?ooo`3oool02`3oool00`3o0000oooo
+0?ooo`3]0?ooo`008P3oool00`000000oooo0?ooo`0:0?ooo`030?l0003oool0oooo0>h0oooo000R
+0?ooo`030000003oool0oooo00X0oooo00<0o`000?ooo`3oool0kP3oool00280oooo0P00000:0?oo
+o`030?l0003oool0oooo0>l0oooo000R0?ooo`030000003oool0oooo00T0oooo00<0o`000?ooo`3o
+ool0k`3oool00280oooo00<000000?ooo`3oool02@3oool00`3o0000oooo0?ooo`3_0?ooo`008P3o
+ool00`000000oooo0?ooo`080?ooo`030?l0003oool0oooo0?00oooo000R0?ooo`030000003oool0
+oooo00P0oooo00<0o`000?ooo`3oool0l03oool00280oooo00<000000?ooo`3oool0203oool00`3o
+0000oooo0?ooo`3`0?ooo`008P3oool00`000000oooo0?ooo`070?ooo`030?l0003oool0oooo0?40
+oooo000R0?ooo`800000203oool00`3o0000oooo0?ooo`3a0?ooo`008P3oool00`000000oooo0?oo
+o`060?ooo`030?l0003oool0oooo0?80oooo000R0?ooo`030000003oool0oooo00H0oooo00<0o`00
+0?ooo`3oool0lP3oool00280oooo00<000000?ooo`3oool01P3oool00`3o0000oooo0?ooo`3b0?oo
+o`008P3oool00`000000oooo0?ooo`050?ooo`030?l0003oool0oooo0?<0oooo000R0?ooo`030000
+003oool0oooo00D0oooo00<0o`000?ooo`3oool0l`3oool00280oooo00<000000?ooo`3oool01@3o
+ool00`3o0000oooo0?ooo`3c0?ooo`008P3oool2000000H0oooo00<0o`000?ooo`3oool0l`3oool0
+0280oooo00<000000?ooo`3oool0103oool00`3o0000oooo0?ooo`3d0?ooo`008P3oool00`000000
+oooo0?ooo`040?ooo`030?l0003oool0oooo0?@0oooo000R0?ooo`030000003oool0oooo00@0oooo
+00<0o`000?ooo`3oool0m03oool00280oooo00<000000?ooo`3oool00`3oool00`3o0000oooo0?oo
+o`3e0?ooo`003`3oool2000000@0oooo0P0000040?ooo`8000001@3oool00`000000oooo0?ooo`03
+0?ooo`030?l0003oool0oooo0?D0oooo000>0?ooo`040000003oool0oooo000000P0oooo00@00000
+0?ooo`3oool00000103oool00`000000oooo0?ooo`030?ooo`030?l0003oool0oooo0?D0oooo000>
+0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool2000000<0oooo
+00<0o`000?ooo`3oool0mP3oool000h0oooo00@000000?ooo`3oool000002@3oool2000000D0oooo
+00<000000?ooo`3oool00P3oool00`3o0000oooo0?ooo`3f0?ooo`003P3oool010000000oooo0?oo
+o`0000080?ooo`040000003oool0oooo000000@0oooo00<000000?ooo`3oool00P3oool00`3o0000
+oooo0?ooo`3f0?ooo`003`3oool2000000X0oooo0P0000050?ooo`030000003oool0oooo0080oooo
+00<0o`000?ooo`3oool0mP3oool00280oooo00D000000?ooo`3oool0oooo0?l0003i0?ooo`008P3o
+ool01@000000oooo0?ooo`3oool0o`000?T0oooo000R0?ooo`050000003oool0oooo0?ooo`3o0000
+n@3oool00280oooo0P0000020?ooo`030?l0003oool0oooo0?L0oooo000R0?ooo`040000003oool0
+oooo0?l00?X0oooo000R0?ooo`040000003oool0oooo0?l00?X0oooo000R0?ooo`040000003oool0
+oooo0?l00?X0oooo000R0?ooo`040000003oool0oooo0?l00?X0oooo000R0?ooo`040000003oool0
+oooo0?l00?X0oooo000R0?ooo`040000003oool0oooo0?l00?X0oooo000R0?ooo`030000003oool0
+o`000?/0oooo000R0?ooo`80000000<0o`000?ooo`3oool0n@3oool00280oooo00<000000?ooo`3o
+0000n`3oool00280oooo00<000000?ooo`3o0000n`3oool00280oooo00<000000?ooo`3o0000n`3o
+ool00280oooo00<000000?ooo`3o0000n`3oool00280oooo00<000000?l0003oool0n`3oool00280
+oooo00<000000?l0003oool0n`3oool00280oooo00<000000?l0003oool0n`3oool00280oooo00<0
+00000?l0003oool0n`3oool00280oooo00<000000?l0003oool0n`3oool00280oooo00<000000?l0
+003oool0n`3oool00280oooo00<0o`000?ooo`3oool0n`3oool001X0oooo1@0000030?ooo`030?l0
+003oool0oooo0?/0oooo000L0?ooo`030000003oool0oooo00<0oooo00<0o`000?ooo`3oool0n`3o
+ool001`0oooo00<000000?ooo`3oool00`3oool00`3o000000000?ooo`3k0?ooo`00703oool00`00
+0000oooo0?ooo`030?ooo`030000003oool0oooo0?/0oooo000L0?ooo`030000003oool0oooo00<0
+oooo00<000000?ooo`3oool0n`3oool001/0oooo0P0000050?ooo`030000003oool0oooo0?/0oooo
+003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo
+003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo00060?ooo`030000003oool0oooo01h0
+oooo00<000000?ooo`3oool0mP3oool000D0oooo00<000000?ooo`3oool01`3oool00`000000oooo
+0?ooo`0F0?ooo`030000003oool0oooo0?D0oooo00040?ooo`030000003oool0oooo0080oooo0`00
+00040?ooo`040000003oool0oooo0?ooo`80000000@0oooo0000003oool000000P3oool2000000<0
+oooo0`0000050?ooo`030000003oool0oooo00<0000000@0oooo000000000000oooo1000003Y0?oo
+o`00103oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3o
+ool00P3oool01`000000oooo0000003oool000000?ooo`0000000P3oool01@000000oooo0?ooo`3o
+ool0000000H0oooo00D000000?ooo`3oool0oooo000000020?ooo`050000003oool0oooo0?ooo`00
+0000j`3oool000@0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`030?ooo`030000
+003oool0oooo0080oooo00L000000?ooo`000000oooo0000003oool000000080oooo00D000000?oo
+o`3oool0oooo000000060?ooo`050000003oool0oooo0?ooo`0000000P3oool01@000000oooo0?oo
+o`3oool000000>/0oooo00040?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool0103o
+ool00`000000oooo0?ooo`03000000030?ooo`000000oooo0080oooo0P0000040?ooo`030000003o
+ool0oooo00@0oooo00@000000?ooo`3oool0oooo0`0000030?ooo`@00000j@3oool000D0oooo00<0
+00000?ooo`3oool00P3oool00`000000oooo0?ooo`040?ooo`030000003oool0oooo00h0oooo00<0
+00000?ooo`3oool00`3oool00`000000oooo0?ooo`020?ooo`030000003oool0oooo00d0oooo0P00
+003Q0?ooo`001P3oool00`000000oooo0?ooo`02000000L0oooo00<000000?ooo`3oool0303oool2
+000000@0oooo00<000000?ooo`3oool00P3oool2000000/0oooo0`0000020?ooo`030000003oool0
+oooo0=l0oooo000n0?ooo`030000003oool0oooo0=l0oooo000m0?ooo`800000h@3oool00?l0oooo
+8@3oool00001\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.938, 0}} -> {-2.96772, -0.0845, \
+0.0868904, 0.00702958}}],
+
+Cell[BoxData[
+    TagBox[\(\[SkeletonIndicator]  Graphics  \[SkeletonIndicator]\),
+      False,
+      Editable->False]], "Output"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0238095 0.047619 0.309017 0.294302 [
+[.2619 .29652 -3 -9 ]
+[.2619 .29652 3 0 ]
+[.5 .29652 -6 -9 ]
+[.5 .29652 6 0 ]
+[.7381 .29652 -6 -9 ]
+[.7381 .29652 6 0 ]
+[.97619 .29652 -6 -9 ]
+[.97619 .29652 6 0 ]
+[1.025 .30902 0 -6.1875 ]
+[1.025 .30902 9.9375 6.1875 ]
+[.01131 .01472 -12 -4.5 ]
+[.01131 .01472 0 4.5 ]
+[.01131 .16187 -24 -4.5 ]
+[.01131 .16187 0 4.5 ]
+[.01131 .45617 -18 -4.5 ]
+[.01131 .45617 0 4.5 ]
+[.01131 .60332 -6 -4.5 ]
+[.01131 .60332 0 4.5 ]
+[.02381 .64303 -33.2188 0 ]
+[.02381 .64303 33.2188 13.0625 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.2619 .30902 m
+.2619 .31527 L
+s
+[(5)] .2619 .29652 0 1 Mshowa
+.5 .30902 m
+.5 .31527 L
+s
+[(10)] .5 .29652 0 1 Mshowa
+.7381 .30902 m
+.7381 .31527 L
+s
+[(15)] .7381 .29652 0 1 Mshowa
+.97619 .30902 m
+.97619 .31527 L
+s
+[(20)] .97619 .29652 0 1 Mshowa
+.125 Mabswid
+.07143 .30902 m
+.07143 .31277 L
+s
+.11905 .30902 m
+.11905 .31277 L
+s
+.16667 .30902 m
+.16667 .31277 L
+s
+.21429 .30902 m
+.21429 .31277 L
+s
+.30952 .30902 m
+.30952 .31277 L
+s
+.35714 .30902 m
+.35714 .31277 L
+s
+.40476 .30902 m
+.40476 .31277 L
+s
+.45238 .30902 m
+.45238 .31277 L
+s
+.54762 .30902 m
+.54762 .31277 L
+s
+.59524 .30902 m
+.59524 .31277 L
+s
+.64286 .30902 m
+.64286 .31277 L
+s
+.69048 .30902 m
+.69048 .31277 L
+s
+.78571 .30902 m
+.78571 .31277 L
+s
+.83333 .30902 m
+.83333 .31277 L
+s
+.88095 .30902 m
+.88095 .31277 L
+s
+.92857 .30902 m
+.92857 .31277 L
+s
+.25 Mabswid
+0 .30902 m
+1 .30902 L
+s
+gsave
+1.025 .30902 -61 -10.1875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.375 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+68.938 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+.02381 .01472 m
+.03006 .01472 L
+s
+[(-1)] .01131 .01472 1 0 Mshowa
+.02381 .16187 m
+.03006 .16187 L
+s
+[(-0.5)] .01131 .16187 1 0 Mshowa
+.02381 .45617 m
+.03006 .45617 L
+s
+[(0.5)] .01131 .45617 1 0 Mshowa
+.02381 .60332 m
+.03006 .60332 L
+s
+[(1)] .01131 .60332 1 0 Mshowa
+.125 Mabswid
+.02381 .04415 m
+.02756 .04415 L
+s
+.02381 .07358 m
+.02756 .07358 L
+s
+.02381 .10301 m
+.02756 .10301 L
+s
+.02381 .13244 m
+.02756 .13244 L
+s
+.02381 .1913 m
+.02756 .1913 L
+s
+.02381 .22073 m
+.02756 .22073 L
+s
+.02381 .25016 m
+.02756 .25016 L
+s
+.02381 .27959 m
+.02756 .27959 L
+s
+.02381 .33845 m
+.02756 .33845 L
+s
+.02381 .36788 m
+.02756 .36788 L
+s
+.02381 .39731 m
+.02756 .39731 L
+s
+.02381 .42674 m
+.02756 .42674 L
+s
+.02381 .4856 m
+.02756 .4856 L
+s
+.02381 .51503 m
+.02756 .51503 L
+s
+.02381 .54446 m
+.02756 .54446 L
+s
+.02381 .57389 m
+.02756 .57389 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+gsave
+.02381 .64303 -94.2188 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 21.0625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 13.438 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 13.438 moveto
+(H) show
+68.938 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(l) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+74.875 13.438 moveto
+(\\220) show
+80.813 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(mol) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+98.625 13.438 moveto
+(L) show
+104.563 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(hr) show
+116.438 9.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+120.688 9.500 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+125.438 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+1 0 1 r
+.5 Mabswid
+.02381 .30902 m
+.02499 .30902 L
+.02605 .30902 L
+.02729 .30902 L
+.02846 .30902 L
+.02954 .30902 L
+.03053 .30902 L
+.03163 .30902 L
+.03279 .30902 L
+.03395 .30902 L
+.0352 .30902 L
+.03638 .30902 L
+.03746 .30902 L
+.03873 .30902 L
+.03944 .30902 L
+.04011 .30902 L
+.04132 .30902 L
+.04262 .30902 L
+.04327 .30902 L
+.04396 .30902 L
+.04519 .30902 L
+.04588 .30902 L
+.04652 .30902 L
+.04722 .30902 L
+.04797 .30902 L
+.04862 .30902 L
+.04933 .30902 L
+.05061 .30902 L
+.05186 .30902 L
+.05302 .30902 L
+.05414 .30902 L
+.05519 .30902 L
+.05634 .30902 L
+.05759 .30902 L
+.05882 .30902 L
+.06012 .30902 L
+.06123 .30902 L
+.06244 .30902 L
+.06315 .30902 L
+.06381 .30902 L
+.06453 .30902 L
+.06529 .30902 L
+.06657 .30902 L
+.06729 .30902 L
+.06797 .30902 L
+.06924 .30902 L
+.0704 .30902 L
+.07103 .30902 L
+.07173 .30902 L
+.073 .30902 L
+Mistroke
+.07376 .30902 L
+.07448 .30902 L
+.07513 .30902 L
+.07583 .30902 L
+.0766 .30902 L
+.0774 .30902 L
+.07809 .30902 L
+.07885 .30902 L
+.07956 .30902 L
+.0802 .30902 L
+.08095 .30902 L
+.08166 .30902 L
+.08291 .30902 L
+.08362 .30902 L
+.08427 .30902 L
+.08544 .30902 L
+.08669 .30902 L
+.08787 .30902 L
+.08896 .30902 L
+.09016 .30902 L
+.09148 .30902 L
+.09214 .30902 L
+.09285 .30902 L
+.09413 .30902 L
+.09483 .30902 L
+.09548 .30902 L
+.09619 .30902 L
+.09695 .30902 L
+.09821 .30902 L
+.09893 .30902 L
+.09961 .30902 L
+.10086 .30902 L
+.10201 .30902 L
+.10333 .30902 L
+.10458 .30902 L
+.10572 .30902 L
+.10694 .30902 L
+.1081 .30902 L
+.10916 .30902 L
+.11033 .30902 L
+.11162 .30902 L
+.11227 .30902 L
+.11297 .30902 L
+.11422 .30902 L
+.11491 .30902 L
+.11554 .30902 L
+.11624 .30902 L
+.11698 .30902 L
+.11822 .30902 L
+.11892 .30902 L
+Mistroke
+.11958 .30902 L
+.12081 .30902 L
+.12194 .30902 L
+.12323 .30902 L
+.12446 .30902 L
+.12562 .30902 L
+.12668 .30902 L
+.12789 .30902 L
+.12903 .30902 L
+.13009 .30902 L
+.13107 .30902 L
+.13214 .30902 L
+.13327 .30902 L
+.13441 .30902 L
+.13564 .30902 L
+.1368 .30902 L
+.13785 .30902 L
+.13909 .30902 L
+.13979 .30902 L
+.14043 .30902 L
+.14162 .30902 L
+.14288 .30902 L
+.14402 .30902 L
+.14526 .30902 L
+.14656 .30902 L
+.14777 .30902 L
+.14891 .30902 L
+.14994 .30902 L
+.15113 .30902 L
+.15226 .30902 L
+.15348 .30902 L
+.15478 .30902 L
+.15589 .30902 L
+.15711 .30902 L
+.15842 .30902 L
+.15915 .30902 L
+.15982 .30902 L
+.16113 .30902 L
+.16236 .30902 L
+.16352 .30902 L
+.16456 .30902 L
+.16577 .30902 L
+.1669 .30902 L
+.16796 .30902 L
+.16893 .30902 L
+.16999 .30902 L
+.17111 .30902 L
+.17225 .30902 L
+.17347 .30902 L
+.17462 .30902 L
+Mistroke
+.17566 .30902 L
+.17689 .30902 L
+.17758 .30902 L
+.17823 .30902 L
+.1794 .30902 L
+.18065 .30902 L
+.18185 .30902 L
+.18316 .30902 L
+.18441 .30902 L
+.18556 .30902 L
+.1867 .30902 L
+.18773 .30902 L
+.18893 .30902 L
+.19005 .30902 L
+.19128 .30902 L
+.19258 .30902 L
+.19369 .30902 L
+.19491 .30902 L
+.19623 .30902 L
+.19696 .30902 L
+.19763 .30902 L
+.19894 .30902 L
+.20017 .30902 L
+.20122 .30902 L
+.20238 .30902 L
+.20359 .30902 L
+.20472 .30902 L
+.20578 .30902 L
+.20675 .30902 L
+.20781 .30902 L
+.20894 .30902 L
+.21008 .30902 L
+.21129 .30902 L
+.21244 .30902 L
+.21349 .30902 L
+.21472 .30902 L
+.21541 .30902 L
+.21605 .30902 L
+.21723 .30902 L
+.21847 .30902 L
+.21968 .30902 L
+.221 .30902 L
+.22224 .30902 L
+.2234 .30902 L
+.22454 .30902 L
+.22558 .30902 L
+.22677 .30902 L
+.2279 .30902 L
+.22914 .30902 L
+.23044 .30902 L
+Mistroke
+.23155 .30902 L
+.23277 .30902 L
+.23409 .30902 L
+.23482 .30902 L
+.2355 .30902 L
+.2368 .30902 L
+.23804 .30902 L
+.23909 .30902 L
+.24025 .30902 L
+.24146 .30902 L
+.2426 .30902 L
+.24365 .30902 L
+.24462 .30902 L
+.24569 .30902 L
+.24681 .30902 L
+.24795 .30902 L
+.24917 .30902 L
+.25032 .30902 L
+.25137 .30902 L
+.2526 .30902 L
+.25329 .30902 L
+.25393 .30902 L
+.2551 .30902 L
+.25635 .30902 L
+.25756 .30902 L
+.25888 .30902 L
+.26013 .30902 L
+.26129 .30902 L
+.26233 .30902 L
+.26348 .30902 L
+.26467 .30902 L
+.2658 .30902 L
+.26704 .30902 L
+.26835 .30902 L
+.26946 .30902 L
+.27068 .30902 L
+.272 .30902 L
+.27274 .30902 L
+.27341 .30902 L
+.27472 .30902 L
+.27595 .30902 L
+.27701 .30902 L
+.27817 .30902 L
+.27938 .30902 L
+.28052 .30902 L
+.28158 .30902 L
+.28255 .30902 L
+.28367 .30902 L
+.28474 .30902 L
+.28588 .30902 L
+Mistroke
+.2871 .30902 L
+.28825 .30902 L
+.2893 .30902 L
+.29053 .30902 L
+.29122 .30902 L
+.29186 .30902 L
+.29303 .30902 L
+.29427 .30902 L
+.29549 .30902 L
+.29618 .30902 L
+.29682 .30902 L
+.29799 .30902 L
+.29923 .30902 L
+.30034 .30902 L
+.30138 .30902 L
+.30252 .30902 L
+.30375 .30902 L
+.30499 .30902 L
+.30569 .30902 L
+.30634 .30902 L
+.30765 .30902 L
+.30839 .30902 L
+.30906 .30902 L
+.31026 .30902 L
+.31156 .30902 L
+.31278 .30902 L
+.31392 .30902 L
+.31497 .30902 L
+.31611 .30902 L
+.31718 .30902 L
+.31816 .30902 L
+.3193 .30902 L
+.32055 .30902 L
+.32173 .30902 L
+.32282 .30902 L
+.32406 .30902 L
+.32522 .30902 L
+.32626 .30902 L
+.32739 .30902 L
+.32862 .30902 L
+.32992 .30902 L
+.33103 .30902 L
+.33225 .30902 L
+.33356 .30902 L
+.33477 .30902 L
+.33541 .30902 L
+.3361 .30902 L
+.33683 .30902 L
+.33751 .30902 L
+.33876 .30902 L
+Mistroke
+.33991 .30902 L
+.34123 .30902 L
+.34249 .30902 L
+.3436 .30902 L
+.3448 .30902 L
+.34592 .30902 L
+.34694 .30902 L
+.34814 .30902 L
+.34945 .30902 L
+.35067 .30902 L
+.35181 .30902 L
+.35302 .30902 L
+.35431 .30902 L
+.35554 .30902 L
+.35665 .30902 L
+.35796 .30902 L
+.3587 .30902 L
+.35939 .30902 L
+.36064 .30902 L
+.36128 .30902 L
+.36198 .30902 L
+.36266 .30902 L
+.36337 .30902 L
+.36465 .30902 L
+.36536 .30902 L
+.36602 .30902 L
+.36675 .30902 L
+.36753 .30902 L
+.3682 .30902 L
+.36893 .30902 L
+.36962 .30902 L
+.37026 .30902 L
+.37146 .30902 L
+.37274 .30902 L
+.37394 .30902 L
+.37526 .30902 L
+.37651 .30902 L
+.37766 .30902 L
+.3788 .30902 L
+.37984 .30902 L
+.38103 .30902 L
+.38216 .30902 L
+.38339 .30902 L
+.3847 .30902 L
+.38581 .30902 L
+.38703 .30902 L
+.38834 .30902 L
+.38908 .30902 L
+.38975 .30902 L
+.39106 .30902 L
+Mistroke
+.39229 .30902 L
+.39334 .30902 L
+.3945 .30902 L
+.39571 .30902 L
+.39685 .30902 L
+.39791 .30902 L
+.39888 .30902 L
+.39994 .30902 L
+.40106 .30902 L
+.40221 .30902 L
+.40342 .30902 L
+.40457 .30902 L
+.40562 .30902 L
+.40685 .30902 L
+.40754 .30902 L
+.40818 .30902 L
+.40936 .30902 L
+.4106 .30902 L
+.41181 .30902 L
+.41313 .30902 L
+.41438 .30902 L
+.41554 .30902 L
+.41669 .30902 L
+.41772 .30902 L
+.41892 .30902 L
+.42005 .30902 L
+.42129 .30902 L
+.42259 .30902 L
+.42371 .30902 L
+.42493 .30902 L
+.42624 .30902 L
+.42698 .30902 L
+.42765 .30902 L
+.42896 .30902 L
+.43019 .30902 L
+.43125 .30902 L
+.43241 .30902 L
+.43362 .30902 L
+.43476 .30902 L
+.43582 .30902 L
+.43679 .30902 L
+.43791 .30902 L
+.43898 .30902 L
+.44012 .30902 L
+.44134 .30902 L
+.44249 .30902 L
+.44354 .30902 L
+.44477 .30902 L
+.44546 .30902 L
+.4461 .30902 L
+Mistroke
+.44727 .30902 L
+.44851 .30902 L
+.44973 .30902 L
+.45042 .30902 L
+.45106 .30902 L
+.45223 .30902 L
+.45347 .30902 L
+.45458 .30902 L
+.45562 .30902 L
+.45676 .30902 L
+.45799 .30902 L
+.45922 .30902 L
+.45992 .30902 L
+.46057 .30902 L
+.46188 .30902 L
+.46262 .30902 L
+.46329 .30902 L
+.46449 .30902 L
+.46579 .30902 L
+.46702 .30902 L
+.46815 .30902 L
+.4692 .30902 L
+.47034 .30902 L
+.47141 .30902 L
+.47239 .30902 L
+.47353 .30902 L
+.47478 .30902 L
+.47596 .30902 L
+.47705 .30902 L
+.47829 .30902 L
+.47945 .30902 L
+.48049 .30902 L
+.48162 .30902 L
+.48285 .30902 L
+.48415 .30902 L
+.48526 .30902 L
+.48648 .30902 L
+.48779 .30902 L
+.489 .30902 L
+.48963 .30902 L
+.49033 .30902 L
+.49105 .30902 L
+.49174 .30902 L
+.49299 .30902 L
+.49413 .30902 L
+.49539 .30902 L
+.49671 .30902 L
+.49783 .30902 L
+.49902 .30902 L
+.50014 .30902 L
+Mistroke
+.50116 .30902 L
+.50236 .30902 L
+.50366 .30902 L
+.50489 .30902 L
+.50603 .30902 L
+.50723 .30902 L
+.50853 .30902 L
+.50975 .30902 L
+.51087 .30902 L
+.51218 .30902 L
+.51292 .30902 L
+.51361 .30902 L
+.51486 .30902 L
+.5155 .30902 L
+.5162 .30902 L
+.51687 .30902 L
+.51759 .30902 L
+.51886 .30902 L
+.51958 .30902 L
+.52024 .30902 L
+.52096 .30902 L
+.52174 .30902 L
+.52241 .30902 L
+.52314 .30902 L
+.52383 .30902 L
+.52447 .30902 L
+.52568 .30902 L
+.52695 .30902 L
+.52816 .30902 L
+.52947 .30902 L
+.53072 .30902 L
+.53187 .30902 L
+.53301 .30902 L
+.53405 .30902 L
+.53525 .30902 L
+.53637 .30902 L
+.5376 .30902 L
+.53891 .30902 L
+.54002 .30902 L
+.54124 .30902 L
+.54255 .30902 L
+.54329 .30902 L
+.54396 .30902 L
+.54526 .30902 L
+.5465 .30902 L
+.54755 .30902 L
+.54871 .30902 L
+.54992 .30902 L
+.55105 .30902 L
+.55211 .30902 L
+Mistroke
+.55308 .30902 L
+.55415 .30902 L
+.55527 .30902 L
+.55641 .30902 L
+.55763 .30902 L
+.55878 .30902 L
+.55982 .30902 L
+.56105 .30902 L
+.56175 .30902 L
+.56238 .30902 L
+.56356 .30902 L
+.5648 .30902 L
+.56601 .30902 L
+.56734 .30902 L
+.56858 .30902 L
+.56974 .30902 L
+.57088 .30902 L
+.57192 .30902 L
+.57312 .30902 L
+.57425 .30902 L
+.57548 .30902 L
+.57679 .30902 L
+.5779 .30902 L
+.57912 .30902 L
+.58044 .30902 L
+.58118 .30902 L
+.58185 .30902 L
+.58315 .30902 L
+.58439 .30902 L
+.58544 .30902 L
+.5866 .30902 L
+.58782 .30902 L
+.58895 .30902 L
+.59001 .30902 L
+.59098 .30902 L
+.5921 .30902 L
+.59317 .30902 L
+.59431 .30902 L
+.59553 .30902 L
+.59668 .30902 L
+.59773 .30902 L
+.59896 .30902 L
+.59965 .30902 L
+.60029 .30902 L
+.60146 .30902 L
+.60271 .30902 L
+.60392 .30902 L
+.60461 .30902 L
+.60525 .30902 L
+.60642 .30902 L
+Mistroke
+.60766 .30902 L
+.60876 .30902 L
+.6098 .30902 L
+.61094 .30902 L
+.61217 .30902 L
+.61341 .30902 L
+.6141 .30902 L
+.61475 .30902 L
+.61607 .30902 L
+.6168 .30902 L
+.61747 .30902 L
+.61867 .30902 L
+.61997 .30902 L
+.6212 .30902 L
+.62233 .30902 L
+.62339 .30902 L
+.62452 .30902 L
+.62559 .30902 L
+.62657 .30902 L
+.62771 .30902 L
+.62896 .30902 L
+.63014 .30902 L
+.63123 .30902 L
+.63247 .30902 L
+.63363 .30902 L
+.63467 .30902 L
+.6358 .30902 L
+.63703 .30902 L
+.63833 .30902 L
+.63944 .30902 L
+.64066 .30902 L
+.64197 .30902 L
+.64318 .30902 L
+.64381 .30902 L
+.6445 .30902 L
+.64523 .30902 L
+.64591 .30902 L
+.64716 .30902 L
+.64831 .30902 L
+.64956 .30902 L
+.65088 .30902 L
+.652 .30902 L
+.65319 .30902 L
+.65431 .30902 L
+.65533 .30902 L
+.65653 .30902 L
+.65784 .30902 L
+.65906 .30902 L
+.6602 .30902 L
+.6614 .30902 L
+Mistroke
+.6627 .30902 L
+.66392 .30902 L
+.66504 .30902 L
+.66635 .30902 L
+.66709 .30902 L
+.66777 .30902 L
+.66903 .30902 L
+.66966 .30902 L
+.67036 .30902 L
+.67104 .30902 L
+.67175 .30902 L
+.67303 .30902 L
+.67374 .30902 L
+.6744 .30902 L
+.67513 .30902 L
+.67591 .30902 L
+.67658 .30902 L
+.67731 .30902 L
+.678 .30902 L
+.67864 .30902 L
+.67984 .30902 L
+.68112 .30902 L
+.68232 .30902 L
+.68364 .30902 L
+.68488 .30902 L
+.68603 .30902 L
+.68718 .30902 L
+.68821 .30902 L
+.68941 .30902 L
+.69053 .30902 L
+.69176 .30902 L
+.69307 .30902 L
+.69418 .30902 L
+.6954 .30902 L
+.69671 .30902 L
+.69745 .30902 L
+.69812 .30902 L
+.69942 .30902 L
+.70066 .30902 L
+.70171 .30902 L
+.70286 .30902 L
+.70407 .30902 L
+.70521 .30902 L
+.70627 .30902 L
+.70724 .30902 L
+.7083 .30902 L
+.70942 .30902 L
+.71056 .30902 L
+.71178 .30902 L
+.71293 .30902 L
+Mistroke
+.71398 .30902 L
+.71521 .30902 L
+.7159 .30902 L
+.71654 .30902 L
+.71771 .30902 L
+.71896 .30902 L
+.72017 .30902 L
+.72149 .30902 L
+.72273 .30902 L
+.72389 .30902 L
+.72503 .30902 L
+.72607 .30902 L
+.72727 .30902 L
+.7284 .30902 L
+.72963 .30902 L
+.73094 .30902 L
+.73205 .30902 L
+.73327 .30902 L
+.73458 .30902 L
+.73532 .30902 L
+.73599 .30902 L
+.7373 .30902 L
+.73853 .30902 L
+.73959 .30902 L
+.74075 .30902 L
+.74196 .30902 L
+.7431 .30902 L
+.74416 .30902 L
+.74513 .30902 L
+.74619 .30902 L
+.74731 .30902 L
+.74846 .30902 L
+.74967 .30902 L
+.75083 .30902 L
+.75187 .30902 L
+.7531 .30902 L
+.75379 .30902 L
+.75443 .30902 L
+.75561 .30902 L
+.75685 .30902 L
+.75806 .30902 L
+.75875 .30902 L
+.75939 .30902 L
+.76056 .30902 L
+.7618 .30902 L
+.7629 .30902 L
+.76394 .30902 L
+.76508 .30902 L
+.76631 .30902 L
+.76754 .30902 L
+Mistroke
+.76824 .30902 L
+.76889 .30902 L
+.7702 .30902 L
+.77094 .30902 L
+.77161 .30902 L
+.7728 .30902 L
+.7741 .30902 L
+.77533 .30902 L
+.77646 .30902 L
+.77752 .30902 L
+.77865 .30902 L
+.77972 .30902 L
+.7807 .30902 L
+.78184 .30902 L
+.78309 .30902 L
+.78427 .30902 L
+.78536 .30902 L
+.7866 .30902 L
+.78776 .30902 L
+.7888 .30902 L
+.78993 .30902 L
+.79116 .30902 L
+.79246 .30902 L
+.79357 .30902 L
+.79479 .30902 L
+.7961 .30902 L
+.7973 .30902 L
+.79793 .30902 L
+.79863 .30902 L
+.79936 .30902 L
+.80004 .30902 L
+.80129 .30902 L
+.80243 .30902 L
+.80369 .30902 L
+.80501 .30902 L
+.80612 .30902 L
+.80731 .30902 L
+.80843 .30902 L
+.80945 .30902 L
+.81066 .30902 L
+.81196 .30902 L
+.81318 .30902 L
+.81432 .30902 L
+.81552 .30902 L
+.81682 .30902 L
+.81804 .30902 L
+.81916 .30902 L
+.82047 .30902 L
+.8212 .30902 L
+.82189 .30902 L
+Mistroke
+.82315 .30902 L
+.82385 .30902 L
+.82448 .30902 L
+.82516 .30902 L
+.82587 .30902 L
+.82715 .30902 L
+.82786 .30902 L
+.82852 .30902 L
+.82925 .30902 L
+.83002 .30902 L
+.8307 .30902 L
+.83143 .30902 L
+.83212 .30902 L
+.83275 .30902 L
+.83396 .30902 L
+.83524 .30902 L
+.83644 .30902 L
+.83775 .30902 L
+.839 .30902 L
+.84015 .30902 L
+.84129 .30902 L
+.84232 .30902 L
+.84352 .30902 L
+.84464 .30902 L
+.84587 .30902 L
+.84718 .30902 L
+.84829 .30902 L
+.8495 .30902 L
+.85082 .30902 L
+.85155 .30902 L
+.85222 .30902 L
+.85353 .30902 L
+.85476 .30902 L
+.85581 .30902 L
+.85697 .30902 L
+.85818 .30902 L
+.85932 .30902 L
+.86037 .30902 L
+.86134 .30902 L
+.86241 .30902 L
+.86353 .30902 L
+.86467 .30902 L
+.86589 .30902 L
+.86704 .30902 L
+.86808 .30902 L
+.86931 .30902 L
+.87 .30902 L
+.87064 .30902 L
+.87182 .30902 L
+.87306 .30902 L
+Mistroke
+.87427 .30902 L
+.87559 .30902 L
+.87684 .30902 L
+.87799 .30902 L
+.87914 .30902 L
+.88017 .30902 L
+.88137 .30902 L
+.88249 .30902 L
+.88373 .30902 L
+.88503 .30902 L
+.88615 .30902 L
+.88737 .30902 L
+.88868 .30902 L
+.88942 .30902 L
+.89009 .30902 L
+.89139 .30902 L
+.89263 .30902 L
+.89368 .30902 L
+.89484 .30902 L
+.89605 .30902 L
+.89719 .30902 L
+.89825 .30902 L
+.89922 .30902 L
+.90029 .30902 L
+.90141 .30902 L
+.90255 .30902 L
+.90377 .30902 L
+.90492 .30902 L
+.90596 .30902 L
+.90719 .30902 L
+.90789 .30902 L
+.90852 .30902 L
+.9097 .30902 L
+.91094 .30902 L
+.91216 .30902 L
+.91284 .30902 L
+.91348 .30902 L
+.91464 .30902 L
+.91589 .30902 L
+.91699 .30902 L
+.91803 .30902 L
+.91917 .30902 L
+.9204 .30902 L
+.92163 .30902 L
+.92233 .30902 L
+.92297 .30902 L
+.92429 .30902 L
+.92502 .30902 L
+.92569 .30902 L
+.92689 .30902 L
+Mistroke
+.92819 .30902 L
+.92941 .30902 L
+.93055 .30902 L
+.9316 .30902 L
+.93273 .30902 L
+.9338 .30902 L
+.93478 .30902 L
+.93592 .30902 L
+.93717 .30902 L
+.93835 .30902 L
+.93944 .30902 L
+.94068 .30902 L
+.94184 .30902 L
+.94288 .30902 L
+.94401 .30902 L
+.94524 .30902 L
+.94654 .30902 L
+.94765 .30902 L
+.94887 .30902 L
+.94975 .30902 L
+.95057 .30902 L
+.95146 .30902 L
+.95241 .30902 L
+.95324 .30902 L
+.95401 .30902 L
+.95486 .30902 L
+.95577 .30902 L
+.95653 .30902 L
+.95737 .30902 L
+.95824 .30902 L
+.95905 .30902 L
+.95981 .30902 L
+.9605 .30902 L
+.9613 .30902 L
+.96206 .30902 L
+.96287 .30902 L
+.96377 .30902 L
+.96471 .30902 L
+.96559 .30902 L
+.96641 .30902 L
+.96716 .30902 L
+.96802 .30902 L
+.96884 .30902 L
+.96972 .30902 L
+.97067 .30902 L
+.97155 .30902 L
+.97236 .30902 L
+.97331 .30902 L
+.97433 .30902 L
+.9753 .30902 L
+Mistroke
+.97619 .30902 L
+Mfstroke
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.938},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/B000`400?l00000o`00003oo`3ooolQ
+0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`008@3oool00`000000oooo0?oo
+o`3l0?ooo`006@3oool5000000<0oooo00<000000?ooo`3oool0o03oool001/0oooo00<000000?oo
+o`3oool00`3oool00`000000oooo0?ooo`3l0?ooo`006`3oool00`000000oooo0?ooo`030?ooo`80
+0000o@3oool001<0oooo100000040?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool0
+o03oool001/0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`3l0?ooo`006P3oool2
+000000D0oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240
+oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo0P00
+003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`00
+0000oooo0?ooo`3l0?ooo`008@3oool200000?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo
+000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?oo
+o`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000
+003oool0oooo0?`0oooo000Q0?ooo`800000o@3oool00240oooo00<000000?ooo`3oool0o03oool0
+0240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo
+00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<00000
+0?ooo`3oool0o03oool00240oooo0P00003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`00
+8@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool0
+0`000000oooo0?ooo`3l0?ooo`003P3oool2000000@0oooo0P0000040?ooo`8000001@3oool00`00
+0000oooo0?ooo`3l0?ooo`003@3oool010000000oooo0?ooo`0000080?ooo`040000003oool0oooo
+000000@0oooo00<000000?ooo`3oool0o03oool000d0oooo00@000000?ooo`3oool000002`3oool0
+0`000000oooo0?ooo`020?ooo`800000o@3oool000L0oooo100000020?ooo`040000003oool0oooo
+000000T0oooo0P0000050?ooo`030000003oool0oooo0?`0oooo000=0?ooo`040000003oool0oooo
+000000T0oooo00<000000?ooo`3oool0103oool00`000000oooo0?ooo`3l0?ooo`003P3oool20000
+00X0oooo0`0000040?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0
+oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q
+0?ooo`800000o@3oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3o
+ool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03o
+ool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240
+oooo0P00003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?oo
+o`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool200000?d0oooo000Q0?ooo`030000003oool0oooo
+0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo03H0oooo
+0P00000d0?ooo`D000000P3oool200000340oooo1@0000020?ooo`800000<@3oool4000000<0oooo
+0P00000C0?ooo`008@3oool00`000000oooo0?ooo`0e0?ooo`040000003oool0oooo000003D0oooo
+00D000000?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0300oooo00D000000?ooo`3o
+ool0oooo000000020?ooo`030000003oool0oooo02h0oooo00<000000?ooo`3oool00`3oool01000
+0000oooo0?ooo`00000B0?ooo`008@3oool00`000000oooo0?ooo`0h0?ooo`030000003oool0oooo
+03<0oooo00D000000?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0300oooo00<00000
+0?ooo`3oool0103oool00`000000oooo0?ooo`0_0?ooo`030000003oool0oooo0080oooo00@00000
+0?ooo`3oool000004P3oool00240oooo00<000000?ooo`3oool0=P3oool2000003H0oooo00D00000
+0?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0300oooo00<000000?ooo`3oool00P3o
+ool2000003<0oooo00D000000?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0100oooo
+000Q0?ooo`800000=`3oool00`000000oooo0?ooo`0e0?ooo`050000003oool0oooo0?ooo`000000
+0P3oool00`000000oooo0?ooo`0`0?ooo`030000003oool0oooo0080oooo00<000000?ooo`3oool0
+<03oool010000000oooo0?ooo`0000020?ooo`040000003oool0oooo00000180oooo000Q0?ooo`03
+0000003oool0oooo03H0oooo0`00000d0?ooo`800000103oool200000380oooo0P0000040?ooo`<0
+0000<@3oool2000000@0oooo0P00000C0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`00
+0000oooo0?ooo`3e0?ooo`8000001@3oool00240oooo00<000000?ooo`3oool0m03oool010000000
+oooo0?ooo`0000040?ooo`006`3oool600000>T0o`3o1@0000090?ooo`030000003oool0oooo00D0
+oooo000Q0?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`090?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`080?ooo`030000003oool0oooo00T0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`080?ooo`030000003oool0oooo00T0oooo00<000000?ooo`3oool0203oool00`000000oooo
+0?ooo`090?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`090?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`080?ooo`030000003oool0oooo00T0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`0;0?ooo`D00000103oool00240oooo00<000000?ooo`3oool0m03oool00`000000oooo0?oo
+o`050?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool200000?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo
+0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo
+000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?oo
+o`800000o@3oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0
+o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool0
+0240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo
+0P00003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l
+0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`00
+8@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool0
+0`000000oooo0?ooo`3l0?ooo`008@3oool200000?d0oooo000Q0?ooo`030000003oool0oooo0?`0
+oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q
+0?ooo`030000003oool0oooo0?`0oooo000>0?ooo`800000103oool2000000@0oooo0P0000050?oo
+o`030000003oool0oooo0?`0oooo000=0?ooo`040000003oool0oooo000000P0oooo00@000000?oo
+o`3oool00000103oool00`000000oooo0?ooo`3l0?ooo`003@3oool010000000oooo0?ooo`00000;
+0?ooo`030000003oool0oooo0080oooo0P00003m0?ooo`003@3oool010000000oooo0?ooo`000009
+0?ooo`8000001@3oool00`000000oooo0?ooo`3l0?ooo`003@3oool010000000oooo0?ooo`000009
+0?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool0o03oool000h0oooo0P00000:0?oo
+o`<00000103oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`00
+8@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool2
+00000?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0
+oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q
+0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`80
+0000o@3oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03o
+ool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240
+oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo0P00
+003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool20000
+0?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo
+000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?oo
+o`030000003oool0oooo0?`0oooo000I0?ooo`D000000`3oool00`000000oooo0?ooo`3l0?ooo`00
+6`3oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo0?`0oooo000K0?ooo`030000003o
+ool0oooo00<0oooo0P00003m0?ooo`006`3oool00`000000oooo0?ooo`030?ooo`030000003oool0
+oooo0?`0oooo000K0?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool0o03oool001X0
+oooo0P0000050?ooo`030000003oool0oooo0?`0oooo003o0?ooob40oooo003o0?ooob40oooo003o
+0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o
+0?ooob40oooo00060?ooo`030000003oool0oooo01d0oooo00<000000?ooo`3oool0m`3oool000D0
+oooo00<000000?ooo`3oool01P3oool00`000000oooo0?ooo`0F0?ooo`030000003oool0oooo0?H0
+oooo00040?ooo`040000003oool0oooo0?ooo`<00000103oool010000000oooo0?ooo`3oool20000
+00040?ooo`000000oooo00000080oooo0P0000030?ooo`<000001@3oool00`000000oooo0?ooo`03
+000000040?ooo`00000000000?ooo`@00000jP3oool000@0oooo00<000000?ooo`3oool00P3oool0
+0`000000oooo0?ooo`030?ooo`030000003oool0oooo0080oooo00L000000?ooo`000000oooo0000
+003oool000000080oooo00D000000?ooo`3oool0oooo000000060?ooo`050000003oool0oooo0?oo
+o`0000000P3oool01@000000oooo0?ooo`3oool000000>`0oooo00040?ooo`030000003oool0oooo
+0080oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`020?ooo`070000003oool00000
+0?ooo`000000oooo000000020?ooo`050000003oool0oooo0?ooo`0000001P3oool01@000000oooo
+0?ooo`3oool000000080oooo00D000000?ooo`3oool0oooo0000003/0?ooo`00103oool00`000000
+oooo0?ooo`020?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool00`0000000`3oool0
+00000?ooo`020?ooo`800000103oool00`000000oooo0?ooo`040?ooo`040000003oool0oooo0?oo
+o`<000000`3oool400000>X0oooo00050?ooo`050000003oool0oooo0?ooo`0000001P3oool00`00
+0000oooo0?ooo`0>0?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool00P3oool00`00
+0000oooo0?ooo`0=0?ooo`800000hP3oool000H0oooo00@000000?ooo`00000000001`3oool00`00
+0000oooo0?ooo`0<0?ooo`800000103oool00`000000oooo0?ooo`020?ooo`8000002`3oool30000
+0080oooo00<000000?ooo`3oool0h03oool003d0oooo00<000000?ooo`3oool0h03oool003`0oooo
+0P00003R0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00
+\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.938, 0}} -> {-2.86436, -1.10705, \
+0.0862242, 0.0139513}}],
+
+Cell[BoxData[
+    TagBox[\(\[SkeletonIndicator]  Graphics  \[SkeletonIndicator]\),
+      False,
+      Editable->False]], "Output"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0238095 0.047619 0.0147151 0.588604 [
+[.2619 .00222 -3 -9 ]
+[.2619 .00222 3 0 ]
+[.5 .00222 -6 -9 ]
+[.5 .00222 6 0 ]
+[.7381 .00222 -6 -9 ]
+[.7381 .00222 6 0 ]
+[.97619 .00222 -6 -9 ]
+[.97619 .00222 6 0 ]
+[1.025 .01472 0 -6.1875 ]
+[1.025 .01472 9.9375 6.1875 ]
+[.01131 .13244 -18 -4.5 ]
+[.01131 .13244 0 4.5 ]
+[.01131 .25016 -18 -4.5 ]
+[.01131 .25016 0 4.5 ]
+[.01131 .36788 -18 -4.5 ]
+[.01131 .36788 0 4.5 ]
+[.01131 .4856 -18 -4.5 ]
+[.01131 .4856 0 4.5 ]
+[.01131 .60332 -6 -4.5 ]
+[.01131 .60332 0 4.5 ]
+[.02381 .64303 -33.2188 0 ]
+[.02381 .64303 33.2188 13.0625 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.2619 .01472 m
+.2619 .02097 L
+s
+[(5)] .2619 .00222 0 1 Mshowa
+.5 .01472 m
+.5 .02097 L
+s
+[(10)] .5 .00222 0 1 Mshowa
+.7381 .01472 m
+.7381 .02097 L
+s
+[(15)] .7381 .00222 0 1 Mshowa
+.97619 .01472 m
+.97619 .02097 L
+s
+[(20)] .97619 .00222 0 1 Mshowa
+.125 Mabswid
+.07143 .01472 m
+.07143 .01847 L
+s
+.11905 .01472 m
+.11905 .01847 L
+s
+.16667 .01472 m
+.16667 .01847 L
+s
+.21429 .01472 m
+.21429 .01847 L
+s
+.30952 .01472 m
+.30952 .01847 L
+s
+.35714 .01472 m
+.35714 .01847 L
+s
+.40476 .01472 m
+.40476 .01847 L
+s
+.45238 .01472 m
+.45238 .01847 L
+s
+.54762 .01472 m
+.54762 .01847 L
+s
+.59524 .01472 m
+.59524 .01847 L
+s
+.64286 .01472 m
+.64286 .01847 L
+s
+.69048 .01472 m
+.69048 .01847 L
+s
+.78571 .01472 m
+.78571 .01847 L
+s
+.83333 .01472 m
+.83333 .01847 L
+s
+.88095 .01472 m
+.88095 .01847 L
+s
+.92857 .01472 m
+.92857 .01847 L
+s
+.25 Mabswid
+0 .01472 m
+1 .01472 L
+s
+gsave
+1.025 .01472 -61 -10.1875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.375 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+68.938 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+.02381 .13244 m
+.03006 .13244 L
+s
+[(0.2)] .01131 .13244 1 0 Mshowa
+.02381 .25016 m
+.03006 .25016 L
+s
+[(0.4)] .01131 .25016 1 0 Mshowa
+.02381 .36788 m
+.03006 .36788 L
+s
+[(0.6)] .01131 .36788 1 0 Mshowa
+.02381 .4856 m
+.03006 .4856 L
+s
+[(0.8)] .01131 .4856 1 0 Mshowa
+.02381 .60332 m
+.03006 .60332 L
+s
+[(1)] .01131 .60332 1 0 Mshowa
+.125 Mabswid
+.02381 .04415 m
+.02756 .04415 L
+s
+.02381 .07358 m
+.02756 .07358 L
+s
+.02381 .10301 m
+.02756 .10301 L
+s
+.02381 .16187 m
+.02756 .16187 L
+s
+.02381 .1913 m
+.02756 .1913 L
+s
+.02381 .22073 m
+.02756 .22073 L
+s
+.02381 .27959 m
+.02756 .27959 L
+s
+.02381 .30902 m
+.02756 .30902 L
+s
+.02381 .33845 m
+.02756 .33845 L
+s
+.02381 .39731 m
+.02756 .39731 L
+s
+.02381 .42674 m
+.02756 .42674 L
+s
+.02381 .45617 m
+.02756 .45617 L
+s
+.02381 .51503 m
+.02756 .51503 L
+s
+.02381 .54446 m
+.02756 .54446 L
+s
+.02381 .57389 m
+.02756 .57389 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+gsave
+.02381 .64303 -94.2188 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 21.0625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 13.438 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 13.438 moveto
+(H) show
+68.938 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(l) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+74.875 13.438 moveto
+(\\220) show
+80.813 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(mol) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+98.625 13.438 moveto
+(L) show
+104.563 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(hr) show
+116.438 9.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+120.688 9.500 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+125.438 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+0 1 1 r
+.5 Mabswid
+.02381 .60332 m
+.04262 .50625 L
+.06244 .43345 L
+.08255 .37877 L
+.10458 .33321 L
+.12579 .29896 L
+.14509 .27362 L
+.18408 .23411 L
+.22401 .20446 L
+.26243 .18263 L
+.30329 .16431 L
+.34264 .1501 L
+.38048 .13876 L
+.42077 .12861 L
+.45954 .12029 L
+.50076 .11269 L
+.54047 .10633 L
+.57866 .10095 L
+.61931 .09587 L
+.65844 .09152 L
+.70002 .08738 L
+.74009 .08379 L
+.77864 .08066 L
+.81964 .07763 L
+.85913 .07496 L
+.8971 .07259 L
+.93752 .07028 L
+.97619 .06822 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.938},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/B000`400?l00000o`00003oo`3ooolQ
+0?ooo`00FP3oool2000003@0oooo1@0000020?ooo`800000<03oool500000080oooo0P00000a0?oo
+o`@000000`3oool2000001@0oooo001I0?ooo`040000003oool0oooo000003D0oooo00D000000?oo
+o`3oool0oooo000000020?ooo`030000003oool0oooo02l0oooo00D000000?ooo`3oool0oooo0000
+00020?ooo`030000003oool0oooo02h0oooo00<000000?ooo`3oool00`3oool010000000oooo0?oo
+o`00000C0?ooo`00G03oool00`000000oooo0?ooo`0c0?ooo`050000003oool0oooo0?ooo`000000
+0P3oool00`000000oooo0?ooo`0_0?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool0
+;`3oool00`000000oooo0?ooo`020?ooo`040000003oool0oooo000001<0oooo001J0?ooo`800000
+=P3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?ooo`3oool0;`3oool00`000000
+oooo0?ooo`020?ooo`800000<`3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?oo
+o`3oool04@3oool005X0oooo00<000000?ooo`3oool0=@3oool01@000000oooo0?ooo`3oool00000
+0080oooo00<000000?ooo`3oool0;`3oool00`000000oooo0?ooo`020?ooo`030000003oool0oooo
+0300oooo00@000000?ooo`3oool000000P3oool010000000oooo0?ooo`00000C0?ooo`00FP3oool3
+000003@0oooo0P0000040?ooo`800000<@3oool2000000@0oooo0`00000a0?ooo`800000103oool2
+000001@0oooo003o0?ooob40oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000
+003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?<0oooo0P0000060?ooo`008P3oool0
+0`000000oooo0?ooo`3b0?ooo`040000003oool0oooo000000D0oooo000L0?oooo<00000203oool0
+0`000000oooo0?ooo`060?ooo`008P3oool00`000000oooo0?ooo`0f0?ooo`030000003oool0oooo
+03L0oooo00<000000?ooo`3oool0=P3oool00`000000oooo0?ooo`0g0?ooo`030000003oool0oooo
+00/0oooo1@0000050?ooo`008P3oool00`000000oooo0?ooo`3b0?ooo`030000003oool0oooo00H0
+oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?/0oooo000R
+0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`80
+0000o03oool00280oooo00<000000?ooo`3oool0n`3oool00280oooo00<000000?ooo`3oool0n`3o
+ool00280oooo00<000000?ooo`3oool0n`3oool00280oooo00<000000?ooo`3oool0n`3oool00280
+oooo00<000000?ooo`3oool0n`3oool00280oooo00<000000?ooo`3oool0e@3oool?003ooaL0oooo
+000R0?ooo`800000a03ooolB003oobH0oooo000R0?ooo`030000003oool0oooo0;T0oooo2P00oolh
+0?ooo`008P3oool00`000000oooo0?ooo`2V0?oooa<00?oo@P3oool00280oooo00<000000?ooo`3o
+ool0W03oool:003ooeD0oooo000R0?ooo`030000003oool0oooo0980oooo2P00oomO0?ooo`008P3o
+ool00`000000oooo0?ooo`290?ooo`T00?ooJ@3oool00280oooo00<000000?ooo`3oool0P@3oool8
+003oog80oooo000R0?ooo`800000OP3oool4003oogX0oooo000R0?ooo`030000003oool0oooo07H0
+oooo1`00oomn0?ooo`008P3oool00`000000oooo0?ooo`1^0?ooo`P00?ooQ@3oool00280oooo00<0
+00000?ooo`3oool0J@3oool5003oohd0oooo000R0?ooo`030000003oool0oooo06@0oooo1@00oonB
+0?ooo`003`3oool2000000@0oooo0P0000030?ooo`@00000103oool00`000000oooo0?ooo`1P0?oo
+o`@00?ooU`3oool000h0oooo00@000000?ooo`3oool00000203oool00`000000oooo0?ooo`050?oo
+o`030000003oool0oooo05`0oooo1000oonK0?ooo`003P3oool010000000oooo0?ooo`0000090?oo
+o`030000003oool0oooo00@0oooo0P00001J0?ooo`<00?ooW`3oool000h0oooo00@000000?ooo`3o
+ool000002P3oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo05D0oooo1000oonR0?oo
+o`003P3oool010000000oooo0?ooo`0000080?ooo`040000003oool0oooo000000@0oooo00<00000
+0?ooo`3oool0D@3oool4003oojH0oooo000?0?ooo`8000002P3oool2000000D0oooo00<000000?oo
+o`3oool0C@3oool4003oojX0oooo000R0?ooo`030000003oool0oooo04T0oooo1000oon^0?ooo`00
+8P3oool00`000000oooo0?ooo`170?ooo`800?oo/P3oool00280oooo00<000000?ooo`3oool0A03o
+ool3003ook@0oooo000R0?ooo`800000@`3oool2003ookL0oooo000R0?ooo`030000003oool0oooo
+03l0oooo0`00ooni0?ooo`008P3oool00`000000oooo0?ooo`0m0?ooo`800?oo_03oool00280oooo
+00<000000?ooo`3oool0>P3oool3003ookh0oooo000R0?ooo`030000003oool0oooo03P0oooo0P00
+ooo10?ooo`008P3oool00`000000oooo0?ooo`0f0?ooo`800?oo``3oool00280oooo00<000000?oo
+o`3oool0=03oool2003oolD0oooo000R0?ooo`800000<`3oool2003oolL0oooo000R0?ooo`030000
+003oool0oooo0300oooo0P00ooo90?ooo`008P3oool00`000000oooo0?ooo`0^0?ooo`800?oob`3o
+ool00280oooo00<000000?ooo`3oool0;@3oool00`00ool0oooo0?ooo`3;0?ooo`008P3oool00`00
+0000oooo0?ooo`0/0?ooo`03003oo`3oool0oooo0<`0oooo000R0?ooo`030000003oool0oooo02X0
+oooo0P00ooo?0?ooo`008P3oool00`000000oooo0?ooo`0Y0?ooo`03003oo`3oool0oooo0<l0oooo
+000R0?ooo`800000:@3oool00`00ool0oooo0?ooo`3@0?ooo`008P3oool00`000000oooo0?ooo`0W
+0?ooo`03003oo`3oool0oooo0=40oooo000R0?ooo`030000003oool0oooo02D0oooo0P00oooD0?oo
+o`008P3oool00`000000oooo0?ooo`0T0?ooo`03003oo`3oool0oooo0=@0oooo000R0?ooo`030000
+003oool0oooo02<0oooo00<00?oo0?ooo`3oool0e@3oool000l0oooo0P0000040?ooo`8000001@3o
+ool3000000<0oooo00<000000?ooo`3oool08P3oool00`00ool0oooo0?ooo`3F0?ooo`003P3oool0
+10000000oooo0?ooo`00000;0?ooo`030000003oool0oooo0080oooo00<000000?ooo`3oool08@3o
+ool00`00ool0oooo0?ooo`3G0?ooo`003P3oool010000000oooo0?ooo`0000080?ooo`D000000`3o
+ool200000240oooo00<00?oo0?ooo`3oool0f03oool000h0oooo00@000000?ooo`3oool00000203o
+ool010000000oooo0?ooo`0000040?ooo`030000003oool0oooo01l0oooo00<00?oo0?ooo`3oool0
+f@3oool000h0oooo00@000000?ooo`3oool000002@3oool00`000000oooo000000040?ooo`030000
+003oool0oooo01h0oooo00<00?oo0?ooo`3oool0fP3oool000l0oooo0P00000;0?ooo`800000103o
+ool00`000000oooo0?ooo`0M0?ooo`03003oo`3oool0oooo0=/0oooo000R0?ooo`030000003oool0
+oooo01`0oooo00<00?oo0?ooo`3oool0g03oool00280oooo00<000000?ooo`3oool06`3oool00`00
+ool0oooo0?ooo`3M0?ooo`008P3oool00`000000oooo0?ooo`0J0?ooo`03003oo`3oool0oooo0=h0
+oooo000R0?ooo`030000003oool0oooo01T0oooo00<00?oo0?ooo`3oool0g`3oool00280oooo0P00
+000I0?ooo`03003oo`3oool0oooo0>00oooo000R0?ooo`030000003oool0oooo01L0oooo00<00?oo
+0?ooo`3oool0h@3oool00280oooo00<000000?ooo`3oool05`3oool00`00ool0oooo0?ooo`3Q0?oo
+o`008P3oool00`000000oooo0?ooo`0F0?ooo`03003oo`3oool0oooo0>80oooo000R0?ooo`030000
+003oool0oooo01D0oooo00<00?oo0?ooo`3oool0h`3oool00280oooo00<000000?ooo`3oool0503o
+ool00`00ool0oooo0?ooo`3T0?ooo`008P3oool00`000000oooo0?ooo`0D0?ooo`03003oo`3oool0
+oooo0>@0oooo000R0?ooo`800000503oool00`00ool0oooo0?ooo`3U0?ooo`008P3oool00`000000
+oooo0?ooo`0C0?ooo`03003oo`3oool0oooo0>D0oooo000R0?ooo`030000003oool0oooo0180oooo
+00<00?oo0?ooo`3oool0iP3oool00280oooo00<000000?ooo`3oool04P3oool00`00ool0oooo0?oo
+o`3V0?ooo`008P3oool00`000000oooo0?ooo`0A0?ooo`03003oo`3oool0oooo0>L0oooo000R0?oo
+o`030000003oool0oooo0140oooo00<00?oo0?ooo`3oool0i`3oool00280oooo00<000000?ooo`3o
+ool0403oool00`00ool0oooo0?ooo`3X0?ooo`008P3oool200000140oooo00<00?oo0?ooo`3oool0
+j03oool00280oooo00<000000?ooo`3oool03`3oool00`00ool0oooo0?ooo`3Y0?ooo`008P3oool0
+0`000000oooo0?ooo`0?0?ooo`03003oo`3oool0oooo0>T0oooo000R0?ooo`030000003oool0oooo
+00h0oooo00<00?oo0?ooo`3oool0jP3oool00280oooo00<000000?ooo`3oool03P3oool00`00ool0
+oooo0?ooo`3Z0?ooo`003`3oool2000000@0oooo0P0000030?ooo`<000001@3oool00`000000oooo
+0?ooo`0=0?ooo`03003oo`3oool0oooo0>/0oooo000>0?ooo`040000003oool0oooo000000P0oooo
+00@000000?ooo`3oool00000103oool00`000000oooo0?ooo`0=0?ooo`03003oo`3oool0oooo0>/0
+oooo000>0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool20000
+00d0oooo00<00?oo0?ooo`3oool0k03oool000h0oooo00@000000?ooo`3oool00000203oool30000
+00D0oooo00<000000?ooo`3oool0303oool00`00ool0oooo0?ooo`3/0?ooo`003P3oool010000000
+oooo0?ooo`0000090?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool02`3oool00`00
+ool0oooo0?ooo`3]0?ooo`003`3oool2000000X0oooo0`0000040?ooo`030000003oool0oooo00/0
+oooo00<00?oo0?ooo`3oool0k@3oool00280oooo00<000000?ooo`3oool02`3oool00`00ool0oooo
+0?ooo`3]0?ooo`008P3oool00`000000oooo0?ooo`0:0?ooo`03003oo`3oool0oooo0>h0oooo000R
+0?ooo`030000003oool0oooo00X0oooo00<00?oo0?ooo`3oool0kP3oool00280oooo0P00000:0?oo
+o`03003oo`3oool0oooo0>l0oooo000R0?ooo`030000003oool0oooo00T0oooo00<00?oo0?ooo`3o
+ool0k`3oool00280oooo00<000000?ooo`3oool02@3oool00`00ool0oooo0?ooo`3_0?ooo`008P3o
+ool00`000000oooo0?ooo`080?ooo`03003oo`3oool0oooo0?00oooo000R0?ooo`030000003oool0
+oooo00P0oooo00<00?oo0?ooo`3oool0l03oool00280oooo00<000000?ooo`3oool0203oool00`00
+ool0oooo0?ooo`3`0?ooo`008P3oool00`000000oooo0?ooo`070?ooo`03003oo`3oool0oooo0?40
+oooo000R0?ooo`800000203oool00`00ool0oooo0?ooo`3a0?ooo`008P3oool00`000000oooo0?oo
+o`060?ooo`03003oo`3oool0oooo0?80oooo000R0?ooo`030000003oool0oooo00H0oooo00<00?oo
+0?ooo`3oool0lP3oool00280oooo00<000000?ooo`3oool01P3oool00`00ool0oooo0?ooo`3b0?oo
+o`008P3oool00`000000oooo0?ooo`050?ooo`03003oo`3oool0oooo0?<0oooo000R0?ooo`030000
+003oool0oooo00D0oooo00<00?oo0?ooo`3oool0l`3oool00280oooo00<000000?ooo`3oool01@3o
+ool00`00ool0oooo0?ooo`3c0?ooo`008P3oool2000000H0oooo00<00?oo0?ooo`3oool0l`3oool0
+0280oooo00<000000?ooo`3oool0103oool00`00ool0oooo0?ooo`3d0?ooo`008P3oool00`000000
+oooo0?ooo`040?ooo`03003oo`3oool0oooo0?@0oooo000R0?ooo`030000003oool0oooo00@0oooo
+00<00?oo0?ooo`3oool0m03oool00280oooo00<000000?ooo`3oool00`3oool00`00ool0oooo0?oo
+o`3e0?ooo`003`3oool2000000@0oooo0P0000040?ooo`8000001@3oool00`000000oooo0?ooo`03
+0?ooo`03003oo`3oool0oooo0?D0oooo000>0?ooo`040000003oool0oooo000000P0oooo00@00000
+0?ooo`3oool00000103oool00`000000oooo0?ooo`030?ooo`03003oo`3oool0oooo0?D0oooo000>
+0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool2000000<0oooo
+00<00?oo0?ooo`3oool0mP3oool000h0oooo00@000000?ooo`3oool000002@3oool2000000D0oooo
+00<000000?ooo`3oool00P3oool00`00ool0oooo0?ooo`3f0?ooo`003P3oool010000000oooo0?oo
+o`0000080?ooo`040000003oool0oooo000000@0oooo00<000000?ooo`3oool00P3oool00`00ool0
+oooo0?ooo`3f0?ooo`003`3oool2000000X0oooo0P0000050?ooo`030000003oool0oooo0080oooo
+00<00?oo0?ooo`3oool0mP3oool00280oooo00D000000?ooo`3oool0oooo003oo`3i0?ooo`008P3o
+ool01@000000oooo0?ooo`3oool00?oo0?T0oooo000R0?ooo`050000003oool0oooo0?ooo`00ool0
+n@3oool00280oooo0P0000020?ooo`03003oo`3oool0oooo0?L0oooo000R0?ooo`040000003oool0
+oooo003oooX0oooo000R0?ooo`040000003oool0oooo003oooX0oooo000R0?ooo`040000003oool0
+oooo003oooX0oooo000R0?ooo`040000003oool0oooo003oooX0oooo000R0?ooo`040000003oool0
+oooo003oooX0oooo000R0?ooo`040000003oool0oooo003oooX0oooo000R0?ooo`030000003oool0
+0?oo0?/0oooo000R0?ooo`80000000<00?oo0?ooo`3oool0n@3oool00280oooo00<000000?ooo`00
+ool0n`3oool00280oooo00<000000?ooo`00ool0n`3oool00280oooo00<000000?ooo`00ool0n`3o
+ool00280oooo00<000000?ooo`00ool0n`3oool00280oooo00<00000003oo`3oool0n`3oool00280
+oooo00<00000003oo`3oool0n`3oool00280oooo00<00000003oo`3oool0n`3oool00280oooo00<0
+0000003oo`3oool0n`3oool00280oooo00<00000003oo`3oool0n`3oool00280oooo00<00000003o
+o`3oool0n`3oool00280oooo00<00?oo0?ooo`3oool0n`3oool001X0oooo1@0000030?ooo`03003o
+o`3oool0oooo0?/0oooo000L0?ooo`030000003oool0oooo00<0oooo00<00?oo0?ooo`3oool0n`3o
+ool001`0oooo00<000000?ooo`3oool00`3oool00`00ool000000?ooo`3k0?ooo`00703oool00`00
+0000oooo0?ooo`030?ooo`030000003oool0oooo0?/0oooo000L0?ooo`030000003oool0oooo00<0
+oooo00<000000?ooo`3oool0n`3oool001/0oooo0P0000050?ooo`030000003oool0oooo0?/0oooo
+003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo
+003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo00060?ooo`030000003oool0oooo01h0
+oooo00<000000?ooo`3oool0mP3oool000D0oooo00<000000?ooo`3oool01`3oool00`000000oooo
+0?ooo`0F0?ooo`030000003oool0oooo0?D0oooo00040?ooo`030000003oool0oooo0080oooo0`00
+00040?ooo`040000003oool0oooo0?ooo`80000000@0oooo0000003oool000000P3oool2000000<0
+oooo0`0000050?ooo`030000003oool0oooo00<0000000@0oooo000000000000oooo1000003Y0?oo
+o`00103oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3o
+ool00P3oool01`000000oooo0000003oool000000?ooo`0000000P3oool01@000000oooo0?ooo`3o
+ool0000000H0oooo00D000000?ooo`3oool0oooo000000020?ooo`050000003oool0oooo0?ooo`00
+0000j`3oool000@0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`030?ooo`030000
+003oool0oooo0080oooo00L000000?ooo`000000oooo0000003oool000000080oooo00D000000?oo
+o`3oool0oooo000000060?ooo`050000003oool0oooo0?ooo`0000000P3oool01@000000oooo0?oo
+o`3oool000000>/0oooo00040?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool0103o
+ool00`000000oooo0?ooo`03000000030?ooo`000000oooo0080oooo0P0000040?ooo`030000003o
+ool0oooo00@0oooo00@000000?ooo`3oool0oooo0`0000030?ooo`@00000j@3oool000D0oooo00<0
+00000?ooo`3oool00P3oool00`000000oooo0?ooo`040?ooo`030000003oool0oooo00h0oooo00<0
+00000?ooo`3oool00`3oool00`000000oooo0?ooo`020?ooo`030000003oool0oooo00d0oooo0P00
+003Q0?ooo`001P3oool00`000000oooo0?ooo`02000000L0oooo00<000000?ooo`3oool0303oool2
+000000@0oooo00<000000?ooo`3oool00P3oool2000000/0oooo0`0000020?ooo`030000003oool0
+oooo0=l0oooo000n0?ooo`030000003oool0oooo0=l0oooo000m0?ooo`800000h@3oool00?l0oooo
+8@3oool00001\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.938, 0}} -> {-2.96772, -0.0845, \
+0.0868904, 0.00702958}}],
+
+Cell[BoxData[
+    TagBox[\(\[SkeletonIndicator]  Graphics  \[SkeletonIndicator]\),
+      False,
+      Editable->False]], "Output"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0238095 0.047619 0.309017 0.294302 [
+[.2619 .29652 -3 -9 ]
+[.2619 .29652 3 0 ]
+[.5 .29652 -6 -9 ]
+[.5 .29652 6 0 ]
+[.7381 .29652 -6 -9 ]
+[.7381 .29652 6 0 ]
+[.97619 .29652 -6 -9 ]
+[.97619 .29652 6 0 ]
+[1.025 .30902 0 -6.1875 ]
+[1.025 .30902 9.9375 6.1875 ]
+[.01131 .01472 -12 -4.5 ]
+[.01131 .01472 0 4.5 ]
+[.01131 .16187 -24 -4.5 ]
+[.01131 .16187 0 4.5 ]
+[.01131 .45617 -18 -4.5 ]
+[.01131 .45617 0 4.5 ]
+[.01131 .60332 -6 -4.5 ]
+[.01131 .60332 0 4.5 ]
+[.02381 .64303 -33.2188 0 ]
+[.02381 .64303 33.2188 13.0625 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.2619 .30902 m
+.2619 .31527 L
+s
+[(5)] .2619 .29652 0 1 Mshowa
+.5 .30902 m
+.5 .31527 L
+s
+[(10)] .5 .29652 0 1 Mshowa
+.7381 .30902 m
+.7381 .31527 L
+s
+[(15)] .7381 .29652 0 1 Mshowa
+.97619 .30902 m
+.97619 .31527 L
+s
+[(20)] .97619 .29652 0 1 Mshowa
+.125 Mabswid
+.07143 .30902 m
+.07143 .31277 L
+s
+.11905 .30902 m
+.11905 .31277 L
+s
+.16667 .30902 m
+.16667 .31277 L
+s
+.21429 .30902 m
+.21429 .31277 L
+s
+.30952 .30902 m
+.30952 .31277 L
+s
+.35714 .30902 m
+.35714 .31277 L
+s
+.40476 .30902 m
+.40476 .31277 L
+s
+.45238 .30902 m
+.45238 .31277 L
+s
+.54762 .30902 m
+.54762 .31277 L
+s
+.59524 .30902 m
+.59524 .31277 L
+s
+.64286 .30902 m
+.64286 .31277 L
+s
+.69048 .30902 m
+.69048 .31277 L
+s
+.78571 .30902 m
+.78571 .31277 L
+s
+.83333 .30902 m
+.83333 .31277 L
+s
+.88095 .30902 m
+.88095 .31277 L
+s
+.92857 .30902 m
+.92857 .31277 L
+s
+.25 Mabswid
+0 .30902 m
+1 .30902 L
+s
+gsave
+1.025 .30902 -61 -10.1875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.375 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+68.938 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+.02381 .01472 m
+.03006 .01472 L
+s
+[(-1)] .01131 .01472 1 0 Mshowa
+.02381 .16187 m
+.03006 .16187 L
+s
+[(-0.5)] .01131 .16187 1 0 Mshowa
+.02381 .45617 m
+.03006 .45617 L
+s
+[(0.5)] .01131 .45617 1 0 Mshowa
+.02381 .60332 m
+.03006 .60332 L
+s
+[(1)] .01131 .60332 1 0 Mshowa
+.125 Mabswid
+.02381 .04415 m
+.02756 .04415 L
+s
+.02381 .07358 m
+.02756 .07358 L
+s
+.02381 .10301 m
+.02756 .10301 L
+s
+.02381 .13244 m
+.02756 .13244 L
+s
+.02381 .1913 m
+.02756 .1913 L
+s
+.02381 .22073 m
+.02756 .22073 L
+s
+.02381 .25016 m
+.02756 .25016 L
+s
+.02381 .27959 m
+.02756 .27959 L
+s
+.02381 .33845 m
+.02756 .33845 L
+s
+.02381 .36788 m
+.02756 .36788 L
+s
+.02381 .39731 m
+.02756 .39731 L
+s
+.02381 .42674 m
+.02756 .42674 L
+s
+.02381 .4856 m
+.02756 .4856 L
+s
+.02381 .51503 m
+.02756 .51503 L
+s
+.02381 .54446 m
+.02756 .54446 L
+s
+.02381 .57389 m
+.02756 .57389 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+gsave
+.02381 .64303 -94.2188 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 21.0625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 13.438 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 13.438 moveto
+(H) show
+68.938 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(l) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+74.875 13.438 moveto
+(\\220) show
+80.813 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(mol) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+98.625 13.438 moveto
+(L) show
+104.563 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(hr) show
+116.438 9.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+120.688 9.500 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+125.438 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+1 1 1 r
+.5 Mabswid
+.02381 .30902 m
+.02499 .30902 L
+.02605 .30902 L
+.02729 .30902 L
+.02846 .30902 L
+.02954 .30902 L
+.03053 .30902 L
+.03163 .30902 L
+.03279 .30902 L
+.03395 .30902 L
+.0352 .30902 L
+.03638 .30902 L
+.03746 .30902 L
+.03873 .30902 L
+.03944 .30902 L
+.04011 .30902 L
+.04132 .30902 L
+.04262 .30902 L
+.04327 .30902 L
+.04396 .30902 L
+.04519 .30902 L
+.04588 .30902 L
+.04652 .30902 L
+.04722 .30902 L
+.04797 .30902 L
+.04862 .30902 L
+.04933 .30902 L
+.05061 .30902 L
+.05186 .30902 L
+.05302 .30902 L
+.05414 .30902 L
+.05519 .30902 L
+.05634 .30902 L
+.05759 .30902 L
+.05882 .30902 L
+.06012 .30902 L
+.06123 .30902 L
+.06244 .30902 L
+.06315 .30902 L
+.06381 .30902 L
+.06453 .30902 L
+.06529 .30902 L
+.06657 .30902 L
+.06729 .30902 L
+.06797 .30902 L
+.06924 .30902 L
+.0704 .30902 L
+.07103 .30902 L
+.07173 .30902 L
+.073 .30902 L
+Mistroke
+.07376 .30902 L
+.07448 .30902 L
+.07513 .30902 L
+.07583 .30902 L
+.0766 .30902 L
+.0774 .30902 L
+.07809 .30902 L
+.07885 .30902 L
+.07956 .30902 L
+.0802 .30902 L
+.08095 .30902 L
+.08166 .30902 L
+.08291 .30902 L
+.08362 .30902 L
+.08427 .30902 L
+.08544 .30902 L
+.08669 .30902 L
+.08787 .30902 L
+.08896 .30902 L
+.09016 .30902 L
+.09148 .30902 L
+.09214 .30902 L
+.09285 .30902 L
+.09413 .30902 L
+.09483 .30902 L
+.09548 .30902 L
+.09619 .30902 L
+.09695 .30902 L
+.09821 .30902 L
+.09893 .30902 L
+.09961 .30902 L
+.10086 .30902 L
+.10201 .30902 L
+.10333 .30902 L
+.10458 .30902 L
+.10572 .30902 L
+.10694 .30902 L
+.1081 .30902 L
+.10916 .30902 L
+.11033 .30902 L
+.11162 .30902 L
+.11227 .30902 L
+.11297 .30902 L
+.11422 .30902 L
+.11491 .30902 L
+.11554 .30902 L
+.11624 .30902 L
+.11698 .30902 L
+.11822 .30902 L
+.11892 .30902 L
+Mistroke
+.11958 .30902 L
+.12081 .30902 L
+.12194 .30902 L
+.12323 .30902 L
+.12446 .30902 L
+.12562 .30902 L
+.12668 .30902 L
+.12789 .30902 L
+.12903 .30902 L
+.13009 .30902 L
+.13107 .30902 L
+.13214 .30902 L
+.13327 .30902 L
+.13441 .30902 L
+.13564 .30902 L
+.1368 .30902 L
+.13785 .30902 L
+.13909 .30902 L
+.13979 .30902 L
+.14043 .30902 L
+.14162 .30902 L
+.14288 .30902 L
+.14402 .30902 L
+.14526 .30902 L
+.14656 .30902 L
+.14777 .30902 L
+.14891 .30902 L
+.14994 .30902 L
+.15113 .30902 L
+.15226 .30902 L
+.15348 .30902 L
+.15478 .30902 L
+.15589 .30902 L
+.15711 .30902 L
+.15842 .30902 L
+.15915 .30902 L
+.15982 .30902 L
+.16113 .30902 L
+.16236 .30902 L
+.16352 .30902 L
+.16456 .30902 L
+.16577 .30902 L
+.1669 .30902 L
+.16796 .30902 L
+.16893 .30902 L
+.16999 .30902 L
+.17111 .30902 L
+.17225 .30902 L
+.17347 .30902 L
+.17462 .30902 L
+Mistroke
+.17566 .30902 L
+.17689 .30902 L
+.17758 .30902 L
+.17823 .30902 L
+.1794 .30902 L
+.18065 .30902 L
+.18185 .30902 L
+.18316 .30902 L
+.18441 .30902 L
+.18556 .30902 L
+.1867 .30902 L
+.18773 .30902 L
+.18893 .30902 L
+.19005 .30902 L
+.19128 .30902 L
+.19258 .30902 L
+.19369 .30902 L
+.19491 .30902 L
+.19623 .30902 L
+.19696 .30902 L
+.19763 .30902 L
+.19894 .30902 L
+.20017 .30902 L
+.20122 .30902 L
+.20238 .30902 L
+.20359 .30902 L
+.20472 .30902 L
+.20578 .30902 L
+.20675 .30902 L
+.20781 .30902 L
+.20894 .30902 L
+.21008 .30902 L
+.21129 .30902 L
+.21244 .30902 L
+.21349 .30902 L
+.21472 .30902 L
+.21541 .30902 L
+.21605 .30902 L
+.21723 .30902 L
+.21847 .30902 L
+.21968 .30902 L
+.221 .30902 L
+.22224 .30902 L
+.2234 .30902 L
+.22454 .30902 L
+.22558 .30902 L
+.22677 .30902 L
+.2279 .30902 L
+.22914 .30902 L
+.23044 .30902 L
+Mistroke
+.23155 .30902 L
+.23277 .30902 L
+.23409 .30902 L
+.23482 .30902 L
+.2355 .30902 L
+.2368 .30902 L
+.23804 .30902 L
+.23909 .30902 L
+.24025 .30902 L
+.24146 .30902 L
+.2426 .30902 L
+.24365 .30902 L
+.24462 .30902 L
+.24569 .30902 L
+.24681 .30902 L
+.24795 .30902 L
+.24917 .30902 L
+.25032 .30902 L
+.25137 .30902 L
+.2526 .30902 L
+.25329 .30902 L
+.25393 .30902 L
+.2551 .30902 L
+.25635 .30902 L
+.25756 .30902 L
+.25888 .30902 L
+.26013 .30902 L
+.26129 .30902 L
+.26233 .30902 L
+.26348 .30902 L
+.26467 .30902 L
+.2658 .30902 L
+.26704 .30902 L
+.26835 .30902 L
+.26946 .30902 L
+.27068 .30902 L
+.272 .30902 L
+.27274 .30902 L
+.27341 .30902 L
+.27472 .30902 L
+.27595 .30902 L
+.27701 .30902 L
+.27817 .30902 L
+.27938 .30902 L
+.28052 .30902 L
+.28158 .30902 L
+.28255 .30902 L
+.28367 .30902 L
+.28474 .30902 L
+.28588 .30902 L
+Mistroke
+.2871 .30902 L
+.28825 .30902 L
+.2893 .30902 L
+.29053 .30902 L
+.29122 .30902 L
+.29186 .30902 L
+.29303 .30902 L
+.29427 .30902 L
+.29549 .30902 L
+.29618 .30902 L
+.29682 .30902 L
+.29799 .30902 L
+.29923 .30902 L
+.30034 .30902 L
+.30138 .30902 L
+.30252 .30902 L
+.30375 .30902 L
+.30499 .30902 L
+.30569 .30902 L
+.30634 .30902 L
+.30765 .30902 L
+.30839 .30902 L
+.30906 .30902 L
+.31026 .30902 L
+.31156 .30902 L
+.31278 .30902 L
+.31392 .30902 L
+.31497 .30902 L
+.31611 .30902 L
+.31718 .30902 L
+.31816 .30902 L
+.3193 .30902 L
+.32055 .30902 L
+.32173 .30902 L
+.32282 .30902 L
+.32406 .30902 L
+.32522 .30902 L
+.32626 .30902 L
+.32739 .30902 L
+.32862 .30902 L
+.32992 .30902 L
+.33103 .30902 L
+.33225 .30902 L
+.33356 .30902 L
+.33477 .30902 L
+.33541 .30902 L
+.3361 .30902 L
+.33683 .30902 L
+.33751 .30902 L
+.33876 .30902 L
+Mistroke
+.33991 .30902 L
+.34123 .30902 L
+.34249 .30902 L
+.3436 .30902 L
+.3448 .30902 L
+.34592 .30902 L
+.34694 .30902 L
+.34814 .30902 L
+.34945 .30902 L
+.35067 .30902 L
+.35181 .30902 L
+.35302 .30902 L
+.35431 .30902 L
+.35554 .30902 L
+.35665 .30902 L
+.35796 .30902 L
+.3587 .30902 L
+.35939 .30902 L
+.36064 .30902 L
+.36128 .30902 L
+.36198 .30902 L
+.36266 .30902 L
+.36337 .30902 L
+.36465 .30902 L
+.36536 .30902 L
+.36602 .30902 L
+.36675 .30902 L
+.36753 .30902 L
+.3682 .30902 L
+.36893 .30902 L
+.36962 .30902 L
+.37026 .30902 L
+.37146 .30902 L
+.37274 .30902 L
+.37394 .30902 L
+.37526 .30902 L
+.37651 .30902 L
+.37766 .30902 L
+.3788 .30902 L
+.37984 .30902 L
+.38103 .30902 L
+.38216 .30902 L
+.38339 .30902 L
+.3847 .30902 L
+.38581 .30902 L
+.38703 .30902 L
+.38834 .30902 L
+.38908 .30902 L
+.38975 .30902 L
+.39106 .30902 L
+Mistroke
+.39229 .30902 L
+.39334 .30902 L
+.3945 .30902 L
+.39571 .30902 L
+.39685 .30902 L
+.39791 .30902 L
+.39888 .30902 L
+.39994 .30902 L
+.40106 .30902 L
+.40221 .30902 L
+.40342 .30902 L
+.40457 .30902 L
+.40562 .30902 L
+.40685 .30902 L
+.40754 .30902 L
+.40818 .30902 L
+.40936 .30902 L
+.4106 .30902 L
+.41181 .30902 L
+.41313 .30902 L
+.41438 .30902 L
+.41554 .30902 L
+.41669 .30902 L
+.41772 .30902 L
+.41892 .30902 L
+.42005 .30902 L
+.42129 .30902 L
+.42259 .30902 L
+.42371 .30902 L
+.42493 .30902 L
+.42624 .30902 L
+.42698 .30902 L
+.42765 .30902 L
+.42896 .30902 L
+.43019 .30902 L
+.43125 .30902 L
+.43241 .30902 L
+.43362 .30902 L
+.43476 .30902 L
+.43582 .30902 L
+.43679 .30902 L
+.43791 .30902 L
+.43898 .30902 L
+.44012 .30902 L
+.44134 .30902 L
+.44249 .30902 L
+.44354 .30902 L
+.44477 .30902 L
+.44546 .30902 L
+.4461 .30902 L
+Mistroke
+.44727 .30902 L
+.44851 .30902 L
+.44973 .30902 L
+.45042 .30902 L
+.45106 .30902 L
+.45223 .30902 L
+.45347 .30902 L
+.45458 .30902 L
+.45562 .30902 L
+.45676 .30902 L
+.45799 .30902 L
+.45922 .30902 L
+.45992 .30902 L
+.46057 .30902 L
+.46188 .30902 L
+.46262 .30902 L
+.46329 .30902 L
+.46449 .30902 L
+.46579 .30902 L
+.46702 .30902 L
+.46815 .30902 L
+.4692 .30902 L
+.47034 .30902 L
+.47141 .30902 L
+.47239 .30902 L
+.47353 .30902 L
+.47478 .30902 L
+.47596 .30902 L
+.47705 .30902 L
+.47829 .30902 L
+.47945 .30902 L
+.48049 .30902 L
+.48162 .30902 L
+.48285 .30902 L
+.48415 .30902 L
+.48526 .30902 L
+.48648 .30902 L
+.48779 .30902 L
+.489 .30902 L
+.48963 .30902 L
+.49033 .30902 L
+.49105 .30902 L
+.49174 .30902 L
+.49299 .30902 L
+.49413 .30902 L
+.49539 .30902 L
+.49671 .30902 L
+.49783 .30902 L
+.49902 .30902 L
+.50014 .30902 L
+Mistroke
+.50116 .30902 L
+.50236 .30902 L
+.50366 .30902 L
+.50489 .30902 L
+.50603 .30902 L
+.50723 .30902 L
+.50853 .30902 L
+.50975 .30902 L
+.51087 .30902 L
+.51218 .30902 L
+.51292 .30902 L
+.51361 .30902 L
+.51486 .30902 L
+.5155 .30902 L
+.5162 .30902 L
+.51687 .30902 L
+.51759 .30902 L
+.51886 .30902 L
+.51958 .30902 L
+.52024 .30902 L
+.52096 .30902 L
+.52174 .30902 L
+.52241 .30902 L
+.52314 .30902 L
+.52383 .30902 L
+.52447 .30902 L
+.52568 .30902 L
+.52695 .30902 L
+.52816 .30902 L
+.52947 .30902 L
+.53072 .30902 L
+.53187 .30902 L
+.53301 .30902 L
+.53405 .30902 L
+.53525 .30902 L
+.53637 .30902 L
+.5376 .30902 L
+.53891 .30902 L
+.54002 .30902 L
+.54124 .30902 L
+.54255 .30902 L
+.54329 .30902 L
+.54396 .30902 L
+.54526 .30902 L
+.5465 .30902 L
+.54755 .30902 L
+.54871 .30902 L
+.54992 .30902 L
+.55105 .30902 L
+.55211 .30902 L
+Mistroke
+.55308 .30902 L
+.55415 .30902 L
+.55527 .30902 L
+.55641 .30902 L
+.55763 .30902 L
+.55878 .30902 L
+.55982 .30902 L
+.56105 .30902 L
+.56175 .30902 L
+.56238 .30902 L
+.56356 .30902 L
+.5648 .30902 L
+.56601 .30902 L
+.56734 .30902 L
+.56858 .30902 L
+.56974 .30902 L
+.57088 .30902 L
+.57192 .30902 L
+.57312 .30902 L
+.57425 .30902 L
+.57548 .30902 L
+.57679 .30902 L
+.5779 .30902 L
+.57912 .30902 L
+.58044 .30902 L
+.58118 .30902 L
+.58185 .30902 L
+.58315 .30902 L
+.58439 .30902 L
+.58544 .30902 L
+.5866 .30902 L
+.58782 .30902 L
+.58895 .30902 L
+.59001 .30902 L
+.59098 .30902 L
+.5921 .30902 L
+.59317 .30902 L
+.59431 .30902 L
+.59553 .30902 L
+.59668 .30902 L
+.59773 .30902 L
+.59896 .30902 L
+.59965 .30902 L
+.60029 .30902 L
+.60146 .30902 L
+.60271 .30902 L
+.60392 .30902 L
+.60461 .30902 L
+.60525 .30902 L
+.60642 .30902 L
+Mistroke
+.60766 .30902 L
+.60876 .30902 L
+.6098 .30902 L
+.61094 .30902 L
+.61217 .30902 L
+.61341 .30902 L
+.6141 .30902 L
+.61475 .30902 L
+.61607 .30902 L
+.6168 .30902 L
+.61747 .30902 L
+.61867 .30902 L
+.61997 .30902 L
+.6212 .30902 L
+.62233 .30902 L
+.62339 .30902 L
+.62452 .30902 L
+.62559 .30902 L
+.62657 .30902 L
+.62771 .30902 L
+.62896 .30902 L
+.63014 .30902 L
+.63123 .30902 L
+.63247 .30902 L
+.63363 .30902 L
+.63467 .30902 L
+.6358 .30902 L
+.63703 .30902 L
+.63833 .30902 L
+.63944 .30902 L
+.64066 .30902 L
+.64197 .30902 L
+.64318 .30902 L
+.64381 .30902 L
+.6445 .30902 L
+.64523 .30902 L
+.64591 .30902 L
+.64716 .30902 L
+.64831 .30902 L
+.64956 .30902 L
+.65088 .30902 L
+.652 .30902 L
+.65319 .30902 L
+.65431 .30902 L
+.65533 .30902 L
+.65653 .30902 L
+.65784 .30902 L
+.65906 .30902 L
+.6602 .30902 L
+.6614 .30902 L
+Mistroke
+.6627 .30902 L
+.66392 .30902 L
+.66504 .30902 L
+.66635 .30902 L
+.66709 .30902 L
+.66777 .30902 L
+.66903 .30902 L
+.66966 .30902 L
+.67036 .30902 L
+.67104 .30902 L
+.67175 .30902 L
+.67303 .30902 L
+.67374 .30902 L
+.6744 .30902 L
+.67513 .30902 L
+.67591 .30902 L
+.67658 .30902 L
+.67731 .30902 L
+.678 .30902 L
+.67864 .30902 L
+.67984 .30902 L
+.68112 .30902 L
+.68232 .30902 L
+.68364 .30902 L
+.68488 .30902 L
+.68603 .30902 L
+.68718 .30902 L
+.68821 .30902 L
+.68941 .30902 L
+.69053 .30902 L
+.69176 .30902 L
+.69307 .30902 L
+.69418 .30902 L
+.6954 .30902 L
+.69671 .30902 L
+.69745 .30902 L
+.69812 .30902 L
+.69942 .30902 L
+.70066 .30902 L
+.70171 .30902 L
+.70286 .30902 L
+.70407 .30902 L
+.70521 .30902 L
+.70627 .30902 L
+.70724 .30902 L
+.7083 .30902 L
+.70942 .30902 L
+.71056 .30902 L
+.71178 .30902 L
+.71293 .30902 L
+Mistroke
+.71398 .30902 L
+.71521 .30902 L
+.7159 .30902 L
+.71654 .30902 L
+.71771 .30902 L
+.71896 .30902 L
+.72017 .30902 L
+.72149 .30902 L
+.72273 .30902 L
+.72389 .30902 L
+.72503 .30902 L
+.72607 .30902 L
+.72727 .30902 L
+.7284 .30902 L
+.72963 .30902 L
+.73094 .30902 L
+.73205 .30902 L
+.73327 .30902 L
+.73458 .30902 L
+.73532 .30902 L
+.73599 .30902 L
+.7373 .30902 L
+.73853 .30902 L
+.73959 .30902 L
+.74075 .30902 L
+.74196 .30902 L
+.7431 .30902 L
+.74416 .30902 L
+.74513 .30902 L
+.74619 .30902 L
+.74731 .30902 L
+.74846 .30902 L
+.74967 .30902 L
+.75083 .30902 L
+.75187 .30902 L
+.7531 .30902 L
+.75379 .30902 L
+.75443 .30902 L
+.75561 .30902 L
+.75685 .30902 L
+.75806 .30902 L
+.75875 .30902 L
+.75939 .30902 L
+.76056 .30902 L
+.7618 .30902 L
+.7629 .30902 L
+.76394 .30902 L
+.76508 .30902 L
+.76631 .30902 L
+.76754 .30902 L
+Mistroke
+.76824 .30902 L
+.76889 .30902 L
+.7702 .30902 L
+.77094 .30902 L
+.77161 .30902 L
+.7728 .30902 L
+.7741 .30902 L
+.77533 .30902 L
+.77646 .30902 L
+.77752 .30902 L
+.77865 .30902 L
+.77972 .30902 L
+.7807 .30902 L
+.78184 .30902 L
+.78309 .30902 L
+.78427 .30902 L
+.78536 .30902 L
+.7866 .30902 L
+.78776 .30902 L
+.7888 .30902 L
+.78993 .30902 L
+.79116 .30902 L
+.79246 .30902 L
+.79357 .30902 L
+.79479 .30902 L
+.7961 .30902 L
+.7973 .30902 L
+.79793 .30902 L
+.79863 .30902 L
+.79936 .30902 L
+.80004 .30902 L
+.80129 .30902 L
+.80243 .30902 L
+.80369 .30902 L
+.80501 .30902 L
+.80612 .30902 L
+.80731 .30902 L
+.80843 .30902 L
+.80945 .30902 L
+.81066 .30902 L
+.81196 .30902 L
+.81318 .30902 L
+.81432 .30902 L
+.81552 .30902 L
+.81682 .30902 L
+.81804 .30902 L
+.81916 .30902 L
+.82047 .30902 L
+.8212 .30902 L
+.82189 .30902 L
+Mistroke
+.82315 .30902 L
+.82385 .30902 L
+.82448 .30902 L
+.82516 .30902 L
+.82587 .30902 L
+.82715 .30902 L
+.82786 .30902 L
+.82852 .30902 L
+.82925 .30902 L
+.83002 .30902 L
+.8307 .30902 L
+.83143 .30902 L
+.83212 .30902 L
+.83275 .30902 L
+.83396 .30902 L
+.83524 .30902 L
+.83644 .30902 L
+.83775 .30902 L
+.839 .30902 L
+.84015 .30902 L
+.84129 .30902 L
+.84232 .30902 L
+.84352 .30902 L
+.84464 .30902 L
+.84587 .30902 L
+.84718 .30902 L
+.84829 .30902 L
+.8495 .30902 L
+.85082 .30902 L
+.85155 .30902 L
+.85222 .30902 L
+.85353 .30902 L
+.85476 .30902 L
+.85581 .30902 L
+.85697 .30902 L
+.85818 .30902 L
+.85932 .30902 L
+.86037 .30902 L
+.86134 .30902 L
+.86241 .30902 L
+.86353 .30902 L
+.86467 .30902 L
+.86589 .30902 L
+.86704 .30902 L
+.86808 .30902 L
+.86931 .30902 L
+.87 .30902 L
+.87064 .30902 L
+.87182 .30902 L
+.87306 .30902 L
+Mistroke
+.87427 .30902 L
+.87559 .30902 L
+.87684 .30902 L
+.87799 .30902 L
+.87914 .30902 L
+.88017 .30902 L
+.88137 .30902 L
+.88249 .30902 L
+.88373 .30902 L
+.88503 .30902 L
+.88615 .30902 L
+.88737 .30902 L
+.88868 .30902 L
+.88942 .30902 L
+.89009 .30902 L
+.89139 .30902 L
+.89263 .30902 L
+.89368 .30902 L
+.89484 .30902 L
+.89605 .30902 L
+.89719 .30902 L
+.89825 .30902 L
+.89922 .30902 L
+.90029 .30902 L
+.90141 .30902 L
+.90255 .30902 L
+.90377 .30902 L
+.90492 .30902 L
+.90596 .30902 L
+.90719 .30902 L
+.90789 .30902 L
+.90852 .30902 L
+.9097 .30902 L
+.91094 .30902 L
+.91216 .30902 L
+.91284 .30902 L
+.91348 .30902 L
+.91464 .30902 L
+.91589 .30902 L
+.91699 .30902 L
+.91803 .30902 L
+.91917 .30902 L
+.9204 .30902 L
+.92163 .30902 L
+.92233 .30902 L
+.92297 .30902 L
+.92429 .30902 L
+.92502 .30902 L
+.92569 .30902 L
+.92689 .30902 L
+Mistroke
+.92819 .30902 L
+.92941 .30902 L
+.93055 .30902 L
+.9316 .30902 L
+.93273 .30902 L
+.9338 .30902 L
+.93478 .30902 L
+.93592 .30902 L
+.93717 .30902 L
+.93835 .30902 L
+.93944 .30902 L
+.94068 .30902 L
+.94184 .30902 L
+.94288 .30902 L
+.94401 .30902 L
+.94524 .30902 L
+.94654 .30902 L
+.94765 .30902 L
+.94887 .30902 L
+.94975 .30902 L
+.95057 .30902 L
+.95146 .30902 L
+.95241 .30902 L
+.95324 .30902 L
+.95401 .30902 L
+.95486 .30902 L
+.95577 .30902 L
+.95653 .30902 L
+.95737 .30902 L
+.95824 .30902 L
+.95905 .30902 L
+.95981 .30902 L
+.9605 .30902 L
+.9613 .30902 L
+.96206 .30902 L
+.96287 .30902 L
+.96377 .30902 L
+.96471 .30902 L
+.96559 .30902 L
+.96641 .30902 L
+.96716 .30902 L
+.96802 .30902 L
+.96884 .30902 L
+.96972 .30902 L
+.97067 .30902 L
+.97155 .30902 L
+.97236 .30902 L
+.97331 .30902 L
+.97433 .30902 L
+.9753 .30902 L
+Mistroke
+.97619 .30902 L
+Mfstroke
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.938},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/B000`400?l00000o`00003oo`3ooolQ
+0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`008@3oool00`000000oooo0?oo
+o`3l0?ooo`006@3oool5000000<0oooo00<000000?ooo`3oool0o03oool001/0oooo00<000000?oo
+o`3oool00`3oool00`000000oooo0?ooo`3l0?ooo`006`3oool00`000000oooo0?ooo`030?ooo`80
+0000o@3oool001<0oooo100000040?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool0
+o03oool001/0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`3l0?ooo`006P3oool2
+000000D0oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240
+oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo0P00
+003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`00
+0000oooo0?ooo`3l0?ooo`008@3oool200000?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo
+000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?oo
+o`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000
+003oool0oooo0?`0oooo000Q0?ooo`800000o@3oool00240oooo00<000000?ooo`3oool0o03oool0
+0240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo
+00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<00000
+0?ooo`3oool0o03oool00240oooo0P00003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`00
+8@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool0
+0`000000oooo0?ooo`3l0?ooo`003P3oool2000000@0oooo0P0000040?ooo`8000001@3oool00`00
+0000oooo0?ooo`3l0?ooo`003@3oool010000000oooo0?ooo`0000080?ooo`040000003oool0oooo
+000000@0oooo00<000000?ooo`3oool0o03oool000d0oooo00@000000?ooo`3oool000002`3oool0
+0`000000oooo0?ooo`020?ooo`800000o@3oool000L0oooo100000020?ooo`040000003oool0oooo
+000000T0oooo0P0000050?ooo`030000003oool0oooo0?`0oooo000=0?ooo`040000003oool0oooo
+000000T0oooo00<000000?ooo`3oool0103oool00`000000oooo0?ooo`3l0?ooo`003P3oool20000
+00X0oooo0`0000040?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0
+oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q
+0?ooo`800000o@3oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3o
+ool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03o
+ool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240
+oooo0P00003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?oo
+o`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool200000?d0oooo000Q0?ooo`030000003oool0oooo
+0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo03H0oooo
+0P00000d0?ooo`D000000P3oool200000340oooo1@0000020?ooo`800000<@3oool4000000<0oooo
+0P00000C0?ooo`008@3oool00`000000oooo0?ooo`0e0?ooo`040000003oool0oooo000003D0oooo
+00D000000?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0300oooo00D000000?ooo`3o
+ool0oooo000000020?ooo`030000003oool0oooo02h0oooo00<000000?ooo`3oool00`3oool01000
+0000oooo0?ooo`00000B0?ooo`008@3oool00`000000oooo0?ooo`0h0?ooo`030000003oool0oooo
+03<0oooo00D000000?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0300oooo00<00000
+0?ooo`3oool0103oool00`000000oooo0?ooo`0_0?ooo`030000003oool0oooo0080oooo00@00000
+0?ooo`3oool000004P3oool00240oooo00<000000?ooo`3oool0=P3oool2000003H0oooo00D00000
+0?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0300oooo00<000000?ooo`3oool00P3o
+ool2000003<0oooo00D000000?ooo`3oool0oooo000000020?ooo`030000003oool0oooo0100oooo
+000Q0?ooo`800000=`3oool00`000000oooo0?ooo`0e0?ooo`050000003oool0oooo0?ooo`000000
+0P3oool00`000000oooo0?ooo`0`0?ooo`030000003oool0oooo0080oooo00<000000?ooo`3oool0
+<03oool010000000oooo0?ooo`0000020?ooo`040000003oool0oooo00000180oooo000Q0?ooo`03
+0000003oool0oooo03H0oooo0`00000d0?ooo`800000103oool200000380oooo0P0000040?ooo`<0
+0000<@3oool2000000@0oooo0P00000C0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`00
+0000oooo0?ooo`3e0?ooo`8000001@3oool00240oooo00<000000?ooo`3oool0m03oool010000000
+oooo0?ooo`0000040?ooo`006`3oool600000>T0oooo1@0000090?ooo`030000003oool0oooo00D0
+oooo000Q0?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`090?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`080?ooo`030000003oool0oooo00T0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`080?ooo`030000003oool0oooo00T0oooo00<000000?ooo`3oool0203oool00`000000oooo
+0?ooo`090?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`090?ooo`030000003oool0oooo00P0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`080?ooo`030000003oool0oooo00T0oooo00<000000?ooo`3oool02@3oool00`000000oooo
+0?ooo`0;0?ooo`D00000103oool00240oooo00<000000?ooo`3oool0m03oool00`000000oooo0?oo
+o`050?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool200000?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo
+0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo
+000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?oo
+o`800000o@3oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0
+o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool0
+0240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo
+0P00003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l
+0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`00
+8@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool0
+0`000000oooo0?ooo`3l0?ooo`008@3oool200000?d0oooo000Q0?ooo`030000003oool0oooo0?`0
+oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q
+0?ooo`030000003oool0oooo0?`0oooo000>0?ooo`800000103oool2000000@0oooo0P0000050?oo
+o`030000003oool0oooo0?`0oooo000=0?ooo`040000003oool0oooo000000P0oooo00@000000?oo
+o`3oool00000103oool00`000000oooo0?ooo`3l0?ooo`003@3oool010000000oooo0?ooo`00000;
+0?ooo`030000003oool0oooo0080oooo0P00003m0?ooo`003@3oool010000000oooo0?ooo`000009
+0?ooo`8000001@3oool00`000000oooo0?ooo`3l0?ooo`003@3oool010000000oooo0?ooo`000009
+0?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool0o03oool000h0oooo0P00000:0?oo
+o`<00000103oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`00
+8@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool2
+00000?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0
+oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q
+0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`80
+0000o@3oool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03o
+ool00240oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240
+oooo00<000000?ooo`3oool0o03oool00240oooo00<000000?ooo`3oool0o03oool00240oooo0P00
+003m0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?oo
+o`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3o
+ool00`000000oooo0?ooo`3l0?ooo`008@3oool00`000000oooo0?ooo`3l0?ooo`008@3oool20000
+0?d0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo
+000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?ooo`030000003oool0oooo0?`0oooo000Q0?oo
+o`030000003oool0oooo0?`0oooo000I0?ooo`D000000`3oool00`000000oooo0?ooo`3l0?ooo`00
+6`3oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo0?`0oooo000K0?ooo`030000003o
+ool0oooo00<0oooo0P00003m0?ooo`006`3oool00`000000oooo0?ooo`030?ooo`030000003oool0
+oooo0?`0oooo000K0?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool0o03oool001X0
+oooo0P0000050?ooo`030000003oool0oooo0?`0oooo003o0?ooob40oooo003o0?ooob40oooo003o
+0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o0?ooob40oooo003o
+0?ooob40oooo00060?ooo`030000003oool0oooo01d0oooo00<000000?ooo`3oool0m`3oool000D0
+oooo00<000000?ooo`3oool01P3oool00`000000oooo0?ooo`0F0?ooo`030000003oool0oooo0?H0
+oooo00040?ooo`040000003oool0oooo0?ooo`<00000103oool010000000oooo0?ooo`3oool20000
+00040?ooo`000000oooo00000080oooo0P0000030?ooo`<000001@3oool00`000000oooo0?ooo`03
+000000040?ooo`00000000000?ooo`@00000jP3oool000@0oooo00<000000?ooo`3oool00P3oool0
+0`000000oooo0?ooo`030?ooo`030000003oool0oooo0080oooo00L000000?ooo`000000oooo0000
+003oool000000080oooo00D000000?ooo`3oool0oooo000000060?ooo`050000003oool0oooo0?oo
+o`0000000P3oool01@000000oooo0?ooo`3oool000000>`0oooo00040?ooo`030000003oool0oooo
+0080oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`020?ooo`070000003oool00000
+0?ooo`000000oooo000000020?ooo`050000003oool0oooo0?ooo`0000001P3oool01@000000oooo
+0?ooo`3oool000000080oooo00D000000?ooo`3oool0oooo0000003/0?ooo`00103oool00`000000
+oooo0?ooo`020?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool00`0000000`3oool0
+00000?ooo`020?ooo`800000103oool00`000000oooo0?ooo`040?ooo`040000003oool0oooo0?oo
+o`<000000`3oool400000>X0oooo00050?ooo`050000003oool0oooo0?ooo`0000001P3oool00`00
+0000oooo0?ooo`0>0?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool00P3oool00`00
+0000oooo0?ooo`0=0?ooo`800000hP3oool000H0oooo00@000000?ooo`00000000001`3oool00`00
+0000oooo0?ooo`0<0?ooo`800000103oool00`000000oooo0?ooo`020?ooo`8000002`3oool30000
+0080oooo00<000000?ooo`3oool0h03oool003d0oooo00<000000?ooo`3oool0h03oool003`0oooo
+0P00003R0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00
+\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.938, 0}} -> {-2.86436, -1.10705, \
+0.0862242, 0.0139513}}],
+
+Cell[BoxData[
+    TagBox[\(\[SkeletonIndicator]  Graphics  \[SkeletonIndicator]\),
+      False,
+      Editable->False]], "Output"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0238095 0.047619 0.0147151 0.647464 [
+[.2619 .00222 -3 -9 ]
+[.2619 .00222 3 0 ]
+[.5 .00222 -6 -9 ]
+[.5 .00222 6 0 ]
+[.7381 .00222 -6 -9 ]
+[.7381 .00222 6 0 ]
+[.97619 .00222 -6 -9 ]
+[.97619 .00222 6 0 ]
+[1.025 .01472 0 -6.1875 ]
+[1.025 .01472 9.9375 6.1875 ]
+[.01131 .14421 -18 -4.5 ]
+[.01131 .14421 0 4.5 ]
+[.01131 .2737 -18 -4.5 ]
+[.01131 .2737 0 4.5 ]
+[.01131 .40319 -18 -4.5 ]
+[.01131 .40319 0 4.5 ]
+[.01131 .53269 -18 -4.5 ]
+[.01131 .53269 0 4.5 ]
+[.02381 .64303 -33.2188 0 ]
+[.02381 .64303 33.2188 13.0625 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.2619 .01472 m
+.2619 .02097 L
+s
+[(5)] .2619 .00222 0 1 Mshowa
+.5 .01472 m
+.5 .02097 L
+s
+[(10)] .5 .00222 0 1 Mshowa
+.7381 .01472 m
+.7381 .02097 L
+s
+[(15)] .7381 .00222 0 1 Mshowa
+.97619 .01472 m
+.97619 .02097 L
+s
+[(20)] .97619 .00222 0 1 Mshowa
+.125 Mabswid
+.07143 .01472 m
+.07143 .01847 L
+s
+.11905 .01472 m
+.11905 .01847 L
+s
+.16667 .01472 m
+.16667 .01847 L
+s
+.21429 .01472 m
+.21429 .01847 L
+s
+.30952 .01472 m
+.30952 .01847 L
+s
+.35714 .01472 m
+.35714 .01847 L
+s
+.40476 .01472 m
+.40476 .01847 L
+s
+.45238 .01472 m
+.45238 .01847 L
+s
+.54762 .01472 m
+.54762 .01847 L
+s
+.59524 .01472 m
+.59524 .01847 L
+s
+.64286 .01472 m
+.64286 .01847 L
+s
+.69048 .01472 m
+.69048 .01847 L
+s
+.78571 .01472 m
+.78571 .01847 L
+s
+.83333 .01472 m
+.83333 .01847 L
+s
+.88095 .01472 m
+.88095 .01847 L
+s
+.92857 .01472 m
+.92857 .01847 L
+s
+.25 Mabswid
+0 .01472 m
+1 .01472 L
+s
+gsave
+1.025 .01472 -61 -10.1875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.375 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+68.938 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+.02381 .14421 m
+.03006 .14421 L
+s
+[(0.2)] .01131 .14421 1 0 Mshowa
+.02381 .2737 m
+.03006 .2737 L
+s
+[(0.4)] .01131 .2737 1 0 Mshowa
+.02381 .40319 m
+.03006 .40319 L
+s
+[(0.6)] .01131 .40319 1 0 Mshowa
+.02381 .53269 m
+.03006 .53269 L
+s
+[(0.8)] .01131 .53269 1 0 Mshowa
+.125 Mabswid
+.02381 .04709 m
+.02756 .04709 L
+s
+.02381 .07946 m
+.02756 .07946 L
+s
+.02381 .11183 m
+.02756 .11183 L
+s
+.02381 .17658 m
+.02756 .17658 L
+s
+.02381 .20895 m
+.02756 .20895 L
+s
+.02381 .24133 m
+.02756 .24133 L
+s
+.02381 .30607 m
+.02756 .30607 L
+s
+.02381 .33845 m
+.02756 .33845 L
+s
+.02381 .37082 m
+.02756 .37082 L
+s
+.02381 .43557 m
+.02756 .43557 L
+s
+.02381 .46794 m
+.02756 .46794 L
+s
+.02381 .50031 m
+.02756 .50031 L
+s
+.02381 .56506 m
+.02756 .56506 L
+s
+.02381 .59743 m
+.02756 .59743 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+gsave
+.02381 .64303 -94.2188 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 21.0625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 13.438 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 13.438 moveto
+(H) show
+68.938 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(l) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+74.875 13.438 moveto
+(\\220) show
+80.813 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(mol) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+98.625 13.438 moveto
+(L) show
+104.563 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(hr) show
+116.438 9.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+120.688 9.500 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+125.438 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+0 1 0 r
+.5 Mabswid
+.02381 .01472 m
+.04262 .12149 L
+.06244 .20157 L
+.08255 .26172 L
+.10458 .31184 L
+.12579 .34952 L
+.14509 .37738 L
+.18408 .42085 L
+.22401 .45346 L
+.26243 .47748 L
+.30329 .49762 L
+.34264 .51326 L
+.38048 .52573 L
+.42077 .5369 L
+.45954 .54605 L
+.50076 .55441 L
+.54047 .56141 L
+.57866 .56733 L
+.61931 .57291 L
+.65844 .57769 L
+.70002 .58225 L
+.74009 .58619 L
+.77864 .58964 L
+.81964 .59298 L
+.85913 .59591 L
+.8971 .59851 L
+.93752 .60106 L
+.97619 .60332 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.938},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/B000`400?l00000o`00003oo`3ooolQ
+0?ooo`00FP3oool2000003@0oooo1@0000020?ooo`800000<03oool500000080oooo0P00000a0?oo
+o`@000000`3oool2000001@0oooo001I0?ooo`040000003oool0oooo000003D0oooo00D000000?oo
+o`3oool0oooo000000020?ooo`030000003oool0oooo02l0oooo00D000000?ooo`3oool0oooo0000
+00020?ooo`030000003oool0oooo02h0oooo00<000000?ooo`3oool00`3oool010000000oooo0?oo
+o`00000C0?ooo`00G03oool00`000000oooo0?ooo`0c0?ooo`050000003oool0oooo0?ooo`000000
+0P3oool00`000000oooo0?ooo`0_0?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool0
+;`3oool00`000000oooo0?ooo`020?ooo`040000003oool0oooo000001<0oooo001J0?ooo`800000
+=P3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?ooo`3oool0;`3oool00`000000
+oooo0?ooo`020?ooo`800000<`3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?oo
+o`3oool04@3oool005X0oooo00<000000?ooo`3oool0=@3oool01@000000oooo0?ooo`3oool00000
+0080oooo00<000000?ooo`3oool0;`3oool00`000000oooo0?ooo`020?ooo`030000003oool0oooo
+0300oooo00@000000?ooo`3oool000000P3oool010000000oooo0?ooo`00000C0?ooo`00FP3oool3
+000003@0oooo0P0000040?ooo`800000<@3oool2000000@0oooo0`00000a0?ooo`800000103oool2
+000001@0oooo003o0?ooob40oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000
+003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?<0oooo0P0000060?ooo`008P3oool0
+0`000000oooo0?ooo`3b0?ooo`040000003oool0oooo000000D0oooo000L0?ooo`H0000000<00?l0
+000000000000jP0000080?ooo`030000003oool0oooo00H0oooo000R0?ooo`03003o003oool0oooo
+03H0oooo00<000000?ooo`3oool0=`3oool00`000000oooo0?ooo`0f0?ooo`030000003oool0oooo
+03L0oooo00<000000?ooo`3oool02`3oool5000000D0oooo000R0?ooo`03003o003oool0oooo0?80
+oooo00<000000?ooo`3oool01P3oool00280oooo00<00?l00?ooo`3oool0n`3oool00280oooo00<0
+0000003o003oool0n`3oool00280oooo00<00000003o003oool0n`3oool00280oooo00<00000003o
+003oool0n`3oool00280oooo00<00000003o003oool0n`3oool00280oooo00<00000003o003oool0
+n`3oool00280oooo00<00000003o003oool0n`3oool00280oooo00<000000?ooo`00o`00n`3oool0
+0280oooo00<000000?ooo`00o`00n`3oool00280oooo00<000000?ooo`00o`00n`3oool00280oooo
+00<000000?ooo`00o`00n`3oool00280oooo00<000000?ooo`00o`00n`3oool00280oooo0P000000
+0`00o`00oooo0?ooo`3i0?ooo`008P3oool010000000oooo0?ooo`00o`3j0?ooo`008P3oool01000
+0000oooo0?ooo`00o`3j0?ooo`008P3oool010000000oooo0?ooo`00o`3j0?ooo`008P3oool01000
+0000oooo0?ooo`00o`3j0?ooo`008P3oool010000000oooo0?ooo`00o`3j0?ooo`008P3oool01000
+0000oooo0?ooo`00o`3j0?ooo`008P3oool01@000000oooo0?ooo`3oool00?l00?T0oooo000R0?oo
+o`8000000P3oool00`00o`00oooo0?ooo`3g0?ooo`008P3oool01@000000oooo0?ooo`3oool00?l0
+0?T0oooo000R0?ooo`050000003oool0oooo0?ooo`00o`00n@3oool00280oooo00D000000?ooo`3o
+ool0oooo003o003i0?ooo`008P3oool01@000000oooo0?ooo`3oool00?l00?T0oooo000R0?ooo`03
+0000003oool0oooo0080oooo00<00?l00?ooo`3oool0mP3oool000l0oooo0P0000040?ooo`800000
+0`3oool4000000@0oooo00<000000?ooo`3oool00P3oool00`00o`00oooo0?ooo`3f0?ooo`003P3o
+ool010000000oooo0?ooo`0000080?ooo`030000003oool0oooo00D0oooo00<000000?ooo`3oool0
+0P3oool00`00o`00oooo0?ooo`3f0?ooo`003P3oool010000000oooo0?ooo`0000090?ooo`030000
+003oool0oooo00@0oooo0P0000030?ooo`03003o003oool0oooo0?H0oooo000>0?ooo`040000003o
+ool0oooo000000X0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`030?ooo`03003o
+003oool0oooo0?D0oooo000>0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool0
+0000103oool00`000000oooo0?ooo`030?ooo`03003o003oool0oooo0?D0oooo000?0?ooo`800000
+2P3oool2000000D0oooo00<000000?ooo`3oool00`3oool00`00o`00oooo0?ooo`3e0?ooo`008P3o
+ool00`000000oooo0?ooo`030?ooo`03003o003oool0oooo0?D0oooo000R0?ooo`030000003oool0
+oooo00@0oooo00<00?l00?ooo`3oool0m03oool00280oooo00<000000?ooo`3oool0103oool00`00
+o`00oooo0?ooo`3d0?ooo`008P3oool00`000000oooo0?ooo`040?ooo`03003o003oool0oooo0?@0
+oooo000R0?ooo`8000001@3oool00`00o`00oooo0?ooo`3d0?ooo`008P3oool00`000000oooo0?oo
+o`050?ooo`03003o003oool0oooo0?<0oooo000R0?ooo`030000003oool0oooo00D0oooo00<00?l0
+0?ooo`3oool0l`3oool00280oooo00<000000?ooo`3oool01@3oool00`00o`00oooo0?ooo`3c0?oo
+o`008P3oool00`000000oooo0?ooo`050?ooo`03003o003oool0oooo0?<0oooo000R0?ooo`030000
+003oool0oooo00H0oooo00<00?l00?ooo`3oool0lP3oool00280oooo00<000000?ooo`3oool01P3o
+ool00`00o`00oooo0?ooo`3b0?ooo`008P3oool00`000000oooo0?ooo`060?ooo`03003o003oool0
+oooo0?80oooo000R0?ooo`800000203oool00`00o`00oooo0?ooo`3a0?ooo`008P3oool00`000000
+oooo0?ooo`070?ooo`03003o003oool0oooo0?40oooo000R0?ooo`030000003oool0oooo00L0oooo
+00<00?l00?ooo`3oool0l@3oool00280oooo00<000000?ooo`3oool0203oool00`00o`00oooo0?oo
+o`3`0?ooo`008P3oool00`000000oooo0?ooo`080?ooo`03003o003oool0oooo0?00oooo000R0?oo
+o`030000003oool0oooo00P0oooo00<00?l00?ooo`3oool0l03oool00280oooo00<000000?ooo`3o
+ool02@3oool00`00o`00oooo0?ooo`3_0?ooo`008P3oool2000000X0oooo00<00?l00?ooo`3oool0
+k`3oool00280oooo00<000000?ooo`3oool02P3oool00`00o`00oooo0?ooo`3^0?ooo`008P3oool0
+0`000000oooo0?ooo`0:0?ooo`03003o003oool0oooo0>h0oooo000R0?ooo`030000003oool0oooo
+00X0oooo00<00?l00?ooo`3oool0kP3oool00280oooo00<000000?ooo`3oool02`3oool00`00o`00
+oooo0?ooo`3]0?ooo`008P3oool00`000000oooo0?ooo`0;0?ooo`03003o003oool0oooo0>d0oooo
+000?0?ooo`800000103oool2000000D0oooo0`0000030?ooo`030000003oool0oooo00/0oooo00<0
+0?l00?ooo`3oool0k@3oool000h0oooo00@000000?ooo`3oool000002`3oool00`000000oooo0?oo
+o`020?ooo`030000003oool0oooo00`0oooo00<00?l00?ooo`3oool0k03oool000h0oooo00@00000
+0?ooo`3oool00000203oool5000000<0oooo0P00000=0?ooo`03003o003oool0oooo0>`0oooo000>
+0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool00`000000oooo
+0?ooo`0=0?ooo`03003o003oool0oooo0>/0oooo000>0?ooo`040000003oool0oooo000000T0oooo
+00<000000?ooo`000000103oool00`000000oooo0?ooo`0=0?ooo`03003o003oool0oooo0>/0oooo
+000?0?ooo`8000002`3oool2000000@0oooo00<000000?ooo`3oool03@3oool00`00o`00oooo0?oo
+o`3[0?ooo`008P3oool00`000000oooo0?ooo`0>0?ooo`03003o003oool0oooo0>X0oooo000R0?oo
+o`030000003oool0oooo00h0oooo00<00?l00?ooo`3oool0jP3oool00280oooo00<000000?ooo`3o
+ool03`3oool00`00o`00oooo0?ooo`3Y0?ooo`008P3oool00`000000oooo0?ooo`0?0?ooo`03003o
+003oool0oooo0>T0oooo000R0?ooo`8000004@3oool00`00o`00oooo0?ooo`3X0?ooo`008P3oool0
+0`000000oooo0?ooo`0@0?ooo`03003o003oool0oooo0>P0oooo000R0?ooo`030000003oool0oooo
+0140oooo00<00?l00?ooo`3oool0i`3oool00280oooo00<000000?ooo`3oool04@3oool00`00o`00
+oooo0?ooo`3W0?ooo`008P3oool00`000000oooo0?ooo`0B0?ooo`03003o003oool0oooo0>H0oooo
+000R0?ooo`030000003oool0oooo0180oooo00<00?l00?ooo`3oool0iP3oool00280oooo00<00000
+0?ooo`3oool04`3oool00`00o`00oooo0?ooo`3U0?ooo`008P3oool00`000000oooo0?ooo`0C0?oo
+o`03003o003oool0oooo0>D0oooo000R0?ooo`8000005@3oool00`00o`00oooo0?ooo`3T0?ooo`00
+8P3oool00`000000oooo0?ooo`0D0?ooo`03003o003oool0oooo0>@0oooo000R0?ooo`030000003o
+ool0oooo01D0oooo00<00?l00?ooo`3oool0h`3oool00280oooo00<000000?ooo`3oool05P3oool0
+0`00o`00oooo0?ooo`3R0?ooo`008P3oool00`000000oooo0?ooo`0F0?ooo`03003o003oool0oooo
+0>80oooo000R0?ooo`030000003oool0oooo01L0oooo00<00?l00?ooo`3oool0h@3oool00280oooo
+00<000000?ooo`3oool0603oool00`00o`00oooo0?ooo`3P0?ooo`008P3oool00`000000oooo0?oo
+o`0I0?ooo`03003o003oool0oooo0=l0oooo000R0?ooo`8000006P3oool00`00o`00oooo0?ooo`3O
+0?ooo`008P3oool00`000000oooo0?ooo`0J0?ooo`03003o003oool0oooo0=h0oooo000R0?ooo`03
+0000003oool0oooo01/0oooo00<00?l00?ooo`3oool0g@3oool00280oooo00<000000?ooo`3oool0
+703oool00`00o`00oooo0?ooo`3L0?ooo`008P3oool00`000000oooo0?ooo`0L0?ooo`03003o003o
+ool0oooo0=`0oooo000?0?ooo`800000103oool2000000<0oooo0`0000050?ooo`030000003oool0
+oooo01d0oooo00<00?l00?ooo`3oool0f`3oool000h0oooo00@000000?ooo`3oool00000203oool0
+10000000oooo0?ooo`0000040?ooo`030000003oool0oooo01h0oooo00<00?l00?ooo`3oool0fP3o
+ool000h0oooo00@000000?ooo`3oool00000203oool010000000oooo0?ooo`0000040?ooo`800000
+803oool00`00o`00oooo0?ooo`3I0?ooo`003P3oool010000000oooo0?ooo`0000080?ooo`<00000
+1@3oool00`000000oooo0?ooo`0P0?ooo`03003o003oool0oooo0=P0oooo000>0?ooo`040000003o
+ool0oooo000000T0oooo00<000000?ooo`3oool0103oool00`000000oooo0?ooo`0Q0?ooo`03003o
+003oool0oooo0=L0oooo000?0?ooo`8000002P3oool3000000@0oooo00<000000?ooo`3oool08@3o
+ool00`00o`00oooo0?ooo`3G0?ooo`008P3oool00`000000oooo0?ooo`0R0?ooo`03003o003oool0
+oooo0=H0oooo000R0?ooo`030000003oool0oooo02<0oooo00<00?l00?ooo`3oool0e@3oool00280
+oooo00<000000?ooo`3oool0903oool00`00o`00oooo0?ooo`3D0?ooo`008P3oool00`000000oooo
+0?ooo`0U0?ooo`800?l0e03oool00280oooo0P00000X0?ooo`03003o003oool0oooo0=40oooo000R
+0?ooo`030000003oool0oooo02P0oooo00<00?l00?ooo`3oool0d03oool00280oooo00<000000?oo
+o`3oool0:@3oool00`00o`00oooo0?ooo`3?0?ooo`008P3oool00`000000oooo0?ooo`0Z0?ooo`80
+0?l0c`3oool00280oooo00<000000?ooo`3oool0;03oool00`00o`00oooo0?ooo`3<0?ooo`008P3o
+ool00`000000oooo0?ooo`0]0?ooo`03003o003oool0oooo0</0oooo000R0?ooo`030000003oool0
+oooo02h0oooo0P00o`3;0?ooo`008P3oool00`000000oooo0?ooo`0`0?ooo`800?l0b@3oool00280
+oooo0P00000c0?ooo`800?l0a`3oool00280oooo00<000000?ooo`3oool0=03oool2003o0<D0oooo
+000R0?ooo`030000003oool0oooo03H0oooo00<00?l00?ooo`3oool0`P3oool00280oooo00<00000
+0?ooo`3oool0=`3oool2003o0<80oooo000R0?ooo`030000003oool0oooo03T0oooo0P00o`300?oo
+o`008P3oool00`000000oooo0?ooo`0k0?ooo`800?l0_P3oool00280oooo00<000000?ooo`3oool0
+?@3oool2003o0;`0oooo000R0?ooo`030000003oool0oooo03l0oooo0`00o`2i0?ooo`008P3oool2
+000004<0oooo0P00o`2g0?ooo`008P3oool00`000000oooo0?ooo`140?ooo`<00?l0]03oool00280
+oooo00<000000?ooo`3oool0A`3oool2003o0;80oooo000R0?ooo`030000003oool0oooo04T0oooo
+0`00o`2_0?ooo`008P3oool00`000000oooo0?ooo`1<0?ooo`<00?l0[03oool00280oooo00<00000
+0?ooo`3oool0C`3oool3003o0:T0oooo000?0?ooo`800000103oool2000000@0oooo0P0000050?oo
+o`030000003oool0oooo0580oooo0`00o`2V0?ooo`003P3oool010000000oooo0?ooo`0000080?oo
+o`040000003oool0oooo000000@0oooo00<000000?ooo`3oool0E@3oool3003o0:<0oooo000>0?oo
+o`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool2000005T0oooo1000
+o`2O0?ooo`003P3oool010000000oooo0?ooo`0000090?ooo`8000001@3oool00`000000oooo0?oo
+o`1L0?ooo`@00?l0V`3oool000h0oooo00@000000?ooo`3oool00000203oool010000000oooo0?oo
+o`0000040?ooo`030000003oool0oooo0600oooo1000o`2G0?ooo`003`3oool2000000X0oooo0P00
+00050?ooo`030000003oool0oooo06@0oooo1@00o`2B0?ooo`008P3oool00`000000oooo0?ooo`1Y
+0?ooo`D00?l0S@3oool00280oooo00<000000?ooo`3oool0KP3oool5003o08P0oooo000R0?ooo`03
+0000003oool0oooo07<0oooo1@00o`230?ooo`008P3oool00`000000oooo0?ooo`1h0?ooo`L00?l0
+O03oool00280oooo0P0000200?ooo`T00?l0L`3oool00280oooo00<000000?ooo`3oool0R03oool8
+003o06/0oooo000R0?ooo`030000003oool0oooo0900oooo1000o`1W0?ooo`008P3oool00`000000
+oooo0?ooo`2D0?ooo`L00?l0H03oool00280oooo00<000000?ooo`3oool0V`3oool:003o05H0oooo
+000R0?ooo`030000003oool0oooo0:D0oooo2P00o`1<0?ooo`008P3oool00`000000oooo0?ooo`2_
+0?oooa<00?l0>@3oool00280oooo0P0000330?ooo`X00?l0;`3oool00280oooo00<000000?ooo`3o
+ool0c03ooolB003o01d0oooo000R0?ooo`030000003oool0oooo0=h0oooo1P00o`0G0?ooo`008P3o
+ool00`000000oooo0?ooo`3k0?ooo`008P3oool00`000000oooo0?ooo`3k0?ooo`008P3oool00`00
+0000oooo0?ooo`3k0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ
+0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`00o`3ooolQ0?ooo`001P3oool0
+0`000000oooo0?ooo`0N0?ooo`030000003oool0oooo0?H0oooo00050?ooo`030000003oool0oooo
+00L0oooo00<000000?ooo`3oool05P3oool00`000000oooo0?ooo`3e0?ooo`00103oool00`000000
+oooo0?ooo`020?ooo`<00000103oool010000000oooo0?ooo`3oool2000000040?ooo`000000oooo
+00000080oooo0P0000030?ooo`<000001@3oool00`000000oooo0?ooo`03000000040?ooo`000000
+00000?ooo`@00000j@3oool000@0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`03
+0?ooo`030000003oool0oooo0080oooo00L000000?ooo`000000oooo0000003oool000000080oooo
+00D000000?ooo`3oool0oooo000000060?ooo`050000003oool0oooo0?ooo`0000000P3oool01@00
+0000oooo0?ooo`3oool000000>/0oooo00040?ooo`030000003oool0oooo00<0oooo00<000000?oo
+o`3oool00`3oool00`000000oooo0?ooo`020?ooo`070000003oool000000?ooo`000000oooo0000
+00020?ooo`050000003oool0oooo0?ooo`0000001P3oool01@000000oooo0?ooo`3oool000000080
+oooo00D000000?ooo`3oool0oooo0000003[0?ooo`00103oool00`000000oooo0?ooo`030?ooo`03
+0000003oool0oooo00@0oooo00<000000?ooo`3oool00`0000000`3oool000000?ooo`020?ooo`80
+0000103oool00`000000oooo0?ooo`040?ooo`040000003oool0oooo0?ooo`<000000`3oool40000
+0>T0oooo00050?ooo`030000003oool0oooo0080oooo00<000000?ooo`3oool0103oool00`000000
+oooo0?ooo`0>0?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool00P3oool00`000000
+oooo0?ooo`0=0?ooo`800000h@3oool000H0oooo00<000000?ooo`3oool00P0000070?ooo`030000
+003oool0oooo00`0oooo0P0000040?ooo`030000003oool0oooo0080oooo0P00000;0?ooo`<00000
+0P3oool00`000000oooo0?ooo`3O0?ooo`00?P3oool00`000000oooo0?ooo`3O0?ooo`00?@3oool2
+00000>40oooo003o0?ooob40oooo0000\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.938, 0}} -> {-2.96772, -0.0768182, \
+0.0868904, 0.00639053}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Show[graph1, \ graph2, \ graph3, \ graph4, \ graph5]\)], "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0238095 0.047619 0.0147151 0.588604 [
+[.2619 .00222 -3 -9 ]
+[.2619 .00222 3 0 ]
+[.5 .00222 -6 -9 ]
+[.5 .00222 6 0 ]
+[.7381 .00222 -6 -9 ]
+[.7381 .00222 6 0 ]
+[.97619 .00222 -6 -9 ]
+[.97619 .00222 6 0 ]
+[1.025 .01472 0 -6.1875 ]
+[1.025 .01472 9.9375 6.1875 ]
+[.01131 .13244 -18 -4.5 ]
+[.01131 .13244 0 4.5 ]
+[.01131 .25016 -18 -4.5 ]
+[.01131 .25016 0 4.5 ]
+[.01131 .36788 -18 -4.5 ]
+[.01131 .36788 0 4.5 ]
+[.01131 .4856 -18 -4.5 ]
+[.01131 .4856 0 4.5 ]
+[.01131 .60332 -6 -4.5 ]
+[.01131 .60332 0 4.5 ]
+[.02381 .64303 -33.2188 0 ]
+[.02381 .64303 33.2188 13.0625 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.2619 .01472 m
+.2619 .02097 L
+s
+[(5)] .2619 .00222 0 1 Mshowa
+.5 .01472 m
+.5 .02097 L
+s
+[(10)] .5 .00222 0 1 Mshowa
+.7381 .01472 m
+.7381 .02097 L
+s
+[(15)] .7381 .00222 0 1 Mshowa
+.97619 .01472 m
+.97619 .02097 L
+s
+[(20)] .97619 .00222 0 1 Mshowa
+.125 Mabswid
+.07143 .01472 m
+.07143 .01847 L
+s
+.11905 .01472 m
+.11905 .01847 L
+s
+.16667 .01472 m
+.16667 .01847 L
+s
+.21429 .01472 m
+.21429 .01847 L
+s
+.30952 .01472 m
+.30952 .01847 L
+s
+.35714 .01472 m
+.35714 .01847 L
+s
+.40476 .01472 m
+.40476 .01847 L
+s
+.45238 .01472 m
+.45238 .01847 L
+s
+.54762 .01472 m
+.54762 .01847 L
+s
+.59524 .01472 m
+.59524 .01847 L
+s
+.64286 .01472 m
+.64286 .01847 L
+s
+.69048 .01472 m
+.69048 .01847 L
+s
+.78571 .01472 m
+.78571 .01847 L
+s
+.83333 .01472 m
+.83333 .01847 L
+s
+.88095 .01472 m
+.88095 .01847 L
+s
+.92857 .01472 m
+.92857 .01847 L
+s
+.25 Mabswid
+0 .01472 m
+1 .01472 L
+s
+gsave
+1.025 .01472 -61 -10.1875 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 20.375 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+63.000 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+68.938 12.750 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+.02381 .13244 m
+.03006 .13244 L
+s
+[(0.2)] .01131 .13244 1 0 Mshowa
+.02381 .25016 m
+.03006 .25016 L
+s
+[(0.4)] .01131 .25016 1 0 Mshowa
+.02381 .36788 m
+.03006 .36788 L
+s
+[(0.6)] .01131 .36788 1 0 Mshowa
+.02381 .4856 m
+.03006 .4856 L
+s
+[(0.8)] .01131 .4856 1 0 Mshowa
+.02381 .60332 m
+.03006 .60332 L
+s
+[(1)] .01131 .60332 1 0 Mshowa
+.125 Mabswid
+.02381 .04415 m
+.02756 .04415 L
+s
+.02381 .07358 m
+.02756 .07358 L
+s
+.02381 .10301 m
+.02756 .10301 L
+s
+.02381 .16187 m
+.02756 .16187 L
+s
+.02381 .1913 m
+.02756 .1913 L
+s
+.02381 .22073 m
+.02756 .22073 L
+s
+.02381 .27959 m
+.02756 .27959 L
+s
+.02381 .30902 m
+.02756 .30902 L
+s
+.02381 .33845 m
+.02756 .33845 L
+s
+.02381 .39731 m
+.02756 .39731 L
+s
+.02381 .42674 m
+.02756 .42674 L
+s
+.02381 .45617 m
+.02756 .45617 L
+s
+.02381 .51503 m
+.02756 .51503 L
+s
+.02381 .54446 m
+.02756 .54446 L
+s
+.02381 .57389 m
+.02756 .57389 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+gsave
+.02381 .64303 -94.2188 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 21.0625 translate 1 -1 scale
+/g { setgray} bind def
+/k { setcmykcolor} bind def
+/p { gsave} bind def
+/r { setrgbcolor} bind def
+/w { setlinewidth} bind def
+/C { curveto} bind def
+/F { fill} bind def
+/L { lineto} bind def
+/rL { rlineto} bind def
+/P { grestore} bind def
+/s { stroke} bind def
+/S { show} bind def
+/N {currentpoint 3 -1 roll show moveto} bind def
+/Msf { findfont exch scalefont [1 0 0 -1 0 0 ] makefont setfont} bind def
+/m { moveto} bind def
+/Mr { rmoveto} bind def
+/Mx {currentpoint exch pop moveto} bind def
+/My {currentpoint pop exch moveto} bind def
+/X {0 rmoveto} bind def
+/Y {0 exch rmoveto} bind def
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding WindowsANSIEncoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+63.000 13.438 moveto
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+%%BeginResource: font Courier-MISO
+%%BeginFont: Courier-MISO
+/Courier /Courier-MISO MISOfy
+%%EndFont
+%%EndResource
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+63.000 13.438 moveto
+(H) show
+68.938 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(l) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+74.875 13.438 moveto
+(\\220) show
+80.813 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(mol) show
+%%IncludeResource: font Mathematica2Mono
+%%IncludeFont: Mathematica2Mono
+/Mathematica2Mono findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+98.625 13.438 moveto
+(L) show
+104.563 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(hr) show
+116.438 9.500 moveto
+%%IncludeResource: font Mathematica1Mono
+%%IncludeFont: Mathematica1Mono
+/Mathematica1Mono findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+120.688 9.500 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 7.125 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+125.438 13.438 moveto
+%%IncludeResource: font Courier-MISO
+%%IncludeFont: Courier-MISO
+/Courier-MISO findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+0.000 0.000 rmoveto
+1.000 setlinewidth
+grestore
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+1 0 0 r
+.5 Mabswid
+.02381 .60332 m
+.04262 .50625 L
+.06244 .43345 L
+.08255 .37877 L
+.10458 .33321 L
+.12579 .29896 L
+.14509 .27362 L
+.18408 .23411 L
+.22401 .20446 L
+.26243 .18263 L
+.30329 .16431 L
+.34264 .1501 L
+.38048 .13876 L
+.42077 .12861 L
+.45954 .12029 L
+.50076 .11269 L
+.54047 .10633 L
+.57866 .10095 L
+.61931 .09587 L
+.65844 .09152 L
+.70002 .08738 L
+.74009 .08379 L
+.77864 .08066 L
+.81964 .07763 L
+.85913 .07496 L
+.8971 .07259 L
+.93752 .07028 L
+.97619 .06822 L
+s
+1 0 1 r
+.02381 .01472 m
+.02499 .01472 L
+.02605 .01472 L
+.02729 .01472 L
+.02846 .01472 L
+.02954 .01472 L
+.03053 .01472 L
+.03163 .01472 L
+.03279 .01472 L
+.03395 .01472 L
+.0352 .01472 L
+.03638 .01472 L
+.03746 .01472 L
+.03873 .01472 L
+.03944 .01472 L
+.04011 .01472 L
+.04132 .01472 L
+.04262 .01472 L
+.04327 .01472 L
+.04396 .01472 L
+.04519 .01472 L
+.04588 .01472 L
+.04652 .01472 L
+.04722 .01472 L
+.04797 .01472 L
+.04862 .01472 L
+.04933 .01472 L
+.05061 .01472 L
+.05186 .01472 L
+.05302 .01472 L
+.05414 .01472 L
+.05519 .01472 L
+.05634 .01472 L
+.05759 .01472 L
+.05882 .01472 L
+.06012 .01472 L
+.06123 .01472 L
+.06244 .01472 L
+.06315 .01472 L
+.06381 .01472 L
+.06453 .01472 L
+.06529 .01472 L
+.06657 .01472 L
+.06729 .01472 L
+.06797 .01472 L
+.06924 .01472 L
+.0704 .01472 L
+.07103 .01472 L
+.07173 .01472 L
+.073 .01472 L
+Mistroke
+.07376 .01472 L
+.07448 .01472 L
+.07513 .01472 L
+.07583 .01472 L
+.0766 .01472 L
+.0774 .01472 L
+.07809 .01472 L
+.07885 .01472 L
+.07956 .01472 L
+.0802 .01472 L
+.08095 .01472 L
+.08166 .01472 L
+.08291 .01472 L
+.08362 .01472 L
+.08427 .01472 L
+.08544 .01472 L
+.08669 .01472 L
+.08787 .01472 L
+.08896 .01472 L
+.09016 .01472 L
+.09148 .01472 L
+.09214 .01472 L
+.09285 .01472 L
+.09413 .01472 L
+.09483 .01472 L
+.09548 .01472 L
+.09619 .01472 L
+.09695 .01472 L
+.09821 .01472 L
+.09893 .01472 L
+.09961 .01472 L
+.10086 .01472 L
+.10201 .01472 L
+.10333 .01472 L
+.10458 .01472 L
+.10572 .01472 L
+.10694 .01472 L
+.1081 .01472 L
+.10916 .01472 L
+.11033 .01472 L
+.11162 .01472 L
+.11227 .01472 L
+.11297 .01472 L
+.11422 .01472 L
+.11491 .01472 L
+.11554 .01472 L
+.11624 .01472 L
+.11698 .01472 L
+.11822 .01472 L
+.11892 .01472 L
+Mistroke
+.11958 .01472 L
+.12081 .01472 L
+.12194 .01472 L
+.12323 .01472 L
+.12446 .01472 L
+.12562 .01472 L
+.12668 .01472 L
+.12789 .01472 L
+.12903 .01472 L
+.13009 .01472 L
+.13107 .01472 L
+.13214 .01472 L
+.13327 .01472 L
+.13441 .01472 L
+.13564 .01472 L
+.1368 .01472 L
+.13785 .01472 L
+.13909 .01472 L
+.13979 .01472 L
+.14043 .01472 L
+.14162 .01472 L
+.14288 .01472 L
+.14402 .01472 L
+.14526 .01472 L
+.14656 .01472 L
+.14777 .01472 L
+.14891 .01472 L
+.14994 .01472 L
+.15113 .01472 L
+.15226 .01472 L
+.15348 .01472 L
+.15478 .01472 L
+.15589 .01472 L
+.15711 .01472 L
+.15842 .01472 L
+.15915 .01472 L
+.15982 .01472 L
+.16113 .01472 L
+.16236 .01472 L
+.16352 .01472 L
+.16456 .01472 L
+.16577 .01472 L
+.1669 .01472 L
+.16796 .01472 L
+.16893 .01472 L
+.16999 .01472 L
+.17111 .01472 L
+.17225 .01472 L
+.17347 .01472 L
+.17462 .01472 L
+Mistroke
+.17566 .01472 L
+.17689 .01472 L
+.17758 .01472 L
+.17823 .01472 L
+.1794 .01472 L
+.18065 .01472 L
+.18185 .01472 L
+.18316 .01472 L
+.18441 .01472 L
+.18556 .01472 L
+.1867 .01472 L
+.18773 .01472 L
+.18893 .01472 L
+.19005 .01472 L
+.19128 .01472 L
+.19258 .01472 L
+.19369 .01472 L
+.19491 .01472 L
+.19623 .01472 L
+.19696 .01472 L
+.19763 .01472 L
+.19894 .01472 L
+.20017 .01472 L
+.20122 .01472 L
+.20238 .01472 L
+.20359 .01472 L
+.20472 .01472 L
+.20578 .01472 L
+.20675 .01472 L
+.20781 .01472 L
+.20894 .01472 L
+.21008 .01472 L
+.21129 .01472 L
+.21244 .01472 L
+.21349 .01472 L
+.21472 .01472 L
+.21541 .01472 L
+.21605 .01472 L
+.21723 .01472 L
+.21847 .01472 L
+.21968 .01472 L
+.221 .01472 L
+.22224 .01472 L
+.2234 .01472 L
+.22454 .01472 L
+.22558 .01472 L
+.22677 .01472 L
+.2279 .01472 L
+.22914 .01472 L
+.23044 .01472 L
+Mistroke
+.23155 .01472 L
+.23277 .01472 L
+.23409 .01472 L
+.23482 .01472 L
+.2355 .01472 L
+.2368 .01472 L
+.23804 .01472 L
+.23909 .01472 L
+.24025 .01472 L
+.24146 .01472 L
+.2426 .01472 L
+.24365 .01472 L
+.24462 .01472 L
+.24569 .01472 L
+.24681 .01472 L
+.24795 .01472 L
+.24917 .01472 L
+.25032 .01472 L
+.25137 .01472 L
+.2526 .01472 L
+.25329 .01472 L
+.25393 .01472 L
+.2551 .01472 L
+.25635 .01472 L
+.25756 .01472 L
+.25888 .01472 L
+.26013 .01472 L
+.26129 .01472 L
+.26233 .01472 L
+.26348 .01472 L
+.26467 .01472 L
+.2658 .01472 L
+.26704 .01472 L
+.26835 .01472 L
+.26946 .01472 L
+.27068 .01472 L
+.272 .01472 L
+.27274 .01472 L
+.27341 .01472 L
+.27472 .01472 L
+.27595 .01472 L
+.27701 .01472 L
+.27817 .01472 L
+.27938 .01472 L
+.28052 .01472 L
+.28158 .01472 L
+.28255 .01472 L
+.28367 .01472 L
+.28474 .01472 L
+.28588 .01472 L
+Mistroke
+.2871 .01472 L
+.28825 .01472 L
+.2893 .01472 L
+.29053 .01472 L
+.29122 .01472 L
+.29186 .01472 L
+.29303 .01472 L
+.29427 .01472 L
+.29549 .01472 L
+.29618 .01472 L
+.29682 .01472 L
+.29799 .01472 L
+.29923 .01472 L
+.30034 .01472 L
+.30138 .01472 L
+.30252 .01472 L
+.30375 .01472 L
+.30499 .01472 L
+.30569 .01472 L
+.30634 .01472 L
+.30765 .01472 L
+.30839 .01472 L
+.30906 .01472 L
+.31026 .01472 L
+.31156 .01472 L
+.31278 .01472 L
+.31392 .01472 L
+.31497 .01472 L
+.31611 .01472 L
+.31718 .01472 L
+.31816 .01472 L
+.3193 .01472 L
+.32055 .01472 L
+.32173 .01472 L
+.32282 .01472 L
+.32406 .01472 L
+.32522 .01472 L
+.32626 .01472 L
+.32739 .01472 L
+.32862 .01472 L
+.32992 .01472 L
+.33103 .01472 L
+.33225 .01472 L
+.33356 .01472 L
+.33477 .01472 L
+.33541 .01472 L
+.3361 .01472 L
+.33683 .01472 L
+.33751 .01472 L
+.33876 .01472 L
+Mistroke
+.33991 .01472 L
+.34123 .01472 L
+.34249 .01472 L
+.3436 .01472 L
+.3448 .01472 L
+.34592 .01472 L
+.34694 .01472 L
+.34814 .01472 L
+.34945 .01472 L
+.35067 .01472 L
+.35181 .01472 L
+.35302 .01472 L
+.35431 .01472 L
+.35554 .01472 L
+.35665 .01472 L
+.35796 .01472 L
+.3587 .01472 L
+.35939 .01472 L
+.36064 .01472 L
+.36128 .01472 L
+.36198 .01472 L
+.36266 .01472 L
+.36337 .01472 L
+.36465 .01472 L
+.36536 .01472 L
+.36602 .01472 L
+.36675 .01472 L
+.36753 .01472 L
+.3682 .01472 L
+.36893 .01472 L
+.36962 .01472 L
+.37026 .01472 L
+.37146 .01472 L
+.37274 .01472 L
+.37394 .01472 L
+.37526 .01472 L
+.37651 .01472 L
+.37766 .01472 L
+.3788 .01472 L
+.37984 .01472 L
+.38103 .01472 L
+.38216 .01472 L
+.38339 .01472 L
+.3847 .01472 L
+.38581 .01472 L
+.38703 .01472 L
+.38834 .01472 L
+.38908 .01472 L
+.38975 .01472 L
+.39106 .01472 L
+Mistroke
+.39229 .01472 L
+.39334 .01472 L
+.3945 .01472 L
+.39571 .01472 L
+.39685 .01472 L
+.39791 .01472 L
+.39888 .01472 L
+.39994 .01472 L
+.40106 .01472 L
+.40221 .01472 L
+.40342 .01472 L
+.40457 .01472 L
+.40562 .01472 L
+.40685 .01472 L
+.40754 .01472 L
+.40818 .01472 L
+.40936 .01472 L
+.4106 .01472 L
+.41181 .01472 L
+.41313 .01472 L
+.41438 .01472 L
+.41554 .01472 L
+.41669 .01472 L
+.41772 .01472 L
+.41892 .01472 L
+.42005 .01472 L
+.42129 .01472 L
+.42259 .01472 L
+.42371 .01472 L
+.42493 .01472 L
+.42624 .01472 L
+.42698 .01472 L
+.42765 .01472 L
+.42896 .01472 L
+.43019 .01472 L
+.43125 .01472 L
+.43241 .01472 L
+.43362 .01472 L
+.43476 .01472 L
+.43582 .01472 L
+.43679 .01472 L
+.43791 .01472 L
+.43898 .01472 L
+.44012 .01472 L
+.44134 .01472 L
+.44249 .01472 L
+.44354 .01472 L
+.44477 .01472 L
+.44546 .01472 L
+.4461 .01472 L
+Mistroke
+.44727 .01472 L
+.44851 .01472 L
+.44973 .01472 L
+.45042 .01472 L
+.45106 .01472 L
+.45223 .01472 L
+.45347 .01472 L
+.45458 .01472 L
+.45562 .01472 L
+.45676 .01472 L
+.45799 .01472 L
+.45922 .01472 L
+.45992 .01472 L
+.46057 .01472 L
+.46188 .01472 L
+.46262 .01472 L
+.46329 .01472 L
+.46449 .01472 L
+.46579 .01472 L
+.46702 .01472 L
+.46815 .01472 L
+.4692 .01472 L
+.47034 .01472 L
+.47141 .01472 L
+.47239 .01472 L
+.47353 .01472 L
+.47478 .01472 L
+.47596 .01472 L
+.47705 .01472 L
+.47829 .01472 L
+.47945 .01472 L
+.48049 .01472 L
+.48162 .01472 L
+.48285 .01472 L
+.48415 .01472 L
+.48526 .01472 L
+.48648 .01472 L
+.48779 .01472 L
+.489 .01472 L
+.48963 .01472 L
+.49033 .01472 L
+.49105 .01472 L
+.49174 .01472 L
+.49299 .01472 L
+.49413 .01472 L
+.49539 .01472 L
+.49671 .01472 L
+.49783 .01472 L
+.49902 .01472 L
+.50014 .01472 L
+Mistroke
+.50116 .01472 L
+.50236 .01472 L
+.50366 .01472 L
+.50489 .01472 L
+.50603 .01472 L
+.50723 .01472 L
+.50853 .01472 L
+.50975 .01472 L
+.51087 .01472 L
+.51218 .01472 L
+.51292 .01472 L
+.51361 .01472 L
+.51486 .01472 L
+.5155 .01472 L
+.5162 .01472 L
+.51687 .01472 L
+.51759 .01472 L
+.51886 .01472 L
+.51958 .01472 L
+.52024 .01472 L
+.52096 .01472 L
+.52174 .01472 L
+.52241 .01472 L
+.52314 .01472 L
+.52383 .01472 L
+.52447 .01472 L
+.52568 .01472 L
+.52695 .01472 L
+.52816 .01472 L
+.52947 .01472 L
+.53072 .01472 L
+.53187 .01472 L
+.53301 .01472 L
+.53405 .01472 L
+.53525 .01472 L
+.53637 .01472 L
+.5376 .01472 L
+.53891 .01472 L
+.54002 .01472 L
+.54124 .01472 L
+.54255 .01472 L
+.54329 .01472 L
+.54396 .01472 L
+.54526 .01472 L
+.5465 .01472 L
+.54755 .01472 L
+.54871 .01472 L
+.54992 .01472 L
+.55105 .01472 L
+.55211 .01472 L
+Mistroke
+.55308 .01472 L
+.55415 .01472 L
+.55527 .01472 L
+.55641 .01472 L
+.55763 .01472 L
+.55878 .01472 L
+.55982 .01472 L
+.56105 .01472 L
+.56175 .01472 L
+.56238 .01472 L
+.56356 .01472 L
+.5648 .01472 L
+.56601 .01472 L
+.56734 .01472 L
+.56858 .01472 L
+.56974 .01472 L
+.57088 .01472 L
+.57192 .01472 L
+.57312 .01472 L
+.57425 .01472 L
+.57548 .01472 L
+.57679 .01472 L
+.5779 .01472 L
+.57912 .01472 L
+.58044 .01472 L
+.58118 .01472 L
+.58185 .01472 L
+.58315 .01472 L
+.58439 .01472 L
+.58544 .01472 L
+.5866 .01472 L
+.58782 .01472 L
+.58895 .01472 L
+.59001 .01472 L
+.59098 .01472 L
+.5921 .01472 L
+.59317 .01472 L
+.59431 .01472 L
+.59553 .01472 L
+.59668 .01472 L
+.59773 .01472 L
+.59896 .01472 L
+.59965 .01472 L
+.60029 .01472 L
+.60146 .01472 L
+.60271 .01472 L
+.60392 .01472 L
+.60461 .01472 L
+.60525 .01472 L
+.60642 .01472 L
+Mistroke
+.60766 .01472 L
+.60876 .01472 L
+.6098 .01472 L
+.61094 .01472 L
+.61217 .01472 L
+.61341 .01472 L
+.6141 .01472 L
+.61475 .01472 L
+.61607 .01472 L
+.6168 .01472 L
+.61747 .01472 L
+.61867 .01472 L
+.61997 .01472 L
+.6212 .01472 L
+.62233 .01472 L
+.62339 .01472 L
+.62452 .01472 L
+.62559 .01472 L
+.62657 .01472 L
+.62771 .01472 L
+.62896 .01472 L
+.63014 .01472 L
+.63123 .01472 L
+.63247 .01472 L
+.63363 .01472 L
+.63467 .01472 L
+.6358 .01472 L
+.63703 .01472 L
+.63833 .01472 L
+.63944 .01472 L
+.64066 .01472 L
+.64197 .01472 L
+.64318 .01472 L
+.64381 .01472 L
+.6445 .01472 L
+.64523 .01472 L
+.64591 .01472 L
+.64716 .01472 L
+.64831 .01472 L
+.64956 .01472 L
+.65088 .01472 L
+.652 .01472 L
+.65319 .01472 L
+.65431 .01472 L
+.65533 .01472 L
+.65653 .01472 L
+.65784 .01472 L
+.65906 .01472 L
+.6602 .01472 L
+.6614 .01472 L
+Mistroke
+.6627 .01472 L
+.66392 .01472 L
+.66504 .01472 L
+.66635 .01472 L
+.66709 .01472 L
+.66777 .01472 L
+.66903 .01472 L
+.66966 .01472 L
+.67036 .01472 L
+.67104 .01472 L
+.67175 .01472 L
+.67303 .01472 L
+.67374 .01472 L
+.6744 .01472 L
+.67513 .01472 L
+.67591 .01472 L
+.67658 .01472 L
+.67731 .01472 L
+.678 .01472 L
+.67864 .01472 L
+.67984 .01472 L
+.68112 .01472 L
+.68232 .01472 L
+.68364 .01472 L
+.68488 .01472 L
+.68603 .01472 L
+.68718 .01472 L
+.68821 .01472 L
+.68941 .01472 L
+.69053 .01472 L
+.69176 .01472 L
+.69307 .01472 L
+.69418 .01472 L
+.6954 .01472 L
+.69671 .01472 L
+.69745 .01472 L
+.69812 .01472 L
+.69942 .01472 L
+.70066 .01472 L
+.70171 .01472 L
+.70286 .01472 L
+.70407 .01472 L
+.70521 .01472 L
+.70627 .01472 L
+.70724 .01472 L
+.7083 .01472 L
+.70942 .01472 L
+.71056 .01472 L
+.71178 .01472 L
+.71293 .01472 L
+Mistroke
+.71398 .01472 L
+.71521 .01472 L
+.7159 .01472 L
+.71654 .01472 L
+.71771 .01472 L
+.71896 .01472 L
+.72017 .01472 L
+.72149 .01472 L
+.72273 .01472 L
+.72389 .01472 L
+.72503 .01472 L
+.72607 .01472 L
+.72727 .01472 L
+.7284 .01472 L
+.72963 .01472 L
+.73094 .01472 L
+.73205 .01472 L
+.73327 .01472 L
+.73458 .01472 L
+.73532 .01472 L
+.73599 .01472 L
+.7373 .01472 L
+.73853 .01472 L
+.73959 .01472 L
+.74075 .01472 L
+.74196 .01472 L
+.7431 .01472 L
+.74416 .01472 L
+.74513 .01472 L
+.74619 .01472 L
+.74731 .01472 L
+.74846 .01472 L
+.74967 .01472 L
+.75083 .01472 L
+.75187 .01472 L
+.7531 .01472 L
+.75379 .01472 L
+.75443 .01472 L
+.75561 .01472 L
+.75685 .01472 L
+.75806 .01472 L
+.75875 .01472 L
+.75939 .01472 L
+.76056 .01472 L
+.7618 .01472 L
+.7629 .01472 L
+.76394 .01472 L
+.76508 .01472 L
+.76631 .01472 L
+.76754 .01472 L
+Mistroke
+.76824 .01472 L
+.76889 .01472 L
+.7702 .01472 L
+.77094 .01472 L
+.77161 .01472 L
+.7728 .01472 L
+.7741 .01472 L
+.77533 .01472 L
+.77646 .01472 L
+.77752 .01472 L
+.77865 .01472 L
+.77972 .01472 L
+.7807 .01472 L
+.78184 .01472 L
+.78309 .01472 L
+.78427 .01472 L
+.78536 .01472 L
+.7866 .01472 L
+.78776 .01472 L
+.7888 .01472 L
+.78993 .01472 L
+.79116 .01472 L
+.79246 .01472 L
+.79357 .01472 L
+.79479 .01472 L
+.7961 .01472 L
+.7973 .01472 L
+.79793 .01472 L
+.79863 .01472 L
+.79936 .01472 L
+.80004 .01472 L
+.80129 .01472 L
+.80243 .01472 L
+.80369 .01472 L
+.80501 .01472 L
+.80612 .01472 L
+.80731 .01472 L
+.80843 .01472 L
+.80945 .01472 L
+.81066 .01472 L
+.81196 .01472 L
+.81318 .01472 L
+.81432 .01472 L
+.81552 .01472 L
+.81682 .01472 L
+.81804 .01472 L
+.81916 .01472 L
+.82047 .01472 L
+.8212 .01472 L
+.82189 .01472 L
+Mistroke
+.82315 .01472 L
+.82385 .01472 L
+.82448 .01472 L
+.82516 .01472 L
+.82587 .01472 L
+.82715 .01472 L
+.82786 .01472 L
+.82852 .01472 L
+.82925 .01472 L
+.83002 .01472 L
+.8307 .01472 L
+.83143 .01472 L
+.83212 .01472 L
+.83275 .01472 L
+.83396 .01472 L
+.83524 .01472 L
+.83644 .01472 L
+.83775 .01472 L
+.839 .01472 L
+.84015 .01472 L
+.84129 .01472 L
+.84232 .01472 L
+.84352 .01472 L
+.84464 .01472 L
+.84587 .01472 L
+.84718 .01472 L
+.84829 .01472 L
+.8495 .01472 L
+.85082 .01472 L
+.85155 .01472 L
+.85222 .01472 L
+.85353 .01472 L
+.85476 .01472 L
+.85581 .01472 L
+.85697 .01472 L
+.85818 .01472 L
+.85932 .01472 L
+.86037 .01472 L
+.86134 .01472 L
+.86241 .01472 L
+.86353 .01472 L
+.86467 .01472 L
+.86589 .01472 L
+.86704 .01472 L
+.86808 .01472 L
+.86931 .01472 L
+.87 .01472 L
+.87064 .01472 L
+.87182 .01472 L
+.87306 .01472 L
+Mistroke
+.87427 .01472 L
+.87559 .01472 L
+.87684 .01472 L
+.87799 .01472 L
+.87914 .01472 L
+.88017 .01472 L
+.88137 .01472 L
+.88249 .01472 L
+.88373 .01472 L
+.88503 .01472 L
+.88615 .01472 L
+.88737 .01472 L
+.88868 .01472 L
+.88942 .01472 L
+.89009 .01472 L
+.89139 .01472 L
+.89263 .01472 L
+.89368 .01472 L
+.89484 .01472 L
+.89605 .01472 L
+.89719 .01472 L
+.89825 .01472 L
+.89922 .01472 L
+.90029 .01472 L
+.90141 .01472 L
+.90255 .01472 L
+.90377 .01472 L
+.90492 .01472 L
+.90596 .01472 L
+.90719 .01472 L
+.90789 .01472 L
+.90852 .01472 L
+.9097 .01472 L
+.91094 .01472 L
+.91216 .01472 L
+.91284 .01472 L
+.91348 .01472 L
+.91464 .01472 L
+.91589 .01472 L
+.91699 .01472 L
+.91803 .01472 L
+.91917 .01472 L
+.9204 .01472 L
+.92163 .01472 L
+.92233 .01472 L
+.92297 .01472 L
+.92429 .01472 L
+.92502 .01472 L
+.92569 .01472 L
+.92689 .01472 L
+Mistroke
+.92819 .01472 L
+.92941 .01472 L
+.93055 .01472 L
+.9316 .01472 L
+.93273 .01472 L
+.9338 .01472 L
+.93478 .01472 L
+.93592 .01472 L
+.93717 .01472 L
+.93835 .01472 L
+.93944 .01472 L
+.94068 .01472 L
+.94184 .01472 L
+.94288 .01472 L
+.94401 .01472 L
+.94524 .01472 L
+.94654 .01472 L
+.94765 .01472 L
+.94887 .01472 L
+.94975 .01472 L
+.95057 .01472 L
+.95146 .01472 L
+.95241 .01472 L
+.95324 .01472 L
+.95401 .01472 L
+.95486 .01472 L
+.95577 .01472 L
+.95653 .01472 L
+.95737 .01472 L
+.95824 .01472 L
+.95905 .01472 L
+.95981 .01472 L
+.9605 .01472 L
+.9613 .01472 L
+.96206 .01472 L
+.96287 .01472 L
+.96377 .01472 L
+.96471 .01472 L
+.96559 .01472 L
+.96641 .01472 L
+.96716 .01472 L
+.96802 .01472 L
+.96884 .01472 L
+.96972 .01472 L
+.97067 .01472 L
+.97155 .01472 L
+.97236 .01472 L
+.97331 .01472 L
+.97433 .01472 L
+.9753 .01472 L
+Mistroke
+.97619 .01472 L
+Mfstroke
+0 1 1 r
+.02381 .60332 m
+.04262 .50625 L
+.06244 .43345 L
+.08255 .37877 L
+.10458 .33321 L
+.12579 .29896 L
+.14509 .27362 L
+.18408 .23411 L
+.22401 .20446 L
+.26243 .18263 L
+.30329 .16431 L
+.34264 .1501 L
+.38048 .13876 L
+.42077 .12861 L
+.45954 .12029 L
+.50076 .11269 L
+.54047 .10633 L
+.57866 .10095 L
+.61931 .09587 L
+.65844 .09152 L
+.70002 .08738 L
+.74009 .08379 L
+.77864 .08066 L
+.81964 .07763 L
+.85913 .07496 L
+.8971 .07259 L
+.93752 .07028 L
+.97619 .06822 L
+s
+1 1 1 r
+.02381 .01472 m
+.02499 .01472 L
+.02605 .01472 L
+.02729 .01472 L
+.02846 .01472 L
+.02954 .01472 L
+.03053 .01472 L
+.03163 .01472 L
+.03279 .01472 L
+.03395 .01472 L
+.0352 .01472 L
+.03638 .01472 L
+.03746 .01472 L
+.03873 .01472 L
+.03944 .01472 L
+.04011 .01472 L
+.04132 .01472 L
+.04262 .01472 L
+.04327 .01472 L
+.04396 .01472 L
+.04519 .01472 L
+.04588 .01472 L
+.04652 .01472 L
+.04722 .01472 L
+.04797 .01472 L
+.04862 .01472 L
+.04933 .01472 L
+.05061 .01472 L
+.05186 .01472 L
+.05302 .01472 L
+.05414 .01472 L
+.05519 .01472 L
+.05634 .01472 L
+.05759 .01472 L
+.05882 .01472 L
+.06012 .01472 L
+.06123 .01472 L
+.06244 .01472 L
+.06315 .01472 L
+.06381 .01472 L
+.06453 .01472 L
+.06529 .01472 L
+.06657 .01472 L
+.06729 .01472 L
+.06797 .01472 L
+.06924 .01472 L
+.0704 .01472 L
+.07103 .01472 L
+.07173 .01472 L
+.073 .01472 L
+Mistroke
+.07376 .01472 L
+.07448 .01472 L
+.07513 .01472 L
+.07583 .01472 L
+.0766 .01472 L
+.0774 .01472 L
+.07809 .01472 L
+.07885 .01472 L
+.07956 .01472 L
+.0802 .01472 L
+.08095 .01472 L
+.08166 .01472 L
+.08291 .01472 L
+.08362 .01472 L
+.08427 .01472 L
+.08544 .01472 L
+.08669 .01472 L
+.08787 .01472 L
+.08896 .01472 L
+.09016 .01472 L
+.09148 .01472 L
+.09214 .01472 L
+.09285 .01472 L
+.09413 .01472 L
+.09483 .01472 L
+.09548 .01472 L
+.09619 .01472 L
+.09695 .01472 L
+.09821 .01472 L
+.09893 .01472 L
+.09961 .01472 L
+.10086 .01472 L
+.10201 .01472 L
+.10333 .01472 L
+.10458 .01472 L
+.10572 .01472 L
+.10694 .01472 L
+.1081 .01472 L
+.10916 .01472 L
+.11033 .01472 L
+.11162 .01472 L
+.11227 .01472 L
+.11297 .01472 L
+.11422 .01472 L
+.11491 .01472 L
+.11554 .01472 L
+.11624 .01472 L
+.11698 .01472 L
+.11822 .01472 L
+.11892 .01472 L
+Mistroke
+.11958 .01472 L
+.12081 .01472 L
+.12194 .01472 L
+.12323 .01472 L
+.12446 .01472 L
+.12562 .01472 L
+.12668 .01472 L
+.12789 .01472 L
+.12903 .01472 L
+.13009 .01472 L
+.13107 .01472 L
+.13214 .01472 L
+.13327 .01472 L
+.13441 .01472 L
+.13564 .01472 L
+.1368 .01472 L
+.13785 .01472 L
+.13909 .01472 L
+.13979 .01472 L
+.14043 .01472 L
+.14162 .01472 L
+.14288 .01472 L
+.14402 .01472 L
+.14526 .01472 L
+.14656 .01472 L
+.14777 .01472 L
+.14891 .01472 L
+.14994 .01472 L
+.15113 .01472 L
+.15226 .01472 L
+.15348 .01472 L
+.15478 .01472 L
+.15589 .01472 L
+.15711 .01472 L
+.15842 .01472 L
+.15915 .01472 L
+.15982 .01472 L
+.16113 .01472 L
+.16236 .01472 L
+.16352 .01472 L
+.16456 .01472 L
+.16577 .01472 L
+.1669 .01472 L
+.16796 .01472 L
+.16893 .01472 L
+.16999 .01472 L
+.17111 .01472 L
+.17225 .01472 L
+.17347 .01472 L
+.17462 .01472 L
+Mistroke
+.17566 .01472 L
+.17689 .01472 L
+.17758 .01472 L
+.17823 .01472 L
+.1794 .01472 L
+.18065 .01472 L
+.18185 .01472 L
+.18316 .01472 L
+.18441 .01472 L
+.18556 .01472 L
+.1867 .01472 L
+.18773 .01472 L
+.18893 .01472 L
+.19005 .01472 L
+.19128 .01472 L
+.19258 .01472 L
+.19369 .01472 L
+.19491 .01472 L
+.19623 .01472 L
+.19696 .01472 L
+.19763 .01472 L
+.19894 .01472 L
+.20017 .01472 L
+.20122 .01472 L
+.20238 .01472 L
+.20359 .01472 L
+.20472 .01472 L
+.20578 .01472 L
+.20675 .01472 L
+.20781 .01472 L
+.20894 .01472 L
+.21008 .01472 L
+.21129 .01472 L
+.21244 .01472 L
+.21349 .01472 L
+.21472 .01472 L
+.21541 .01472 L
+.21605 .01472 L
+.21723 .01472 L
+.21847 .01472 L
+.21968 .01472 L
+.221 .01472 L
+.22224 .01472 L
+.2234 .01472 L
+.22454 .01472 L
+.22558 .01472 L
+.22677 .01472 L
+.2279 .01472 L
+.22914 .01472 L
+.23044 .01472 L
+Mistroke
+.23155 .01472 L
+.23277 .01472 L
+.23409 .01472 L
+.23482 .01472 L
+.2355 .01472 L
+.2368 .01472 L
+.23804 .01472 L
+.23909 .01472 L
+.24025 .01472 L
+.24146 .01472 L
+.2426 .01472 L
+.24365 .01472 L
+.24462 .01472 L
+.24569 .01472 L
+.24681 .01472 L
+.24795 .01472 L
+.24917 .01472 L
+.25032 .01472 L
+.25137 .01472 L
+.2526 .01472 L
+.25329 .01472 L
+.25393 .01472 L
+.2551 .01472 L
+.25635 .01472 L
+.25756 .01472 L
+.25888 .01472 L
+.26013 .01472 L
+.26129 .01472 L
+.26233 .01472 L
+.26348 .01472 L
+.26467 .01472 L
+.2658 .01472 L
+.26704 .01472 L
+.26835 .01472 L
+.26946 .01472 L
+.27068 .01472 L
+.272 .01472 L
+.27274 .01472 L
+.27341 .01472 L
+.27472 .01472 L
+.27595 .01472 L
+.27701 .01472 L
+.27817 .01472 L
+.27938 .01472 L
+.28052 .01472 L
+.28158 .01472 L
+.28255 .01472 L
+.28367 .01472 L
+.28474 .01472 L
+.28588 .01472 L
+Mistroke
+.2871 .01472 L
+.28825 .01472 L
+.2893 .01472 L
+.29053 .01472 L
+.29122 .01472 L
+.29186 .01472 L
+.29303 .01472 L
+.29427 .01472 L
+.29549 .01472 L
+.29618 .01472 L
+.29682 .01472 L
+.29799 .01472 L
+.29923 .01472 L
+.30034 .01472 L
+.30138 .01472 L
+.30252 .01472 L
+.30375 .01472 L
+.30499 .01472 L
+.30569 .01472 L
+.30634 .01472 L
+.30765 .01472 L
+.30839 .01472 L
+.30906 .01472 L
+.31026 .01472 L
+.31156 .01472 L
+.31278 .01472 L
+.31392 .01472 L
+.31497 .01472 L
+.31611 .01472 L
+.31718 .01472 L
+.31816 .01472 L
+.3193 .01472 L
+.32055 .01472 L
+.32173 .01472 L
+.32282 .01472 L
+.32406 .01472 L
+.32522 .01472 L
+.32626 .01472 L
+.32739 .01472 L
+.32862 .01472 L
+.32992 .01472 L
+.33103 .01472 L
+.33225 .01472 L
+.33356 .01472 L
+.33477 .01472 L
+.33541 .01472 L
+.3361 .01472 L
+.33683 .01472 L
+.33751 .01472 L
+.33876 .01472 L
+Mistroke
+.33991 .01472 L
+.34123 .01472 L
+.34249 .01472 L
+.3436 .01472 L
+.3448 .01472 L
+.34592 .01472 L
+.34694 .01472 L
+.34814 .01472 L
+.34945 .01472 L
+.35067 .01472 L
+.35181 .01472 L
+.35302 .01472 L
+.35431 .01472 L
+.35554 .01472 L
+.35665 .01472 L
+.35796 .01472 L
+.3587 .01472 L
+.35939 .01472 L
+.36064 .01472 L
+.36128 .01472 L
+.36198 .01472 L
+.36266 .01472 L
+.36337 .01472 L
+.36465 .01472 L
+.36536 .01472 L
+.36602 .01472 L
+.36675 .01472 L
+.36753 .01472 L
+.3682 .01472 L
+.36893 .01472 L
+.36962 .01472 L
+.37026 .01472 L
+.37146 .01472 L
+.37274 .01472 L
+.37394 .01472 L
+.37526 .01472 L
+.37651 .01472 L
+.37766 .01472 L
+.3788 .01472 L
+.37984 .01472 L
+.38103 .01472 L
+.38216 .01472 L
+.38339 .01472 L
+.3847 .01472 L
+.38581 .01472 L
+.38703 .01472 L
+.38834 .01472 L
+.38908 .01472 L
+.38975 .01472 L
+.39106 .01472 L
+Mistroke
+.39229 .01472 L
+.39334 .01472 L
+.3945 .01472 L
+.39571 .01472 L
+.39685 .01472 L
+.39791 .01472 L
+.39888 .01472 L
+.39994 .01472 L
+.40106 .01472 L
+.40221 .01472 L
+.40342 .01472 L
+.40457 .01472 L
+.40562 .01472 L
+.40685 .01472 L
+.40754 .01472 L
+.40818 .01472 L
+.40936 .01472 L
+.4106 .01472 L
+.41181 .01472 L
+.41313 .01472 L
+.41438 .01472 L
+.41554 .01472 L
+.41669 .01472 L
+.41772 .01472 L
+.41892 .01472 L
+.42005 .01472 L
+.42129 .01472 L
+.42259 .01472 L
+.42371 .01472 L
+.42493 .01472 L
+.42624 .01472 L
+.42698 .01472 L
+.42765 .01472 L
+.42896 .01472 L
+.43019 .01472 L
+.43125 .01472 L
+.43241 .01472 L
+.43362 .01472 L
+.43476 .01472 L
+.43582 .01472 L
+.43679 .01472 L
+.43791 .01472 L
+.43898 .01472 L
+.44012 .01472 L
+.44134 .01472 L
+.44249 .01472 L
+.44354 .01472 L
+.44477 .01472 L
+.44546 .01472 L
+.4461 .01472 L
+Mistroke
+.44727 .01472 L
+.44851 .01472 L
+.44973 .01472 L
+.45042 .01472 L
+.45106 .01472 L
+.45223 .01472 L
+.45347 .01472 L
+.45458 .01472 L
+.45562 .01472 L
+.45676 .01472 L
+.45799 .01472 L
+.45922 .01472 L
+.45992 .01472 L
+.46057 .01472 L
+.46188 .01472 L
+.46262 .01472 L
+.46329 .01472 L
+.46449 .01472 L
+.46579 .01472 L
+.46702 .01472 L
+.46815 .01472 L
+.4692 .01472 L
+.47034 .01472 L
+.47141 .01472 L
+.47239 .01472 L
+.47353 .01472 L
+.47478 .01472 L
+.47596 .01472 L
+.47705 .01472 L
+.47829 .01472 L
+.47945 .01472 L
+.48049 .01472 L
+.48162 .01472 L
+.48285 .01472 L
+.48415 .01472 L
+.48526 .01472 L
+.48648 .01472 L
+.48779 .01472 L
+.489 .01472 L
+.48963 .01472 L
+.49033 .01472 L
+.49105 .01472 L
+.49174 .01472 L
+.49299 .01472 L
+.49413 .01472 L
+.49539 .01472 L
+.49671 .01472 L
+.49783 .01472 L
+.49902 .01472 L
+.50014 .01472 L
+Mistroke
+.50116 .01472 L
+.50236 .01472 L
+.50366 .01472 L
+.50489 .01472 L
+.50603 .01472 L
+.50723 .01472 L
+.50853 .01472 L
+.50975 .01472 L
+.51087 .01472 L
+.51218 .01472 L
+.51292 .01472 L
+.51361 .01472 L
+.51486 .01472 L
+.5155 .01472 L
+.5162 .01472 L
+.51687 .01472 L
+.51759 .01472 L
+.51886 .01472 L
+.51958 .01472 L
+.52024 .01472 L
+.52096 .01472 L
+.52174 .01472 L
+.52241 .01472 L
+.52314 .01472 L
+.52383 .01472 L
+.52447 .01472 L
+.52568 .01472 L
+.52695 .01472 L
+.52816 .01472 L
+.52947 .01472 L
+.53072 .01472 L
+.53187 .01472 L
+.53301 .01472 L
+.53405 .01472 L
+.53525 .01472 L
+.53637 .01472 L
+.5376 .01472 L
+.53891 .01472 L
+.54002 .01472 L
+.54124 .01472 L
+.54255 .01472 L
+.54329 .01472 L
+.54396 .01472 L
+.54526 .01472 L
+.5465 .01472 L
+.54755 .01472 L
+.54871 .01472 L
+.54992 .01472 L
+.55105 .01472 L
+.55211 .01472 L
+Mistroke
+.55308 .01472 L
+.55415 .01472 L
+.55527 .01472 L
+.55641 .01472 L
+.55763 .01472 L
+.55878 .01472 L
+.55982 .01472 L
+.56105 .01472 L
+.56175 .01472 L
+.56238 .01472 L
+.56356 .01472 L
+.5648 .01472 L
+.56601 .01472 L
+.56734 .01472 L
+.56858 .01472 L
+.56974 .01472 L
+.57088 .01472 L
+.57192 .01472 L
+.57312 .01472 L
+.57425 .01472 L
+.57548 .01472 L
+.57679 .01472 L
+.5779 .01472 L
+.57912 .01472 L
+.58044 .01472 L
+.58118 .01472 L
+.58185 .01472 L
+.58315 .01472 L
+.58439 .01472 L
+.58544 .01472 L
+.5866 .01472 L
+.58782 .01472 L
+.58895 .01472 L
+.59001 .01472 L
+.59098 .01472 L
+.5921 .01472 L
+.59317 .01472 L
+.59431 .01472 L
+.59553 .01472 L
+.59668 .01472 L
+.59773 .01472 L
+.59896 .01472 L
+.59965 .01472 L
+.60029 .01472 L
+.60146 .01472 L
+.60271 .01472 L
+.60392 .01472 L
+.60461 .01472 L
+.60525 .01472 L
+.60642 .01472 L
+Mistroke
+.60766 .01472 L
+.60876 .01472 L
+.6098 .01472 L
+.61094 .01472 L
+.61217 .01472 L
+.61341 .01472 L
+.6141 .01472 L
+.61475 .01472 L
+.61607 .01472 L
+.6168 .01472 L
+.61747 .01472 L
+.61867 .01472 L
+.61997 .01472 L
+.6212 .01472 L
+.62233 .01472 L
+.62339 .01472 L
+.62452 .01472 L
+.62559 .01472 L
+.62657 .01472 L
+.62771 .01472 L
+.62896 .01472 L
+.63014 .01472 L
+.63123 .01472 L
+.63247 .01472 L
+.63363 .01472 L
+.63467 .01472 L
+.6358 .01472 L
+.63703 .01472 L
+.63833 .01472 L
+.63944 .01472 L
+.64066 .01472 L
+.64197 .01472 L
+.64318 .01472 L
+.64381 .01472 L
+.6445 .01472 L
+.64523 .01472 L
+.64591 .01472 L
+.64716 .01472 L
+.64831 .01472 L
+.64956 .01472 L
+.65088 .01472 L
+.652 .01472 L
+.65319 .01472 L
+.65431 .01472 L
+.65533 .01472 L
+.65653 .01472 L
+.65784 .01472 L
+.65906 .01472 L
+.6602 .01472 L
+.6614 .01472 L
+Mistroke
+.6627 .01472 L
+.66392 .01472 L
+.66504 .01472 L
+.66635 .01472 L
+.66709 .01472 L
+.66777 .01472 L
+.66903 .01472 L
+.66966 .01472 L
+.67036 .01472 L
+.67104 .01472 L
+.67175 .01472 L
+.67303 .01472 L
+.67374 .01472 L
+.6744 .01472 L
+.67513 .01472 L
+.67591 .01472 L
+.67658 .01472 L
+.67731 .01472 L
+.678 .01472 L
+.67864 .01472 L
+.67984 .01472 L
+.68112 .01472 L
+.68232 .01472 L
+.68364 .01472 L
+.68488 .01472 L
+.68603 .01472 L
+.68718 .01472 L
+.68821 .01472 L
+.68941 .01472 L
+.69053 .01472 L
+.69176 .01472 L
+.69307 .01472 L
+.69418 .01472 L
+.6954 .01472 L
+.69671 .01472 L
+.69745 .01472 L
+.69812 .01472 L
+.69942 .01472 L
+.70066 .01472 L
+.70171 .01472 L
+.70286 .01472 L
+.70407 .01472 L
+.70521 .01472 L
+.70627 .01472 L
+.70724 .01472 L
+.7083 .01472 L
+.70942 .01472 L
+.71056 .01472 L
+.71178 .01472 L
+.71293 .01472 L
+Mistroke
+.71398 .01472 L
+.71521 .01472 L
+.7159 .01472 L
+.71654 .01472 L
+.71771 .01472 L
+.71896 .01472 L
+.72017 .01472 L
+.72149 .01472 L
+.72273 .01472 L
+.72389 .01472 L
+.72503 .01472 L
+.72607 .01472 L
+.72727 .01472 L
+.7284 .01472 L
+.72963 .01472 L
+.73094 .01472 L
+.73205 .01472 L
+.73327 .01472 L
+.73458 .01472 L
+.73532 .01472 L
+.73599 .01472 L
+.7373 .01472 L
+.73853 .01472 L
+.73959 .01472 L
+.74075 .01472 L
+.74196 .01472 L
+.7431 .01472 L
+.74416 .01472 L
+.74513 .01472 L
+.74619 .01472 L
+.74731 .01472 L
+.74846 .01472 L
+.74967 .01472 L
+.75083 .01472 L
+.75187 .01472 L
+.7531 .01472 L
+.75379 .01472 L
+.75443 .01472 L
+.75561 .01472 L
+.75685 .01472 L
+.75806 .01472 L
+.75875 .01472 L
+.75939 .01472 L
+.76056 .01472 L
+.7618 .01472 L
+.7629 .01472 L
+.76394 .01472 L
+.76508 .01472 L
+.76631 .01472 L
+.76754 .01472 L
+Mistroke
+.76824 .01472 L
+.76889 .01472 L
+.7702 .01472 L
+.77094 .01472 L
+.77161 .01472 L
+.7728 .01472 L
+.7741 .01472 L
+.77533 .01472 L
+.77646 .01472 L
+.77752 .01472 L
+.77865 .01472 L
+.77972 .01472 L
+.7807 .01472 L
+.78184 .01472 L
+.78309 .01472 L
+.78427 .01472 L
+.78536 .01472 L
+.7866 .01472 L
+.78776 .01472 L
+.7888 .01472 L
+.78993 .01472 L
+.79116 .01472 L
+.79246 .01472 L
+.79357 .01472 L
+.79479 .01472 L
+.7961 .01472 L
+.7973 .01472 L
+.79793 .01472 L
+.79863 .01472 L
+.79936 .01472 L
+.80004 .01472 L
+.80129 .01472 L
+.80243 .01472 L
+.80369 .01472 L
+.80501 .01472 L
+.80612 .01472 L
+.80731 .01472 L
+.80843 .01472 L
+.80945 .01472 L
+.81066 .01472 L
+.81196 .01472 L
+.81318 .01472 L
+.81432 .01472 L
+.81552 .01472 L
+.81682 .01472 L
+.81804 .01472 L
+.81916 .01472 L
+.82047 .01472 L
+.8212 .01472 L
+.82189 .01472 L
+Mistroke
+.82315 .01472 L
+.82385 .01472 L
+.82448 .01472 L
+.82516 .01472 L
+.82587 .01472 L
+.82715 .01472 L
+.82786 .01472 L
+.82852 .01472 L
+.82925 .01472 L
+.83002 .01472 L
+.8307 .01472 L
+.83143 .01472 L
+.83212 .01472 L
+.83275 .01472 L
+.83396 .01472 L
+.83524 .01472 L
+.83644 .01472 L
+.83775 .01472 L
+.839 .01472 L
+.84015 .01472 L
+.84129 .01472 L
+.84232 .01472 L
+.84352 .01472 L
+.84464 .01472 L
+.84587 .01472 L
+.84718 .01472 L
+.84829 .01472 L
+.8495 .01472 L
+.85082 .01472 L
+.85155 .01472 L
+.85222 .01472 L
+.85353 .01472 L
+.85476 .01472 L
+.85581 .01472 L
+.85697 .01472 L
+.85818 .01472 L
+.85932 .01472 L
+.86037 .01472 L
+.86134 .01472 L
+.86241 .01472 L
+.86353 .01472 L
+.86467 .01472 L
+.86589 .01472 L
+.86704 .01472 L
+.86808 .01472 L
+.86931 .01472 L
+.87 .01472 L
+.87064 .01472 L
+.87182 .01472 L
+.87306 .01472 L
+Mistroke
+.87427 .01472 L
+.87559 .01472 L
+.87684 .01472 L
+.87799 .01472 L
+.87914 .01472 L
+.88017 .01472 L
+.88137 .01472 L
+.88249 .01472 L
+.88373 .01472 L
+.88503 .01472 L
+.88615 .01472 L
+.88737 .01472 L
+.88868 .01472 L
+.88942 .01472 L
+.89009 .01472 L
+.89139 .01472 L
+.89263 .01472 L
+.89368 .01472 L
+.89484 .01472 L
+.89605 .01472 L
+.89719 .01472 L
+.89825 .01472 L
+.89922 .01472 L
+.90029 .01472 L
+.90141 .01472 L
+.90255 .01472 L
+.90377 .01472 L
+.90492 .01472 L
+.90596 .01472 L
+.90719 .01472 L
+.90789 .01472 L
+.90852 .01472 L
+.9097 .01472 L
+.91094 .01472 L
+.91216 .01472 L
+.91284 .01472 L
+.91348 .01472 L
+.91464 .01472 L
+.91589 .01472 L
+.91699 .01472 L
+.91803 .01472 L
+.91917 .01472 L
+.9204 .01472 L
+.92163 .01472 L
+.92233 .01472 L
+.92297 .01472 L
+.92429 .01472 L
+.92502 .01472 L
+.92569 .01472 L
+.92689 .01472 L
+Mistroke
+.92819 .01472 L
+.92941 .01472 L
+.93055 .01472 L
+.9316 .01472 L
+.93273 .01472 L
+.9338 .01472 L
+.93478 .01472 L
+.93592 .01472 L
+.93717 .01472 L
+.93835 .01472 L
+.93944 .01472 L
+.94068 .01472 L
+.94184 .01472 L
+.94288 .01472 L
+.94401 .01472 L
+.94524 .01472 L
+.94654 .01472 L
+.94765 .01472 L
+.94887 .01472 L
+.94975 .01472 L
+.95057 .01472 L
+.95146 .01472 L
+.95241 .01472 L
+.95324 .01472 L
+.95401 .01472 L
+.95486 .01472 L
+.95577 .01472 L
+.95653 .01472 L
+.95737 .01472 L
+.95824 .01472 L
+.95905 .01472 L
+.95981 .01472 L
+.9605 .01472 L
+.9613 .01472 L
+.96206 .01472 L
+.96287 .01472 L
+.96377 .01472 L
+.96471 .01472 L
+.96559 .01472 L
+.96641 .01472 L
+.96716 .01472 L
+.96802 .01472 L
+.96884 .01472 L
+.96972 .01472 L
+.97067 .01472 L
+.97155 .01472 L
+.97236 .01472 L
+.97331 .01472 L
+.97433 .01472 L
+.9753 .01472 L
+Mistroke
+.97619 .01472 L
+Mfstroke
+0 1 0 r
+.02381 .01472 m
+.04262 .11178 L
+.06244 .18458 L
+.08255 .23927 L
+.10458 .28483 L
+.12579 .31908 L
+.14509 .34441 L
+.18408 .38392 L
+.22401 .41358 L
+.26243 .43541 L
+.30329 .45372 L
+.34264 .46794 L
+.38048 .47927 L
+.42077 .48943 L
+.45954 .49774 L
+.50076 .50535 L
+.54047 .51171 L
+.57866 .51709 L
+.61931 .52216 L
+.65844 .52651 L
+.70002 .53065 L
+.74009 .53424 L
+.77864 .53737 L
+.81964 .54041 L
+.85913 .54308 L
+.8971 .54544 L
+.93752 .54776 L
+.97619 .54981 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 177.938},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000/B000`400?l00000o`00003oo`3ooolQ
+0?ooo`00FP3oool2000003@0oooo1@0000020?ooo`800000<03oool500000080oooo0P00000a0?oo
+o`@000000`3oool2000001@0oooo001I0?ooo`040000003oool0oooo000003D0oooo00D000000?oo
+o`3oool0oooo000000020?ooo`030000003oool0oooo02l0oooo00D000000?ooo`3oool0oooo0000
+00020?ooo`030000003oool0oooo02h0oooo00<000000?ooo`3oool00`3oool010000000oooo0?oo
+o`00000C0?ooo`00G03oool00`000000oooo0?ooo`0c0?ooo`050000003oool0oooo0?ooo`000000
+0P3oool00`000000oooo0?ooo`0_0?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool0
+;`3oool00`000000oooo0?ooo`020?ooo`040000003oool0oooo000001<0oooo001J0?ooo`800000
+=P3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?ooo`3oool0;`3oool00`000000
+oooo0?ooo`020?ooo`800000<`3oool01@000000oooo0?ooo`3oool000000080oooo00<000000?oo
+o`3oool04@3oool005X0oooo00<000000?ooo`3oool0=@3oool01@000000oooo0?ooo`3oool00000
+0080oooo00<000000?ooo`3oool0;`3oool00`000000oooo0?ooo`020?ooo`030000003oool0oooo
+0300oooo00@000000?ooo`3oool000000P3oool010000000oooo0?ooo`00000C0?ooo`00FP3oool3
+000003@0oooo0P0000040?ooo`800000<@3oool2000000@0oooo0`00000a0?ooo`800000103oool2
+000001@0oooo003o0?ooob40oooo000R0?ooo`030000003oool0oooo0?/0oooo000R0?ooo`030000
+003oool0oooo0?/0oooo000R0?ooo`030000003oool0oooo0?<0oooo0P0000060?ooo`008P3oool0
+0`000000oooo0?ooo`3b0?ooo`040000003oool0oooo000000D0oooo000L0?ooo`H0000000<00?l0
+0?ooo`3oool0i03oool6000000P0oooo00<000000?ooo`3oool01P3oool00280oooo00<00?l00?oo
+o`3oool0=P3oool00`000000oooo0?ooo`0g0?ooo`030000003oool0oooo03H0oooo00<000000?oo
+o`3oool0=`3oool00`000000oooo0?ooo`0;0?ooo`D000001@3oool00280oooo00<00?l00?ooo`3o
+ool0lP3oool00`000000oooo0?ooo`060?ooo`008P3oool00`0000000?l00?ooo`3k0?ooo`008P3o
+ool00`0000000?l00?ooo`3k0?ooo`008P3oool00`0000000?l00?ooo`3k0?ooo`008P3oool00`00
+00000?l00?ooo`3k0?ooo`008P3oool00`0000000?l00?ooo`3k0?ooo`008P3oool00`0000000?l0
+0?ooo`3k0?ooo`008P3oool00`000000oooo003o003k0?ooo`008P3oool00`000000oooo003o003k
+0?ooo`008P3oool00`000000oooo003o003k0?ooo`008P3oool00`000000oooo003o003k0?ooo`00
+8P3oool00`000000oooo003o003E0?ooo`l00?oo5`3oool00280oooo0P0000000`00o`00oooo0?oo
+o`310?oooa800?oo9P3oool00280oooo00@000000?ooo`3oool00?l0^03oool:003oocP0oooo000R
+0?ooo`040000003oool0oooo003o0:D0oooo4`00oom20?ooo`008P3oool010000000oooo0?ooo`00
+o`2K0?ooo`X00?ooE@3oool00280oooo00@000000?ooo`3oool00?l0T@3oool:003ooel0oooo000R
+0?ooo`040000003oool0oooo003o08P0oooo2@00oomY0?ooo`008P3oool010000000oooo0?ooo`00
+o`200?ooo`P00?ooLP3oool00280oooo0P0000020?ooo`03003o003oool0oooo07T0oooo1000oomj
+0?ooo`008P3oool01@000000oooo0?ooo`3oool00?l007@0oooo1`00oomn0?ooo`008P3oool01@00
+0000oooo0?ooo`3oool00?l006`0oooo2000oon50?ooo`008P3oool01@000000oooo0?ooo`3oool0
+0?l006L0oooo1@00oon=0?ooo`008P3oool00`000000oooo0?ooo`020?ooo`03003o003oool0oooo
+05l0oooo1@00oonB0?ooo`003`3oool2000000@0oooo0P0000030?ooo`@00000103oool00`000000
+oooo0?ooo`020?ooo`03003o003oool0oooo05/0oooo1000oonG0?ooo`003P3oool010000000oooo
+0?ooo`0000080?ooo`030000003oool0oooo00D0oooo00<000000?ooo`3oool00P3oool00`00o`00
+oooo0?ooo`1G0?ooo`@00?ooV`3oool000h0oooo00@000000?ooo`3oool000002@3oool00`000000
+oooo0?ooo`040?ooo`8000000`3oool00`00o`00oooo0?ooo`1D0?ooo`<00?ooW`3oool000h0oooo
+00@000000?ooo`3oool000002P3oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo00<0
+oooo00<00?l00?ooo`3oool0C`3oool4003ooj80oooo000>0?ooo`040000003oool0oooo000000P0
+oooo00@000000?ooo`3oool00000103oool00`000000oooo0?ooo`030?ooo`03003o003oool0oooo
+04/0oooo1000oonV0?ooo`003`3oool2000000X0oooo0P0000050?ooo`030000003oool0oooo00<0
+oooo00<00?l00?ooo`3oool0A`3oool4003oojX0oooo000R0?ooo`030000003oool0oooo00<0oooo
+00<00?l00?ooo`3oool0@`3oool4003oojh0oooo000R0?ooo`030000003oool0oooo00@0oooo00<0
+0?l00?ooo`3oool0@03oool2003ook80oooo000R0?ooo`030000003oool0oooo00@0oooo00<00?l0
+0?ooo`3oool0?@3oool3003ook@0oooo000R0?ooo`8000001@3oool00`00o`00oooo0?ooo`0k0?oo
+o`800?oo]`3oool00280oooo00<000000?ooo`3oool01@3oool00`00o`00oooo0?ooo`0g0?ooo`<0
+0?oo^@3oool00280oooo00<000000?ooo`3oool01@3oool00`00o`00oooo0?ooo`0e0?ooo`800?oo
+_03oool00280oooo00<000000?ooo`3oool01@3oool00`00o`00oooo0?ooo`0b0?ooo`<00?oo_P3o
+ool00280oooo00<000000?ooo`3oool01@3oool00`00o`00oooo0?ooo`0`0?ooo`800?oo`@3oool0
+0280oooo00<000000?ooo`3oool01P3oool00`00o`00oooo0?ooo`0]0?ooo`800?oo``3oool00280
+oooo00<000000?ooo`3oool01P3oool00`00o`00oooo0?ooo`0[0?ooo`800?ooa@3oool00280oooo
+0P0000070?ooo`03003o003oool0oooo02T0oooo0P00ooo70?ooo`008P3oool00`000000oooo0?oo
+o`070?ooo`03003o003oool0oooo02H0oooo0P00ooo90?ooo`008P3oool00`000000oooo0?ooo`07
+0?ooo`03003o003oool0oooo02@0oooo0P00ooo;0?ooo`008P3oool00`000000oooo0?ooo`080?oo
+o`03003o003oool0oooo0280oooo00<00?oo0?ooo`3oool0b`3oool00280oooo00<000000?ooo`3o
+ool0203oool00`00o`00oooo0?ooo`0Q0?ooo`03003oo`3oool0oooo0<`0oooo000R0?ooo`030000
+003oool0oooo00P0oooo00<00?l00?ooo`3oool07`3oool2003ooll0oooo000R0?ooo`030000003o
+ool0oooo00T0oooo00<00?l00?ooo`3oool07@3oool00`00ool0oooo0?ooo`3?0?ooo`008P3oool2
+000000X0oooo00<00?l00?ooo`3oool0703oool00`00ool0oooo0?ooo`3@0?ooo`008P3oool00`00
+0000oooo0?ooo`090?ooo`03003o003oool0oooo01/0oooo00<00?oo0?ooo`3oool0d@3oool00280
+oooo00<000000?ooo`3oool02P3oool00`00o`00oooo0?ooo`0H0?ooo`800?ooe03oool00280oooo
+00<000000?ooo`3oool02P3oool00`00o`00oooo0?ooo`0G0?ooo`03003oo`3oool0oooo0=@0oooo
+000R0?ooo`030000003oool0oooo00/0oooo00<00?l00?ooo`3oool05@3oool00`00ool0oooo0?oo
+o`3E0?ooo`003`3oool2000000@0oooo0P0000050?ooo`<000000`3oool00`000000oooo0?ooo`0;
+0?ooo`03003o003oool0oooo01@0oooo00<00?oo0?ooo`3oool0eP3oool000h0oooo00@000000?oo
+o`3oool000002`3oool00`000000oooo0?ooo`020?ooo`030000003oool0oooo00/0oooo00<00?l0
+0?ooo`3oool04`3oool00`00ool0oooo0?ooo`3G0?ooo`003P3oool010000000oooo0?ooo`000008
+0?ooo`D000000`3oool2000000d0oooo00<00?l00?ooo`3oool04@3oool00`00ool0oooo0?ooo`3H
+0?ooo`003P3oool010000000oooo0?ooo`0000080?ooo`040000003oool0oooo000000@0oooo00<0
+00000?ooo`3oool0303oool00`00o`00oooo0?ooo`0@0?ooo`03003oo`3oool0oooo0=T0oooo000>
+0?ooo`040000003oool0oooo000000T0oooo00<000000?ooo`000000103oool00`000000oooo0?oo
+o`0=0?ooo`03003o003oool0oooo00h0oooo00<00?oo0?ooo`3oool0fP3oool000l0oooo0P00000;
+0?ooo`800000103oool00`000000oooo0?ooo`0=0?ooo`03003o003oool0oooo00d0oooo00<00?oo
+0?ooo`3oool0f`3oool00280oooo00<000000?ooo`3oool03P3oool00`00o`00oooo0?ooo`0;0?oo
+o`03003oo`3oool0oooo0=`0oooo000R0?ooo`030000003oool0oooo00h0oooo00<00?l00?ooo`3o
+ool02P3oool00`00ool0oooo0?ooo`3M0?ooo`008P3oool00`000000oooo0?ooo`0?0?ooo`03003o
+003oool0oooo00P0oooo00<00?oo0?ooo`3oool0gP3oool00280oooo00<000000?ooo`3oool03`3o
+ool00`00o`00oooo0?ooo`070?ooo`03003oo`3oool0oooo0=l0oooo000R0?ooo`8000004@3oool0
+0`00o`00oooo0?ooo`050?ooo`03003oo`3oool0oooo0>00oooo000R0?ooo`030000003oool0oooo
+0100oooo00<00?l00?ooo`3oool0103oool00`00ool0oooo0?ooo`3Q0?ooo`008P3oool00`000000
+oooo0?ooo`0A0?ooo`03003o003oool0oooo00<0oooo00<00?oo0?ooo`3oool0h@3oool00280oooo
+00<000000?ooo`3oool04@3oool00`00o`00oooo0?ooo`020?ooo`03003oo`3oool0oooo0>80oooo
+000R0?ooo`030000003oool0oooo0180oooo00@00?l00?ooo`3oool00?ooi@3oool00280oooo00<0
+00000?ooo`3oool04P3oool00`00o`00oooo003oo`3V0?ooo`008P3oool00`000000oooo0?ooo`0C
+0?ooo`03003o0000ool0oooo0>D0oooo000R0?ooo`800000503oool00`00ool00?l00?ooo`3U0?oo
+o`008P3oool00`000000oooo0?ooo`0C0?ooo`03003oo`00o`00oooo0>D0oooo000R0?ooo`030000
+003oool0oooo0180oooo00@00?oo0?ooo`3oool00?l0i@3oool00280oooo00<000000?ooo`3oool0
+4P3oool01@00ool0oooo0?ooo`3oool00?l00>@0oooo000R0?ooo`030000003oool0oooo0140oooo
+00<00?oo0?ooo`3oool00`3oool00`00o`00oooo0?ooo`3Q0?ooo`008P3oool00`000000oooo0?oo
+o`0A0?ooo`03003oo`3oool0oooo00<0oooo00<00?l00?ooo`3oool0h@3oool00280oooo00<00000
+0?ooo`3oool0403oool00`00ool0oooo0?ooo`050?ooo`03003o003oool0oooo0>00oooo000R0?oo
+o`8000004@3oool00`00ool0oooo0?ooo`060?ooo`03003o003oool0oooo0=l0oooo000R0?ooo`03
+0000003oool0oooo00l0oooo00<00?oo0?ooo`3oool0203oool00`00o`00oooo0?ooo`3N0?ooo`00
+8P3oool00`000000oooo0?ooo`0?0?ooo`03003oo`3oool0oooo00T0oooo00<00?l00?ooo`3oool0
+g@3oool00280oooo00<000000?ooo`3oool03P3oool00`00ool0oooo0?ooo`0;0?ooo`03003o003o
+ool0oooo0=`0oooo000R0?ooo`030000003oool0oooo00h0oooo00<00?oo0?ooo`3oool0303oool0
+0`00o`00oooo0?ooo`3K0?ooo`003`3oool2000000@0oooo0P0000030?ooo`<000001@3oool00`00
+0000oooo0?ooo`0=0?ooo`03003oo`3oool0oooo00h0oooo00<00?l00?ooo`3oool0fP3oool000h0
+oooo00@000000?ooo`3oool00000203oool010000000oooo0?ooo`0000040?ooo`030000003oool0
+oooo00d0oooo00<00?oo0?ooo`3oool03P3oool00`00o`00oooo0?ooo`3J0?ooo`003P3oool01000
+0000oooo0?ooo`0000080?ooo`040000003oool0oooo000000@0oooo0P00000=0?ooo`03003oo`3o
+ool0oooo0100oooo00<00?l00?ooo`3oool0f@3oool000h0oooo00@000000?ooo`3oool00000203o
+ool3000000D0oooo00<000000?ooo`3oool0303oool00`00ool0oooo0?ooo`0A0?ooo`03003o003o
+ool0oooo0=P0oooo000>0?ooo`040000003oool0oooo000000T0oooo00<000000?ooo`3oool0103o
+ool00`000000oooo0?ooo`0;0?ooo`03003oo`3oool0oooo01<0oooo00<00?l00?ooo`3oool0e`3o
+ool000l0oooo0P00000:0?ooo`<00000103oool00`000000oooo0?ooo`0;0?ooo`03003oo`3oool0
+oooo01@0oooo00<00?l00?ooo`3oool0eP3oool00280oooo00<000000?ooo`3oool02`3oool00`00
+ool0oooo0?ooo`0E0?ooo`03003o003oool0oooo0=D0oooo000R0?ooo`030000003oool0oooo00X0
+oooo00<00?oo0?ooo`3oool05`3oool2003o0=D0oooo000R0?ooo`030000003oool0oooo00X0oooo
+00<00?oo0?ooo`3oool06@3oool00`00o`00oooo0?ooo`3B0?ooo`008P3oool2000000X0oooo00<0
+0?oo0?ooo`3oool06`3oool00`00o`00oooo0?ooo`3A0?ooo`008P3oool00`000000oooo0?ooo`09
+0?ooo`03003oo`3oool0oooo01`0oooo0P00o`3A0?ooo`008P3oool00`000000oooo0?ooo`090?oo
+o`03003oo`3oool0oooo01h0oooo00<00?l00?ooo`3oool0cP3oool00280oooo00<000000?ooo`3o
+ool0203oool00`00ool0oooo0?ooo`0P0?ooo`800?l0cP3oool00280oooo00<000000?ooo`3oool0
+203oool00`00ool0oooo0?ooo`0R0?ooo`03003o003oool0oooo0</0oooo000R0?ooo`030000003o
+ool0oooo00P0oooo00<00?oo0?ooo`3oool08`3oool2003o0</0oooo000R0?ooo`030000003oool0
+oooo00L0oooo00<00?oo0?ooo`3oool09P3oool2003o0<T0oooo000R0?ooo`800000203oool00`00
+ool0oooo0?ooo`0X0?ooo`800?l0a`3oool00280oooo00<000000?ooo`3oool01P3oool00`00ool0
+oooo0?ooo`0[0?ooo`800?l0a@3oool00280oooo00<000000?ooo`3oool01P3oool00`00ool0oooo
+0?ooo`0]0?ooo`03003o003oool0oooo0<80oooo000R0?ooo`030000003oool0oooo00H0oooo00<0
+0?oo0?ooo`3oool0;P3oool2003o0<80oooo000R0?ooo`030000003oool0oooo00D0oooo00<00?oo
+0?ooo`3oool0<@3oool2003o0<00oooo000R0?ooo`030000003oool0oooo00D0oooo00<00?oo0?oo
+o`3oool0<`3oool2003o0;h0oooo000R0?ooo`030000003oool0oooo00D0oooo00<00?oo0?ooo`3o
+ool0=@3oool2003o0;`0oooo000R0?ooo`8000001P3oool00`00ool0oooo0?ooo`0g0?ooo`<00?l0
+^@3oool00280oooo00<000000?ooo`3oool0103oool00`00ool0oooo0?ooo`0k0?ooo`<00?l0]P3o
+ool00280oooo00<000000?ooo`3oool0103oool00`00ool0oooo0?ooo`0n0?ooo`@00?l0/P3oool0
+0280oooo00<000000?ooo`3oool0103oool00`00ool0oooo0?ooo`120?ooo`<00?l0[`3oool00280
+oooo00<000000?ooo`3oool00`3oool00`00ool0oooo0?ooo`160?ooo`<00?l0[03oool000l0oooo
+0P0000040?ooo`800000103oool2000000D0oooo00<000000?ooo`3oool00`3oool00`00ool0oooo
+0?ooo`190?ooo`<00?l0Z@3oool000h0oooo00@000000?ooo`3oool00000203oool010000000oooo
+0?ooo`0000040?ooo`030000003oool0oooo00<0oooo00<00?oo0?ooo`3oool0C03oool4003o0:D0
+oooo000>0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool20000
+00<0oooo00<00?oo0?ooo`3oool0D@3oool5003o0:00oooo000>0?ooo`040000003oool0oooo0000
+00T0oooo0P0000050?ooo`030000003oool0oooo0080oooo00<00?oo0?ooo`3oool0EP3oool5003o
+09/0oooo000>0?ooo`040000003oool0oooo000000P0oooo00@000000?ooo`3oool00000103oool0
+0`000000oooo0?ooo`020?ooo`03003oo`3oool0oooo05/0oooo1000o`2G0?ooo`003`3oool20000
+00X0oooo0P0000050?ooo`030000003oool0oooo0080oooo00<00?oo0?ooo`3oool0G`3oool5003o
+0980oooo000R0?ooo`050000003oool0oooo0?ooo`00ool0I`3oool5003o08d0oooo000R0?ooo`05
+0000003oool0oooo0?ooo`00ool0K03oool5003o08P0oooo000R0?ooo`050000003oool0oooo0?oo
+o`00ool0L@3oool5003o08<0oooo000R0?ooo`8000000P3oool00`00ool0oooo0?ooo`1d0?ooo`L0
+0?l0O03oool00280oooo00@000000?ooo`3oool00?ooOP3oool9003o07<0oooo000R0?ooo`040000
+003oool0oooo003oohL0oooo2P00o`1Y0?ooo`008P3oool010000000oooo0?ooo`00oonA0?ooo`T0
+0?l0H03oool00280oooo00@000000?ooo`3oool00?ooVP3oool:003o05H0oooo000R0?ooo`040000
+003oool0oooo003ooj@0oooo2P00o`1<0?ooo`008P3oool010000000oooo0?ooo`00oon^0?ooo`T0
+0?l0@`3oool00280oooo00<000000?ooo`00ool0^03ooolD003o02l0oooo000R0?ooo`80000000<0
+0?oo0?ooo`3oool0bP3ooolB003o01d0oooo000R0?ooo`030000003oool00?oo0=h0oooo1P00o`0G
+0?ooo`008P3oool00`000000oooo003oo`3k0?ooo`008P3oool00`000000oooo003oo`3k0?ooo`00
+8P3oool00`000000oooo003oo`3k0?ooo`008P3oool00`0000000?oo0?ooo`3k0?ooo`008P3oool0
+0`0000000?oo0?ooo`3k0?ooo`008P3oool00`0000000?oo0?ooo`3k0?ooo`008P3oool00`000000
+0?oo0?ooo`3k0?ooo`008P3oool00`0000000?oo0?ooo`3k0?ooo`008P3oool00`0000000?oo0?oo
+o`3k0?ooo`008P3oool00`00ool0oooo0?ooo`3k0?ooo`006P3oool5000000<0oooo00<00?oo0?oo
+o`3oool0n`3oool001`0oooo00<000000?ooo`3oool00`3oool00`00ool0oooo0?ooo`3k0?ooo`00
+703oool00`000000oooo0?ooo`030?ooo`03003oo`000000oooo0?/0oooo000L0?ooo`030000003o
+ool0oooo00<0oooo00<000000?ooo`3oool0n`3oool001`0oooo00<000000?ooo`3oool00`3oool0
+0`000000oooo0?ooo`3k0?ooo`006`3oool2000000D0oooo00<000000?ooo`3oool0n`3oool00?l0
+oooo8@3oool00?l0oooo8@3oool00?l0oooo8@3oool00?l0oooo8@3oool00?l0oooo8@3oool00?l0
+oooo8@3oool00?l0oooo8@3oool00?l0oooo8@3oool000H0oooo00<000000?ooo`3oool07P3oool0
+0`000000oooo0?ooo`3f0?ooo`001@3oool00`000000oooo0?ooo`070?ooo`030000003oool0oooo
+01H0oooo00<000000?ooo`3oool0m@3oool000@0oooo00<000000?ooo`3oool00P3oool3000000@0
+oooo00@000000?ooo`3oool0oooo0P000000103oool000000?ooo`0000020?ooo`8000000`3oool3
+000000D0oooo00<000000?ooo`3oool00`000000103oool000000000003oool400000>T0oooo0004
+0?ooo`030000003oool0oooo00<0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`02
+0?ooo`070000003oool000000?ooo`000000oooo000000020?ooo`050000003oool0oooo0?ooo`00
+00001P3oool01@000000oooo0?ooo`3oool000000080oooo00D000000?ooo`3oool0oooo0000003[
+0?ooo`00103oool00`000000oooo0?ooo`030?ooo`030000003oool0oooo00<0oooo00<000000?oo
+o`3oool00P3oool01`000000oooo0000003oool000000?ooo`0000000P3oool01@000000oooo0?oo
+o`3oool0000000H0oooo00D000000?ooo`3oool0oooo000000020?ooo`050000003oool0oooo0?oo
+o`000000j`3oool000@0oooo00<000000?ooo`3oool00`3oool00`000000oooo0?ooo`040?ooo`03
+0000003oool0oooo00<0000000<0oooo0000003oool00P3oool2000000@0oooo00<000000?ooo`3o
+ool0103oool010000000oooo0?ooo`3oool3000000<0oooo1000003Y0?ooo`001@3oool00`000000
+oooo0?ooo`020?ooo`030000003oool0oooo00@0oooo00<000000?ooo`3oool03P3oool00`000000
+oooo0?ooo`030?ooo`030000003oool0oooo0080oooo00<000000?ooo`3oool03@3oool200000>40
+oooo00060?ooo`030000003oool0oooo008000001`3oool00`000000oooo0?ooo`0<0?ooo`800000
+103oool00`000000oooo0?ooo`020?ooo`8000002`3oool300000080oooo00<000000?ooo`3oool0
+g`3oool003h0oooo00<000000?ooo`3oool0g`3oool003d0oooo0P00003Q0?ooo`00o`3ooolQ0?oo
+o`00\
+\>"],
+  ImageRangeCache->{{{0, 287}, {176.938, 0}} -> {-2.96772, -0.0845, \
+0.0868904, 0.00702958}}],
+
+Cell[BoxData[
+    TagBox[\(\[SkeletonIndicator]  Graphics  \[SkeletonIndicator]\),
+      False,
+      Editable->False]], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 685}},
+WindowSize->{495, 561},
+WindowMargins->{{24, Automatic}, {Automatic, 30}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 57, 1, 30, "Input"],
+Cell[1814, 54, 39, 1, 30, "Input"],
+
+Cell[CellGroupData[{
+Cell[1878, 59, 669, 12, 210, "Input"],
+Cell[2550, 73, 904, 23, 105, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3491, 101, 161, 3, 50, "Input"],
+Cell[3655, 106, 830, 22, 105, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4522, 133, 1036, 21, 325, "Input"],
+Cell[5561, 156, 20133, 554, 186, 7891, 398, "GraphicsData", "PostScript", \
+"Graphics"],
+Cell[25697, 712, 130, 3, 29, "Output"],
+Cell[25830, 717, 31656, 1412, 186, 21856, 1286, "GraphicsData", "PostScript", \
+"Graphics"],
+Cell[57489, 2131, 130, 3, 29, "Output"],
+Cell[57622, 2136, 20133, 554, 186, 7891, 398, "GraphicsData", "PostScript", \
+"Graphics"],
+Cell[77758, 2692, 130, 3, 29, "Output"],
+Cell[77891, 2697, 31656, 1412, 186, 21856, 1286, "GraphicsData", \
+"PostScript", "Graphics"],
+Cell[109550, 4111, 130, 3, 29, "Output"],
+Cell[109683, 4116, 20173, 547, 186, 7746, 389, "GraphicsData", "PostScript", \
+"Graphics"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[129893, 4668, 85, 1, 30, "Input"],
+Cell[129981, 4671, 52389, 2485, 186, 37806, 2300, "GraphicsData", \
+"PostScript", "Graphics"],
+Cell[182373, 7158, 130, 3, 29, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

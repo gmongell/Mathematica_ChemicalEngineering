@@ -1,0 +1,166 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      4533,        156]
+NotebookOptionsPosition[      3998,        133]
+NotebookOutlinePosition[      4365,        149]
+CellTagsIndexPosition[      4322,        146]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"ChE", " ", "272", " ", "Homework", " ", "5"}], ":", " ", 
+    RowBox[{"Biofermenter", " ", "Process"}]}], "*)"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.4449272588750877`*^9, 3.4449272717504997`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "=", "50"}], ";"}], "\[IndentingNewLine]", "\t", 
+  RowBox[{"(*", 
+   RowBox[{"Fermenter", " ", "Volume"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"F", "=", "5"}], ";"}], "\[IndentingNewLine]", "\t", 
+  RowBox[{"(*", 
+   RowBox[{"Feed", " ", "input", " ", "flow", " ", "rate"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ak", "=", "2.5"}], ";"}], "\[IndentingNewLine]", "\t", 
+  RowBox[{"(*", 
+   RowBox[{"a", "=", 
+    RowBox[{
+     RowBox[{"interfacial", " ", "transport", " ", "area", " ", "k"}], "=", 
+     RowBox[{"oxygen", " ", "mass", " ", "xfer", " ", "coefficient"}]}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"c", "[", "0", "]"}], "=", "0"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.4449273141737328`*^9, 3.4449274092549*^9}, {
+  3.4449276527523575`*^9, 3.444927659518372*^9}, {3.444927696708014*^9, 
+  3.44492782315329*^9}, {3.444927882750854*^9, 3.4449279382809625`*^9}, {
+  3.444927971123872*^9, 3.4449279974669476`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tFermenter", "[", "t", "]"}], "=", 
+  RowBox[{
+   RowBox[{"V", "*", 
+    RowBox[{
+     RowBox[{"c", "'"}], "[", "t", "]"}]}], "-", 
+   RowBox[{"F", "*", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"cI", "[", "t", "]"}], "-", 
+      RowBox[{"c", "[", "t", "]"}]}], ")"}]}], "-", 
+   RowBox[{"ak", "*", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"cO", "[", "t", "]"}], "-", 
+      RowBox[{"c", "[", "t", "]"}]}], ")"}]}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "5"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"c", "[", "t", "]"}]}], "+", 
+     RowBox[{"cI", "[", "t", "]"}]}], ")"}]}], "-", 
+  RowBox[{"2.5`", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"c", "[", "t", "]"}]}], "+", 
+     RowBox[{"cO", "[", "t", "]"}]}], ")"}]}], "+", 
+  RowBox[{"50", " ", 
+   RowBox[{
+    SuperscriptBox["c", "\[Prime]",
+     MultilineFunction->None], "[", "t", "]"}]}]}]], "Output",
+ CellChangeTimes->{3.444927914656567*^9, 3.444928002169952*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sFermenter", "=", 
+  RowBox[{"LaplaceTransform", "[", 
+   RowBox[{
+    RowBox[{"tFermenter", "[", "t", "]"}], ",", "t", ",", "s"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.44492784331083*^9, 3.444927886735407*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"7.5`", " ", 
+   RowBox[{"LaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"c", "[", "t", "]"}], ",", "t", ",", "s"}], "]"}]}], "+", 
+  RowBox[{"50", " ", "s", " ", 
+   RowBox[{"LaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"c", "[", "t", "]"}], ",", "t", ",", "s"}], "]"}]}], "-", 
+  RowBox[{"5", " ", 
+   RowBox[{"LaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"cI", "[", "t", "]"}], ",", "t", ",", "s"}], "]"}]}], "-", 
+  RowBox[{"2.5`", " ", 
+   RowBox[{"LaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"cO", "[", "t", "]"}], ",", "t", ",", "s"}], "]"}]}]}]], "Output",\
+
+ CellChangeTimes->{3.4449279186252155`*^9, 3.44492800868541*^9}]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{615, 750},
+WindowMargins->{{-2, Automatic}, {Automatic, 26}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (May 21, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 287, 7, 52, "Input"],
+Cell[858, 30, 1074, 27, 152, "Input"],
+Cell[CellGroupData[{
+Cell[1957, 61, 475, 16, 31, "Input"],
+Cell[2435, 79, 576, 19, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3048, 103, 243, 6, 31, "Input"],
+Cell[3294, 111, 688, 19, 50, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
